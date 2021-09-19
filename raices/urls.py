@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from app.views import HistoriaInicio, loginUsuario, logoutUsuario, Intro
+from app.views import HistoriaInicio, loginUsuario, logoutUsuario, Intro, CapituloUno, CapituloDos, CapituloTres
+from app.views import CapituloCuatro, CapituloCinco, CapituloSeis
 from rest_framework import routers
 from app import views
 
@@ -32,5 +33,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('intro/', Intro, name="intro"),
     path('historia/', HistoriaInicio, name="Historia"),
+    path('capitulo1', CapituloUno, name="capitulo1"),
+    path('capitulo2', CapituloDos, name="capitulo2"),
+    path('capitulo3', CapituloTres, name="capitulo3"),
+    path('capitulo4', CapituloCuatro, name="capitulo4"),
+    path('capitulo5', CapituloCinco, name="capitulo5"),
+    path('capitulo6', CapituloSeis, name="capitulo6"),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]

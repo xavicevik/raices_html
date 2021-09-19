@@ -33,15 +33,40 @@ def HistoriaInicio(request):
 
 class loginUsuario(LoginView):
     pass
-    #template_name = 'registration/login.html'
-    #model = User
-    #form_class = loginForm
-    #def form_valid(self, form):
-    #    form.save()
-    #return redirect('/')
 
 class logoutUsuario(LogoutView):
     pass
+
+@login_required
+def CapituloUno(request):
+    template_name = 'capitulo1/index.html'
+    return render(request, template_name)
+
+@login_required
+def CapituloDos(request):
+    template_name = 'capitulo2/index.html'
+    return render(request, template_name)
+
+
+@login_required
+def CapituloTres(request):
+    template_name = 'capitulo3/index.html'
+    return render(request, template_name)
+
+@login_required
+def CapituloCuatro(request):
+    template_name = 'capitulo4/index.html'
+    return render(request, template_name)
+
+@login_required
+def CapituloCinco(request):
+    template_name = 'capitulo5/index.html'
+    return render(request, template_name)
+
+@login_required
+def CapituloSeis(request):
+    template_name = 'capitulo6/index.html'
+    return render(request, template_name)
 
 # API Rest
 class UserViewSet(viewsets.ModelViewSet):

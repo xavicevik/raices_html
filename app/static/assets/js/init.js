@@ -45,7 +45,8 @@ void main(void) {
 }
 `;
 var usuario;
-var url = "http://127.0.0.1:8000/users/2/";
+var url_base = "http://127.0.0.1:8000/";
+var url = url_base + "users/2/";
 var data;
 $.ajax({
   dataType: "json",
@@ -324,18 +325,22 @@ menuCapitulos_opcion1.interactive = true;
 menuCapitulos_opcion1.buttonMode = true;
 menuCapitulos_opcion1.on('pointerover', (event) => onMouseOverMenuCapitulo(menuCapitulos_opcion1));
 menuCapitulos_opcion1.on('pointerout', (event) => onMouseNotOverMenuCapitulo(menuCapitulos_opcion1))
+menuCapitulos_opcion1.on('pointerdown', (event) => onClickMenuCapitulo("capitulo1"))
 menuCapitulos_opcion2.interactive = true;
 menuCapitulos_opcion2.buttonMode = true;
 menuCapitulos_opcion2.on('pointerover', (event) => onMouseOverMenuCapitulo(menuCapitulos_opcion2));
 menuCapitulos_opcion2.on('pointerout', (event) => onMouseNotOverMenuCapitulo(menuCapitulos_opcion2))
+menuCapitulos_opcion2.on('pointerdown', (event) => onClickMenuCapitulo("capitulo2"))
 menuCapitulos_opcion3.interactive = true;
 menuCapitulos_opcion3.buttonMode = true;
 menuCapitulos_opcion3.on('pointerover', (event) => onMouseOverMenuCapitulo(menuCapitulos_opcion3));
 menuCapitulos_opcion3.on('pointerout', (event) => onMouseNotOverMenuCapitulo(menuCapitulos_opcion3))
+menuCapitulos_opcion3.on('pointerdown', (event) => onClickMenuCapitulo("capitulo3"))
 menuCapitulos_opcion4.interactive = true;
 menuCapitulos_opcion4.buttonMode = true;
 menuCapitulos_opcion4.on('pointerover', (event) => onMouseOverMenuCapitulo(menuCapitulos_opcion4));
 menuCapitulos_opcion4.on('pointerout', (event) => onMouseNotOverMenuCapitulo(menuCapitulos_opcion4))
+menuCapitulos_opcion4.on('pointerdown', (event) => onClickMenuCapitulo("capitulo4"))
 const cap1 = new PIXI.Text('Capitulo 1', style2);
 cap1.anchor.set(0.5);
 const cap2 = new PIXI.Text('Capitulo 2', style2);
@@ -403,6 +408,12 @@ function onAssetsLoaded() {
     anim.animationSpeed = 0.2;
     anim.x = pPrincipal.x - 100;
     anim.y = pPrincipal.y;
+    anim.loop = true;
+
+    anim.onComplete = function () {
+        console.log("complete");
+        //window.location.href = url_base + "capitulo1";
+    };
 }
 
 // Fin de la creaciòn de objetos Setup
@@ -506,6 +517,11 @@ function onMouseNotOverHistoria(){
 function onMouseOverMenuCapitulo(object) {
     object.width += 30;
     object.height += 30;
+}
+
+function onClickMenuCapitulo(object) {
+    //anim.play();
+    window.location.href = url_base + object;
 }
 
 function onMouseNotOverMenuCapitulo(object){
