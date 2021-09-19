@@ -1,0 +1,2363 @@
+@font-face {
+    font-family: "minimal";
+    src: url("../assets/fonts/minimal.otf");
+}
+@font-face {
+    font-family: "antipastoRegular";
+    src: url("../assets/fonts/Antipasto-RegularTrial.ttf");
+}
+@font-face {
+    font-family: "antipastoBold";
+    src: url("../assets/fonts/Antipasto-ExtraBoldTrial.ttf");
+}
+@font-face {
+    font-family: "laneRegular";
+    src: url("../assets/fonts/laneregular.ttf");
+}
+@font-face {
+    font-family: "laneUp";
+    src: url("../assets/fonts/laneUp.ttf");
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+html, body {
+
+  height:100%;
+  width:100%;
+  font-family: sans-serif;
+
+
+}
+
+/* CONTENEDOR PRINCIPALL PAGINA */
+
+.padre{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+ .contentCenter{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;;;;
+  align-items: center;
+  position: fixed;
+  background-image: url("../assets/capitulo5/fondo/fondoCapitulo5.png");
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
+ height: 100%;
+ width: 100% ;
+ text-align: center;
+ z-index: 1;
+}
+
+/* HEADER */
+
+/* CSS header*/
+header{
+  width: 100%;
+  z-index: 1000;
+  position: fixed;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+
+.contenedorHeader{
+    width: 100%;
+    z-index: 1300;
+    background-color:#FFFFF7;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    flex-grow: row nowrap;
+
+}
+.contenedorBotonesCapitulos{
+  display: flex;
+  justify-content: center;
+  flex-flow: row nowrap;
+  align-items: center;;
+  z-index: 1000;
+  width: 100%;
+}
+
+
+/* LOGO*/
+
+#logo-header {
+	float: left;
+	text-decoration: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-flow: row nowrap;
+  width:35%;
+}
+
+#logo-header .nombreSitio {
+
+	font-weight: 700;
+	font-size: 2.5em;
+  font-family: "minimal";
+  color:#c12c2a;
+
+}
+
+.img-logo{
+  width:20%;
+  padding: 5%;
+}
+
+#logo-header .img-logo img {
+
+  width: 100%;
+  height: 100%;
+
+}
+nav {
+	float: right;
+}
+
+nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	padding-right: 20px;
+}
+
+nav ul li {
+	display: inline-block;
+	line-height: 80px;
+}
+
+nav ul li a {
+	display: block;
+	padding: 0 10px;
+	text-decoration: none;
+  color:#b32e14;
+  font-family: "antipastoRegular";
+  font-size: 1.5em;
+}
+
+nav ul li a:hover {
+	background:#da942e;
+  color:white;
+}
+/* H'S */
+a{
+  text-decoration: none;
+  color: #b32e14;
+}
+
+
+
+a:hover{
+  text-decoration: none;
+}
+
+.aCapitulos{
+ text-decoration: none;
+ color: #FEFEF7;
+ font-size: 1em;
+ font-weight: bolder;
+ font-family: "laneRegular";
+ align-self: center;
+ padding: 0.3em 1em 0.3em 1em;
+
+
+}
+
+.aCapitulos:hover{
+text-decoration: none;
+font-weight: bolder;
+font-family: "laneRegular";
+align-self: center;
+border-bottom: 4px solid #319B8B;
+position: absolute;
+z-index: 10001;
+
+}
+
+h1{
+  margin: 0.3em;
+  font-size: 2em;
+  font-weight: bolder;
+  font-family: "laneRegular";
+  align-self: center;
+  color: #682522;
+  padding: 0.25em 0em 0.25em 0em ;
+
+}
+
+h4{
+  margin: 0.3em;
+  font-size: 2em;
+  font-weight: bolder;
+  font-family: "laneRegular";
+  align-self: center;
+  color: #FFF457;
+
+}
+
+.tituloCapitulo {
+  margin: 0.3em 0.3em 0.3em 0em;
+  padding: 0.1em 0.3em 0.1em 0.1em;
+  font-size: 4em;
+  font-weight: bolder;
+  font-family: "laneRegular";
+  align-self: flex-start;;
+  color: #1E0707;
+  text-align: center;
+  background-color: #fefef7;
+  border-radius: 2px 2px 2px 2px;
+  -moz-border-radius:  2px 2px 2px 2px;
+  -webkit-border-radius:  2px 2px 2px 2px;
+}
+
+.letraComponente{
+  font-size: 1.2em;
+  font-family: "laneRegular";
+  align-self: flex-start;;
+  color: #FFFFF7;
+}
+
+ .subrayado{
+  color: #f9c100;
+}
+
+h7{
+  font-size: 1.2em;
+  font-family: "laneRegular";
+  text-align: justify;
+  color: #282830;
+}
+
+.columna h5{
+    padding: 0%;
+}
+
+h8{
+  color: #FEFEF7;
+  background-color: #C64C40;
+  padding: 1%;;
+  border-radius: 8px 8px 8px 8px;
+  -moz-border-radius: 8px 8px 8px 8px;
+  -webkit-border-radius: 8px 8px 8px 8px;
+    padding: 0.5em;
+    font-size: 1.2em;
+    font-family: "laneRegular";
+    text-align: justify;
+}
+
+h5{
+  margin: 0.3em;
+  font-size: 1.2em;
+  padding: 2em 2em 2em 2em;
+  font-family: "laneRegular";
+  text-align: justify;
+  color: #282830;
+}
+h6{
+  font-size: 1em;
+  font-family: "laneRegular";
+  font-weight: bold;
+  text-align: justify;
+  color: #282830;
+}
+
+/* centro de la pagina clases */
+
+
+.fullContent{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.dosColumnas{
+  display: flex;
+  justify-content: space-around;;;;
+  flex-flow: row nowrap;
+  align-items: center;
+  align-self: center;
+  width: 80%;
+
+}
+
+.dosColumnasFullsize{
+  display: flex;
+  justify-content: center;;
+  flex-flow: row nowrap;
+  align-items: center;;
+  align-self: center;
+  width: 100%;
+}
+
+.tresColumnasFullsize{
+  display: flex;
+  justify-content: flex-end;
+  flex-flow: row nowrap;
+  align-items: center;
+  align-self: center;
+  width: 100%;
+  height: 50%;
+}
+
+.transparentBackground{
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border: 0px solid #000000;
+
+}
+
+.transparentBackground1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 8px 8px 8px 8px;
+  -moz-border-radius: 8px 8px 8px 8px;
+  -webkit-border-radius: 8px 8px 8px 8px;
+  border: 0px solid #000000;
+  padding: 1em;
+  width: 40%;
+}
+
+
+.contenedorBotonesCapitulos{
+  display: flex;
+  justify-content: center;
+  flex-flow: row nowrap;
+  align-items: center;;
+  width: 100%;
+}
+
+.contenedorCentradoBotonesCapitulo{
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row nowrap;
+  align-items: center;;
+  width: 80%;
+  background-color: rgba(198, 76, 64, 0.9);
+  border-radius: 0px 0px 8px 8px;
+  -moz-border-radius:0px 0px 8px 8px;
+  -webkit-border-radius:0px 0px 8px 8px;
+
+}
+ .columna40, .columna80{
+  display: flex;
+  justify-content: center;;;;
+  flex-flow: column nowrap;
+  align-items: center;;
+  width: 50%;
+}
+
+.columna40S{
+ display: flex;
+ justify-content: center;;;;
+ flex-flow: column nowrap;
+ align-items: center;;
+ width: 70%;
+ margin-top: 5%;
+}
+.columna40S2{
+ display: flex;
+ justify-content: center;;;;
+ flex-flow: column nowrap;
+ align-items: center;;
+ width: 60%;
+ margin-top: 5%;
+}
+.fila{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-self: flex-end;
+  align-items: center;
+  align-content: center;
+  width: 30%;
+}
+.columnaS{
+  display: flex;
+  justify-content: center;;;;
+  flex-flow: column nowrap;
+  align-items: center;;
+  width: 60%;
+  margin-top: 12%;
+}
+.columna{
+  display: flex;
+  justify-content: center;;;;
+  flex-flow: column nowrap;
+  align-items: center;;
+  width: 60%;
+}
+
+.columna img{
+
+  width: 70%;
+  height: 70%;
+
+}
+
+#imagen100{
+
+  width: 100%;
+  height: 100%;
+
+}
+
+.imagen{
+  width: 80%;
+  height: 80%;
+}
+
+.columna2{
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.columna60{
+  width: 60%;
+  display: flex;
+  justify-content: flex-end;;;;;
+  align-items: flex-end;;;
+  align-self: flex-end;;
+}
+
+.columna100{
+  width: 100%;
+  display: flex;
+  justify-content: center;;;;
+  flex-flow: column nowrap;
+  align-items: center;;
+}
+
+.columna40{
+  width: 50%;
+}
+.columna80{
+  width: 80%;
+}
+
+.row50{
+  display: flex;
+  justify-content: space-around;;;;
+  flex-flow: row nowrap;
+  width: 60%;
+  align-items: center;
+}
+.columna30{
+  width: 30%;
+}
+
+
+
+ /* BOTON SALTAR INTRO*/
+
+.contenedorBoton{
+  display: flex;
+  justify-content:center;
+  width: 100%;
+/*  padding: 0.1em; */
+  align-items: center;
+  flex-flow: row nowrap;
+  background-color: rgba(254, 254, 247, 1);
+  border-radius: 8px 8px 8px 8px;
+  -moz-border-radius: 8px 8px 8px 8px;
+  -webkit-border-radius: 8px 8px 8px 8px;
+  border: 0px solid #000000;
+  color: #b32e14;
+}
+
+.marginBoton{
+  margin:1em;
+}
+
+ .contenedorBoton:hover{
+  cursor: pointer;
+  color:#da942e;
+  width: 85%;
+  -webkit-transition: width 100ms linear;
+ -moz-transition: width 100ms linear;
+ -ms-transition: width 100ms linear;
+ -o-transition: width 100ms linear;
+ transition: width 100ms linear;
+}
+
+.botonVerMas{
+  align-self: center;;
+  width: 40%;
+  font-weight: bolder;
+  font-size: 1.2em;
+  font-family: "laneRegular";
+  align-self: center;
+}
+
+.botonVerMas:hover{
+  cursor: pointer;
+  color:#e9bf21;
+  width: 60%;
+}
+
+.aBotonVerMas{
+ text-decoration: none;
+ color: #b8392a;
+ font-size: 1.4em;
+ font-weight: bolder;
+ font-family: "laneRegular";
+ align-self: center;
+}
+
+.aBotonVerMas:hover{
+text-decoration: none;
+color: #e9bf21;
+font-weight: bolder;
+font-family: "laneRegular";
+align-self: center;
+}
+
+
+/*#acercaContent{
+  display: flex;;
+}*/
+
+/*CAPITULOSSS*/
+
+.contenedorBotonCap{
+  display: flex;
+  justify-content:center;
+  width: 100%;
+/*  padding: 0.1em; */
+  align-items: center;
+  flex-flow: row nowrap;
+  border: 0px solid #000000;
+  color: #fefef7;
+
+}
+
+
+ .contenedorBotonCap:hover{
+  /* background-color: #319B8B;*/
+   border: 0px solid #000000;
+    height: 100%;
+  cursor: pointer;
+}
+
+/* CAPITULO 1*/
+
+.fullSize{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+}
+
+.flexEnd{
+  align-self: flex-end;
+}
+
+.componente{
+  display: flex;
+  justify-content:space-around;;
+  align-self: flex-end;
+  width: 80%;
+/*  padding: 0.1em; */
+  align-items: center;
+  flex-flow: row nowrap;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 12px 0px 0px 12px;
+  -moz-border-radius: 12px 0px 0px 12px;
+  -webkit-border-radius: 12px 0px 0px 12px;
+  border: 0px solid #000000;
+  padding: 1em;
+}
+
+.componenteSeccion{
+  display: flex;
+  justify-content:center;;
+  align-self: center;
+  width: 100%;
+/*  padding: 0.1em; */
+  align-items: center;
+  flex-flow: row nowrap;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 0px 12px 12px 0px;
+  -moz-border-radius:  0px 12px 12px 0px;
+  -webkit-border-radius:  0px 12px 12px 0px;
+  border: 0px solid #000000;
+  padding: 1em;
+}
+
+.contenidoDesplegable{
+   max-height:0;
+   overflow:hidden;
+   -webkit-transition: max-height 500ms ease-out;
+   -moz-transition: max-height 500ms ease-out;
+   -o-transition: max-height 500ms ease-out;
+   transition: max-height 500ms ease-out;
+}
+.contenidoDesplegable.contenidoDesplegado{
+  width: 1%;
+   max-height:500;
+   -webkit-transition: max-height 500ms ease-out;
+   -moz-transition: max-height 500ms ease-out;
+   -o-transition: max-height 500ms ease-out;
+   transition: max-height 500ms ease-out;
+}
+
+.desplegable{
+  display: flex;
+  justify-content: flex-end;;
+  align-items: flex-end;
+  flex-flow: column nowrap;
+  width: 50%;
+  padding: 1em;
+
+}
+#contenidoDesplegado{
+  width: 70%;
+  align-self: flex-end;
+  justify-content: center;
+  padding: 0em;
+
+}
+#contenidoDesplegado h5{
+  padding: 0em;
+
+}
+
+#botonSabiasQue{
+  width: 30%;
+  justify-content: center;
+  align-self: center;;
+  background-color: #682522;
+  color: #fefef7;
+  padding: 3%;
+}
+
+/* SEGUNDA SECCION */
+.contenedorBotonesVideo{
+  display: flex;
+  justify-content: space-around;;
+  flex-flow: row nowrap;
+  width: 100%;
+  align-items: center;
+  padding: 2em;
+
+}
+
+.botonVerVideo, .botonesCap2{
+  display: flex;
+  justify-content: center;
+  align-self: center;;
+  align-content: center;
+  color: #fefef7;
+  padding: 0.5em;
+}
+ .botonVideo{
+  width: 15%;
+  height: 15%;
+}
+
+.botonCap2{
+  display: flex;
+  justify-content: space-around;;
+  align-items: center;
+  align-content: center;
+  width: 13%;
+  height:13%;
+}
+
+
+.textoBotonVideo{
+  margin-left: 1.2em;
+  padding: 1em;
+  width: 100%;
+  background-color: rgba(254, 254, 247, 0.9);
+  border-radius: 8px 8px 8px 8px;
+  -moz-border-radius: 8px 8px 8px 8px;
+  -webkit-border-radius: 8px 8px 8px 8px;
+  border: 0px solid #000000;
+  font-size: 0.9em;
+  font-family: "laneRegular";
+  font-weight: bold;
+  text-align: center;
+  color: #282830;
+}
+
+.botonVideo:hover{
+  color: #fefef7;
+  transform: scale(1.3);
+-webkit-transform: scale(1.3);
+-moz-transform: scale(1.3);
+-o-transform: scale(1.3);
+cursor: pointer;
+}
+
+.visorFull{
+  display: flex;
+  justify-content: center;
+  flex-flow: row nowrap;
+  align-items: center;
+  align-self: center;
+  z-index: 1000;
+  width: 100%;
+  margin-top: 5%;
+}
+
+.contentVideoCenter{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;;
+  align-items: center;
+  position: fixed;
+  -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
+ background-color:rgba(0, 80, 86, 0.9);
+ height: 100%;
+ width: 100% ;
+ text-align: center;
+ z-index: 1;
+ padding-top: 6%;
+
+}
+
+
+.fullSize{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.botonSiguiente{
+  align-self: flex-end;
+  width: 60%;
+}
+
+.imagen40{
+  width: 60%;
+  height: 60%;
+}
+
+#cerrarVideo2, #cerrarVideo1, #cerrarVentana1, #cerrarVentana1S2, #cerrarVentana1S3, #cerrarVentana1S4 , #cerrarVentana1S5, #cerrarVentana1S6, #cerrarVentana1S7, #cerrarVentana1S8,
+#cerrarVentana2, #cerrarVentana1S2, #cerrarVentana1S3, #cerrarVentana2, #cerrarVentana2S2, #cerrarVentana2S3, #cerrarVentana2S4, #cerrarVentana2S5, #cerrarVentana2S6, #cerrarVentana2S7, #cerrarVentana2S8, #cerrarVentana3S2,
+#cerrarVentana3S3, #cerrarVentana3S4, #cerrarVentana3S5, #cerrarVentana3S6, #cerrarVentana3S7,#cerrarVentana5S2,
+#cerrarVentana3, #cerrarVentana4, #cerrarVentana5, #cerrarVentana6, #cerrarVentana7{
+width: 60%;
+height: 60%;
+
+}
+
+
+.pdfVentana1, .pdfVentana6, .pdfVentana3, .pdfVentana4, .pdfVentana5, .pdfVentana6, .pdfVentana7, .pdfVentana2{
+  width: 50%;
+  height: 50%;
+  margin-left: 0.5em;
+
+}
+
+.contenedorBotonesCerrarPdf{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;;
+  align-self: flex-start;
+  align-items: center;
+  align-content: center;
+  width: 10%;
+  margin-top: 5%;
+}
+
+.aPdf{
+  text-decoration: none;
+}
+
+
+
+.contenedorColumnaImagenVideo{
+  display: flex;
+  justify-content: center;
+  flex-flow: column wrap;
+  padding: 3em;
+}
+
+#botonesSvg{
+  width: 100%;
+  height: 100%;
+}
+
+.contenedorSvg{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+
+}
+
+#parte1Capitulo1{
+  margin-top: -2%;
+}
+
+.botonFull{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+}
+
+.contentAudio{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  align-self: center;;
+
+
+}
+
+.iconoAudio{
+  width: 30%;
+  background-color: rgba(243, 204, 49, 0.5);
+  padding: 2%;
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  border: 0px solid #000000;
+}
+
+.iconoNoAudio{
+  width: 30%;
+  background-color: rgba(243, 204, 49, 0);
+  padding: 2%;
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  border: 0px solid #000000;
+  display: none;
+}
+
+
+.contentAudio:hover{
+  cursor: pointer;
+}
+
+
+
+
+/*video*/
+
+video{
+  border: 100px;
+  width: 100%;
+  height: 100%;
+
+}
+
+/* Atributo hidden */
+
+*[hidden] { display: none; }
+
+/*  medias queriess */
+
+
+@media screen and (max-width:1700px) {
+
+
+  #botonesSvg{
+    width: 100%;
+    height: 100%;
+
+  }
+
+  .tituloCapitulo {
+    font-size: 3.8em;
+
+
+
+  }
+
+}
+
+@media only screen and (min-width: 1300px) {
+
+  .tituloCapitulo{
+    font-size: 4em;
+  }
+  #botonesSvg{
+    width: 100%;
+    height: 100%;
+  }
+
+
+    h1{
+      font-size: 1.5em;
+    }
+
+    h7{
+        font-size: 1em;
+    }
+
+
+}
+
+ @media screen and (min-width: 1400px) and (max-width: 1600px) {
+
+  h6{
+    font-size: 0.9em;
+  }
+
+  #botonesSvg{
+    width: 300%;
+    height: 300%;
+
+
+  }
+
+  .tituloCapitulo {
+    font-size: 3.8em;
+    margin-top: 5%;
+
+  }
+
+  #parte1Capitulo1{
+    margin-top: -5%;
+  }
+
+  .contenedorPagina, .contentCenter{
+  background-image: url("../assets/capitulo5/fondo/fondoCapitulo5.png");
+  margin-top: 5%;
+  }
+ }
+
+ @media screen and (min-width: 1300px) and (max-width: 1400px) {
+
+     .contentCenter{
+       padding-top: 10%;
+     }
+
+
+
+   .aCapitulos{
+    font-size: 0.8em;
+   }
+
+   h7{
+     font-size: 0.9em;
+   }
+
+   h8{
+
+       font-size: 0.8em;
+
+   }
+
+   .fullSize{
+
+
+   }
+
+   .textoBotonVideo{
+     font-size: 0.9em;
+   }
+
+   .imagenSecciones{
+     width: 10%;
+     height: 10%;
+   }
+
+   .imagenesImperiosContenida{
+     width: 70%;
+     height: 70%;
+     background-color: rgba(0, 0, 0, 0.3);
+     border-radius: 8px 8px 8px 8px;
+     -moz-border-radius: 8px 8px 8px 8px;
+     -webkit-border-radius: 8px 8px 8px 8px;
+     border: 0px solid #000000;
+     padding: 1em;
+   }
+
+   .imagenesImperios{
+     width: 29%;
+     height: 29%;
+     background-color: rgba(0, 0, 0, 0.3);
+     border-radius: 8px 8px 8px 8px;
+     -moz-border-radius: 8px 8px 8px 8px;
+     -webkit-border-radius: 8px 8px 8px 8px;
+     border: 0px solid #000000;
+     padding: 1em;
+   }
+
+   #botonesSvg{
+     width: 400%;
+     height: 400%;
+   }
+
+   }
+
+
+
+       @media screen and (min-width: 720px) and (max-width: 1000px) and (min-height:480px) and (max-height:720px){
+         #listaCapitulos{
+           width: 90%;
+         }
+
+         h4{
+           font-size: 1.4em;
+
+         }
+
+         #cap1, #cap2 , #cap3, #cap4, #cap5, #cap6{
+           font-size: 1em;
+         }
+
+         #personaje{
+           width:90%;
+         }
+
+         header{
+           position: fixed;
+           z-index: 1000;
+           width: 100%;
+         }
+
+         /* LOGO*/
+
+         #logo-header {
+           padding: 8px 0 0 14px;
+         }
+
+         #logo-header .nombreSitio {
+
+           font-size: 1.3em;
+
+         }
+
+         #logo-header{
+           width: 40%;
+         }
+
+         .img-logo{
+           width: 25%;
+         }
+
+         #logo-header .img-logo img{
+           width: 100%;
+           height: 100%;
+
+         }
+
+         nav {
+           float: right;
+         }
+
+         .nav-audio {
+
+           width:10%;
+         }
+
+
+         nav ul {
+           padding-right: 10px;
+         }
+
+         nav ul li {
+           line-height: 40px;
+         }
+
+         nav ul li a {
+           padding: 0 5px;
+          font-size: 0.9em;
+         }
+
+         .iconoAudio{
+           width:40%;
+         }
+
+
+               .contenedorCentradoBotonesCapitulo{
+                 width: 90%;
+               }
+
+               .aCapitulos{
+                 font-size: 0.6em;
+               }
+
+
+         .contenedorPagina, .contentCenter{
+           padding-top: 15%;
+         }
+
+         .tituloCapitulo{
+           font-size: 2em;
+         }
+
+         #personaje{
+           width: 300%;
+         }
+
+         .tresColumnasFullsize{
+           flex-flow: row nowrap;
+         }
+
+         .botonVerMas{
+           width: 20%;
+         }
+
+         .pergaminoBackground{
+           width: 600%;
+           margin-top: 30%;
+         }
+         .dropdown-menu h5{
+           font-size: 10.5px;
+
+         }
+
+         .aBotonVerMas{
+           font-size: 0.8em;
+         }
+
+         .textoBotonVideo{
+           font-size: 0.7em;
+         }
+
+         .contenedorPergamino h6{
+           font-size: 10px;;
+         }
+
+
+         .contenedorPergamino{
+           padding: 2em 3.2em 2em 3.2em;
+         }
+
+         #mapaSvg{
+           width: 130%;
+           height: 130%;
+         }
+
+         .botonVideo{
+           width: 25%;
+           height: 25%;
+         }
+         .row5{
+           width: 70%;
+
+         }
+
+
+                  .visorFull{
+                    margin-top: 8%;
+                  }
+
+                  .columna40{
+                    width: 60%;
+                  }
+
+                  .columna30{
+                    width: 50%;
+                  }
+
+
+                  h7{
+                    font-size: 0.7em;
+                  }
+
+                  .componenteSeccion{
+                    font-size: 1em;
+                  }
+
+                  .componenteSeccion{
+                    width: 100%;
+                    padding: 0.5em;
+                  }
+
+
+                  .columna40S{
+                    width: 100%;
+                    margin-top: 4%;
+                  }
+
+                  .columna40S2{
+                    width: 220%;
+                    margin-top: 4%;
+                  }
+
+                  .imagen40{
+                    width: 100%;
+                    height: 100%;
+
+                  }
+
+                  .contenedorBotonesCerrarPdf{
+                    width: 20%;
+                  }
+
+
+                  .columnaS{
+                    width: 150%;
+                  }
+
+
+                  .columna2 img{
+                    width: 40%;
+                    height: 40%;
+                  }
+
+                  .columna40S img{
+                    width: 50%;
+                    height: 50%;
+                  }
+
+                  .columna2{
+                    width: 140%;
+                  }
+
+                  .columna2 .imagen{
+                    width: 100%;
+                    height: 100%;
+                  }
+
+
+                  .columna img{
+                    width: 100%;
+                    height: 100%;
+                  }
+
+
+                  .transparentBackground1{
+                    width: 58%;
+                    padding: 0.5em;
+                  }
+
+                  .fila{
+                    width: 50%;
+                  }
+                  .columnaS{
+                    margin:0%;
+                  }
+
+                  #imagenProcesosLib2, #imagenProcesosLib3, #cimarronaje1{
+                    display: none;
+                  }
+
+
+                 }
+
+
+                 @media screen and (min-width: 1000px) and (max-width: 1250px) and (min-height:550px) and (max-height:1000px){
+
+                   #listaCapitulos{
+                     width: 130%;
+                   }
+
+                   h4{
+                     font-size: 1.5em;
+
+                   }
+
+                   #cap1, #cap2 , #cap3, #cap4, #cap5, #cap6{
+                     font-size: 1em;
+                   }
+
+                   #personaje{
+                     width:90%;
+                   }
+
+                   header{
+                     position: fixed;
+                     z-index: 1000;
+                     width: 100%;
+                   }
+
+                   /* LOGO*/
+
+                   #logo-header {
+                     padding: 8px 0 0 14px;
+                   }
+
+                   #logo-header .nombreSitio {
+
+                     font-size: 1.8em;
+
+                   }
+
+                   #logo-header{
+                     width: 40%;
+                   }
+
+                   .img-logo{
+                     width: 20%;
+                   }
+
+                   #logo-header .img-logo img{
+                     width: 100%;
+                     height: 100%;
+
+                   }
+
+                   nav {
+                     float: right;
+                   }
+
+                   .nav-audio {
+
+                     width:10%;
+                   }
+
+
+                   nav ul {
+                     padding-right: 10px;
+                   }
+
+                   nav ul li {
+                     line-height: 40px;
+                   }
+
+                   nav ul li a {
+                     padding: 0 5px;
+                    font-size: 1em;
+                   }
+
+                   .iconoAudio{
+                     width:40%;
+                   }
+
+
+                         .contenedorCentradoBotonesCapitulo{
+                           width: 90%;
+                         }
+
+                         .aCapitulos{
+                           font-size: 0.75em;
+                         }
+
+
+                   .contenedorPagina, .contentCenter{
+                     padding-top: 15%;
+                   }
+
+
+                   .tituloCapitulo{
+                     font-size: 2em;
+                   }
+
+                   #personaje{
+                     width: 300%;
+                   }
+
+                   .tresColumnasFullsize{
+                     flex-flow: row nowrap;
+                   }
+
+                   .botonVerMas{
+                     width: 20%;
+                   }
+
+                   .pergaminoBackground{
+                     width: 600%;
+                     margin-top: 30%;
+                   }
+                   .dropdown-menu h5{
+                     font-size: 10.5px;
+
+                   }
+
+                   .aBotonVerMas{
+                     font-size: 1em;
+                   }
+
+                   .textoBotonVideo{
+                     font-size: 0.9em;
+                   }
+
+                   .contenedorPergamino h6{
+                     font-size: 10px;;
+                   }
+
+
+                   .contenedorPergamino{
+                     padding: 2em 3.2em 2em 3.2em;
+                   }
+
+                   #mapaSvg{
+                     width: 130%;
+                     height: 130%;
+                   }
+
+                   .botonVideo{
+                     width: 25%;
+                     height: 25%;
+                   }
+                   .row5{
+                     width: 70%;
+
+                   }
+
+
+                            .visorFull{
+                              margin-top: 8%;
+                            }
+
+                            .columna40{
+                              width: 60%;
+                            }
+
+                            .columna30{
+                              width: 50%;
+                            }
+
+
+                            h7{
+                              font-size: 0.8em;
+                            }
+
+
+
+                            .componenteSeccion{
+                              width: 100%;
+                              padding: 0.5em;
+                              font-size: 1.2em;
+                            }
+
+
+                            .columna40S{
+                              width: 100%;
+                              margin-top: 4%;
+                            }
+
+                            .columna40S2{
+                              width: 220%;
+                              margin-top: 4%;
+                            }
+
+                            .imagen40{
+                              width: 100%;
+                              height: 100%;
+
+                            }
+
+                            .contenedorBotonesCerrarPdf{
+                              width: 20%;
+                            }
+
+
+                            .columnaS{
+                              width: 150%;
+                            }
+
+
+                            .columna2 img{
+                              width: 40%;
+                              height: 40%;
+                            }
+
+                            .columna40S img{
+                              width: 50%;
+                              height: 50%;
+                            }
+
+                            .columna2{
+                              width: 140%;
+                            }
+
+                            .columna2 .imagen{
+                              width: 100%;
+                              height: 100%;
+                            }
+
+
+                            .columna img{
+                              width: 100%;
+                              height: 100%;
+                            }
+
+
+                            .transparentBackground1{
+                              width: 58%;
+                              padding: 0.5em;
+                            }
+
+                            .fila{
+                              width: 50%;
+                            }
+                            .columnaS{
+                              margin:0%;
+                            }
+
+                            #imagenProcesosLib2, #imagenProcesosLib3, #cimarronaje1{
+                              display: none;
+                            }
+
+                            #cerrarVentana1, #cerrarVentana1S2, #cerrarVentana1S3, #cerrarVentana1S4 , #cerrarVentana1S5, #cerrarVentana1S6, #cerrarVentana1S7, #cerrarVentana1S8{
+                            width: 100%;
+                            height: 100%;
+
+                            }
+
+
+                            .pdfVentana6, .pdfVentana3, .pdfVentana4{
+                              width: 60%;
+                              height: 60%;
+
+                            }
+
+                           }
+
+
+
+                                            @media screen and (min-width: 1250px) and (max-width: 1400px) and (min-height:700px) and (max-height:1200px){
+
+                                              #listaCapitulos{
+                                                width: 130%;
+                                              }
+
+                                              h4{
+                                                font-size: 2em;
+
+                                              }
+
+                                              #cap1, #cap2 , #cap3, #cap4, #cap5, #cap6{
+                                                font-size: 2em;
+                                              }
+
+                                              #personaje{
+                                                width:90%;
+                                              }
+
+                                              header{
+                                                position: fixed;
+                                                z-index: 1000;
+                                                width: 100%;
+                                              }
+
+                                              /* LOGO*/
+
+                                              #logo-header {
+                                                padding: 8px 0 0 14px;
+                                              }
+
+                                              #logo-header .nombreSitio {
+
+                                                font-size: 2.3em;
+
+                                              }
+
+                                              #logo-header{
+                                                width: 40%;
+                                              }
+
+                                              .img-logo{
+                                                width: 20%;
+                                              }
+
+                                              #logo-header .img-logo img{
+                                                width: 100%;
+                                                height: 100%;
+
+                                              }
+
+                                              nav {
+                                                float: right;
+                                              }
+
+                                              .nav-audio {
+
+                                                width:10%;
+                                              }
+
+
+                                              nav ul {
+                                                padding-right: 10px;
+                                              }
+
+                                              nav ul li {
+                                                line-height: 40px;
+                                              }
+
+                                              nav ul li a {
+                                                padding: 0 5px;
+                                               font-size: 1.5em;
+                                              }
+
+                                              .iconoAudio{
+                                                width:40%;
+                                              }
+
+
+                                                    .contenedorCentradoBotonesCapitulo{
+                                                      width: 90%;
+                                                    }
+
+                                                    .aCapitulos{
+                                                      font-size: 1.2em;
+                                                    }
+
+
+                                              .contenedorPagina, .contentCenter{
+                                                padding-top: 15%;
+                                              }
+
+                                              .tituloCapitulo{
+                                                font-size: 4em;
+                                              }
+
+                                              #personaje{
+                                                width: 300%;
+                                              }
+
+                                              .tresColumnasFullsize{
+                                                flex-flow: row nowrap;
+                                              }
+
+                                              .botonVerMas{
+                                                width: 20%;
+                                              }
+
+                                              .pergaminoBackground{
+                                                width: 600%;
+                                                margin-top: 30%;
+                                              }
+                                              .dropdown-menu h5{
+                                                font-size: 10.5px;
+
+                                              }
+
+                                              .aBotonVerMas{
+                                                font-size: 1.2em;
+                                              }
+
+                                              .textoBotonVideo{
+                                                font-size: 1.1em;
+                                              }
+
+                                              .contenedorPergamino h6{
+                                                font-size: 10px;;
+                                              }
+
+
+                                              .contenedorPergamino{
+                                                padding: 2em 3.2em 2em 3.2em;
+                                              }
+
+                                              #mapaSvg{
+                                                width: 130%;
+                                                height: 130%;
+                                              }
+
+                                              .botonVideo{
+                                                width: 25%;
+                                                height: 25%;
+                                              }
+                                              .row5{
+                                                width: 70%;
+
+                                              }
+
+
+                                                       .visorFull{
+                                                         margin-top: 8%;
+                                                       }
+
+                                                       .columna40{
+                                                         width: 60%;
+                                                       }
+
+                                                       .columna30{
+                                                         width: 50%;
+                                                       }
+
+
+                                                       h7{
+                                                         font-size: 1em;
+                                                       }
+
+                                                       .componenteSeccion{
+                                                         font-size: 1.8em;
+                                                       }
+
+                                                       .componenteSeccion{
+                                                         width: 100%;
+                                                         padding: 0.5em;
+                                                       }
+
+
+                                                       .columna40S{
+                                                         width: 100%;
+                                                         margin-top: 4%;
+                                                       }
+
+                                                       .columna40S2{
+                                                         width: 220%;
+                                                         margin-top: 4%;
+                                                       }
+
+                                                       .imagen40{
+                                                         width: 100%;
+                                                         height: 100%;
+
+                                                       }
+
+                                                       .contenedorBotonesCerrarPdf{
+                                                         width: 20%;
+                                                       }
+
+
+                                                       .columnaS{
+                                                         width: 150%;
+                                                       }
+
+
+                                                       .columna2 img{
+                                                         width: 40%;
+                                                         height: 40%;
+                                                       }
+
+                                                       .columna40S img{
+                                                         width: 50%;
+                                                         height: 50%;
+                                                       }
+
+                                                       .columna2{
+                                                         width: 140%;
+                                                       }
+
+                                                       .columna2 .imagen{
+                                                         width: 100%;
+                                                         height: 100%;
+                                                       }
+
+
+                                                       .columna img{
+                                                         width: 100%;
+                                                         height: 100%;
+                                                       }
+
+
+                                                       .transparentBackground1{
+                                                         width: 58%;
+                                                         padding: 0.5em;
+                                                       }
+
+                                                       .fila{
+                                                         width: 50%;
+                                                       }
+                                                       .columnaS{
+                                                         margin:0%;
+                                                       }
+
+                                                       #imagenProcesosLib2, #imagenProcesosLib3, #cimarronaje1{
+                                                         display: none;
+                                                       }
+
+                                                       #cerrarVentana1, #cerrarVentana1S2, #cerrarVentana1S3, #cerrarVentana1S4 , #cerrarVentana1S5, #cerrarVentana1S6, #cerrarVentana1S7, #cerrarVentana1S8{
+                                                       width: 110%;
+                                                       height: 110%;
+
+                                                       }
+
+
+                                                      .pdfVentana6, .pdfVentana3, .pdfVentana4{
+                                                         width: 60%;
+                                                         height: 60%;
+
+                                                       }
+
+                                                       .botonVerMas:hover{
+                                                         width: 25%;
+                                                       }
+
+
+                                                      }
+
+
+
+                                                      @media screen and (min-width: 600px) and (max-width: 800px) and (min-height:350px) and (max-height:720px){
+                                                        #listaCapitulos{
+                                                          width: 90%;
+                                                        }
+
+                                                        h4{
+                                                          font-size: 0.8em;
+
+                                                        }
+
+                                                        #cap1, #cap2 , #cap3, #cap4, #cap5, #cap6{
+                                                          font-size: 1em;
+                                                        }
+
+                                                        #personaje{
+                                                          width:90%;
+                                                        }
+
+                                                        header{
+                                                          position: fixed;
+                                                          z-index: 1000;
+                                                          width: 100%;
+                                                        }
+
+                                                        /* LOGO*/
+
+                                                        #logo-header {
+                                                          padding: 8px 0 0 14px;
+                                                        }
+
+                                                        #logo-header .nombreSitio {
+
+                                                          font-size: 1em;
+
+                                                        }
+
+                                                        #logo-header{
+                                                          width: 30%;
+                                                        }
+
+                                                        .img-logo{
+                                                          width: 30%;
+                                                        }
+
+                                                        #logo-header .img-logo img{
+                                                          width: 100%;
+                                                          height: 100%;
+
+                                                        }
+
+                                                        nav {
+                                                          float: right;
+                                                        }
+
+                                                        .nav-audio {
+
+                                                          width:10%;
+                                                        }
+
+
+                                                        nav ul {
+                                                          padding-right: 10px;
+                                                        }
+
+                                                        nav ul li {
+                                                          line-height: 40px;
+                                                        }
+
+                                                        nav ul li a {
+                                                          padding: 0 5px;
+                                                         font-size: 0.9em;
+                                                        }
+
+                                                        .iconoAudio{
+                                                          width:40%;
+                                                        }
+
+
+                                                              .contenedorCentradoBotonesCapitulo{
+                                                                width: 90%;
+                                                              }
+
+                                                              .aCapitulos{
+                                                                font-size: 0.5em;
+                                                              }
+
+
+                                                        .contenedorPagina, .contentCenter{
+                                                          padding-top: 17%;
+                                                        }
+
+                                                        .tituloCapitulo{
+                                                          font-size: 2em;
+                                                        }
+
+                                                        #personaje{
+                                                          width: 300%;
+                                                        }
+
+                                                        .tresColumnasFullsize{
+                                                          flex-flow: row nowrap;
+                                                        }
+
+                                                        .botonVerMas{
+                                                          width: 20%;
+                                                        }
+
+                                                        .pergaminoBackground{
+                                                          width: 600%;
+                                                          margin-top: 30%;
+                                                        }
+                                                        .dropdown-menu h5{
+                                                          font-size: 0.5em;
+
+                                                        }
+
+                                                        .aBotonVerMas{
+                                                          font-size: 0.8em;
+                                                        }
+
+                                                        .textoBotonVideo{
+                                                          font-size: 0.55em;
+                                                        }
+
+                                                        .contenedorPergamino h6{
+                                                          font-size: 10px;;
+                                                        }
+
+
+                                                        .contenedorPergamino{
+                                                          padding: 2em 3.2em 2em 3.2em;
+                                                        }
+
+                                                        #mapaSvg{
+                                                          width: 130%;
+                                                          height: 130%;
+                                                        }
+
+                                                        .botonVideo{
+                                                          width: 25%;
+                                                          height: 25%;
+                                                        }
+                                                        .row5{
+                                                          width: 70%;
+
+                                                        }
+
+
+                                                                 .visorFull{
+                                                                   margin-top: 9%;
+                                                                 }
+
+                                                                 .columna40{
+                                                                   width: 60%;
+                                                                 }
+
+                                                                 .columna30{
+                                                                   width: 50%;
+                                                                 }
+
+
+                                                                 h7{
+                                                                   font-size: 0.4em;
+                                                                 }
+
+                                                                 .componenteSeccion{
+                                                                   font-size: 0.7em;
+                                                                 }
+
+                                                                 .componenteSeccion{
+                                                                   width: 100%;
+                                                                   padding: 0.5em;
+                                                                 }
+
+
+                                                                 .columna40S{
+                                                                   width: 100%;
+                                                                   margin-top: 4%;
+                                                                 }
+
+                                                                 .columna40S2{
+                                                                   width: 220%;
+                                                                   margin-top: 4%;
+                                                                 }
+
+                                                                 .imagen40{
+                                                                   width: 100%;
+                                                                   height: 100%;
+
+                                                                 }
+
+                                                                 .contenedorBotonesCerrarPdf{
+                                                                   width: 20%;
+                                                                 }
+
+
+                                                                 .columnaS{
+                                                                   width: 150%;
+                                                                 }
+
+
+                                                                 .columna2 img{
+                                                                   width: 40%;
+                                                                   height: 40%;
+                                                                 }
+
+                                                                 .columna40S img{
+                                                                   width: 50%;
+                                                                   height: 50%;
+                                                                 }
+
+                                                                 .columna2{
+                                                                   width: 140%;
+                                                                 }
+
+                                                                 .columna2 .imagen{
+                                                                   width: 80%;
+                                                                   height: 80%;
+                                                                 }
+
+
+                                                                 .columna img{
+                                                                   width: 80%;
+                                                                   height: 80%;
+                                                                 }
+
+
+                                                                 .transparentBackground1{
+                                                                   width: 45%;
+                                                                   padding: 0.5em;
+                                                                 }
+
+                                                                 .fila{
+                                                                   width: 50%;
+                                                                 }
+                                                                 .columnaS{
+                                                                   margin:0%;
+                                                                 }
+
+                                                                 #imagenProcesosLib2, #imagenProcesosLib3, #cimarronaje1{
+                                                                   display: none;
+                                                                 }
+
+                                                                 #cerrarVentana1, #cerrarVentana1S2, #cerrarVentana1S3, #cerrarVentana1S4 , #cerrarVentana1S5, #cerrarVentana1S6, #cerrarVentana1S7, #cerrarVentana1S8{
+                                                                 width: 110%;
+                                                                 height: 110%;
+
+                                                                 }
+
+                                                                 #cerrarVideo1,#cerrarVideo2{
+                                                                   width: 40%;
+                                                                   height: 40%;
+                                                                 }
+
+
+                                                                .pdfVentana6, .pdfVentana3, .pdfVentana4{
+                                                                   width: 60%;
+                                                                   height: 60%;
+
+                                                                 }
+
+
+                                                                }
+
+
+                                                                @media screen and (min-width: 320px) and (max-width: 600px) and (min-height:250px) and (max-height:500px){
+                                                                  #listaCapitulos{
+                                                                    width: 90%;
+                                                                  }
+
+                                                                  h4{
+                                                                    font-size: 0.8em;
+
+                                                                  }
+
+                                                                  #cap1, #cap2 , #cap3, #cap4, #cap5, #cap6{
+                                                                    font-size: 1em;
+                                                                  }
+
+                                                                  #personaje{
+                                                                    width:90%;
+                                                                  }
+
+                                                                  header{
+                                                                    position: fixed;
+                                                                    z-index: 1000;
+                                                                    width: 100%;
+                                                                  }
+
+                                                                  /* LOGO*/
+
+                                                                  #logo-header {
+                                                                    padding: 8px 0 0 14px;
+                                                                  }
+
+                                                                  #logo-header .nombreSitio {
+
+                                                                    font-size: 0.9em;
+
+                                                                  }
+
+                                                                  #logo-header{
+                                                                    width: 30%;
+                                                                  }
+
+                                                                  .img-logo{
+                                                                    width: 20%;
+                                                                  }
+
+                                                                  #logo-header .img-logo img{
+                                                                    width: 100%;
+                                                                    height: 100%;
+
+                                                                  }
+
+                                                                  nav {
+                                                                    float: right;
+                                                                  }
+
+                                                                  .nav-audio {
+
+                                                                    width:10%;
+                                                                  }
+
+
+                                                                  nav ul {
+                                                                    padding-right: 10px;
+                                                                  }
+
+                                                                  nav ul li {
+                                                                    line-height: 40px;
+                                                                  }
+
+                                                                  nav ul li a {
+                                                                    padding: 0 5px;
+                                                                   font-size: 0.7em;
+                                                                  }
+
+                                                                  .iconoAudio{
+                                                                    width:40%;
+                                                                  }
+
+
+                                                                        .contenedorCentradoBotonesCapitulo{
+                                                                          width: 90%;
+                                                                        }
+
+                                                                        .aCapitulos{
+                                                                          font-size: 0.5em;
+                                                                        }
+
+
+                                                                  .contenedorPagina, .contentCenter{
+                                                                    padding-top: 16%;
+                                                                  }
+
+                                                                  .tituloCapitulo{
+                                                                    font-size: 2em;
+                                                                  }
+
+                                                                  #personaje{
+                                                                    width: 300%;
+                                                                  }
+
+                                                                  .tresColumnasFullsize{
+                                                                    flex-flow: row nowrap;
+                                                                  }
+
+                                                                  .botonVerMas{
+                                                                    width: 20%;
+                                                                  }
+
+                                                                  .pergaminoBackground{
+                                                                    width: 600%;
+                                                                    margin-top: 30%;
+                                                                  }
+                                                                  .dropdown-menu h5{
+                                                                    font-size: 0.45em;
+                                                                    padding: 0em;
+                                                                    padding-left: 0.1em;
+                                                                    padding-right: 0.1em;
+
+                                                                  }
+
+                                                                  .aBotonVerMas{
+                                                                    font-size: 0.8em;
+                                                                  }
+
+                                                                  .textoBotonVideo{
+                                                                    font-size: 0.5em;
+                                                                  }
+
+                                                                  .contenedorPergamino h6{
+                                                                    font-size: 10px;;
+                                                                  }
+
+
+                                                                  .contenedorPergamino{
+                                                                    padding: 2em 3.2em 2em 3.2em;
+                                                                  }
+
+                                                                  #mapaSvg{
+                                                                    width: 130%;
+                                                                    height: 130%;
+                                                                  }
+
+                                                                  .botonVideo{
+                                                                    width: 25%;
+                                                                    height: 25%;
+                                                                  }
+                                                                  .row5{
+                                                                    width: 70%;
+
+                                                                  }
+
+
+                                                                           .visorFull{
+                                                                             margin-top: 9%;
+                                                                           }
+
+                                                                           .columna40{
+                                                                             width: 60%;
+                                                                           }
+
+                                                                           .columna30{
+                                                                             width: 50%;
+                                                                           }
+
+
+                                                                           h7{
+                                                                             font-size: 0.55em;
+                                                                           }
+
+                                                                           .componenteSeccion{
+                                                                             font-size: 0.7em;
+                                                                           }
+
+                                                                           .componenteSeccion{
+                                                                             width: 100%;
+                                                                             padding: 0.5em;
+                                                                           }
+
+
+                                                                           .columna40S{
+                                                                             width: 100%;
+                                                                             margin-top: 4%;
+                                                                           }
+
+                                                                           .columna40S2{
+                                                                             width: 220%;
+                                                                             margin-top: 4%;
+                                                                           }
+
+                                                                           .imagen40{
+                                                                             width: 100%;
+                                                                             height: 100%;
+
+                                                                           }
+
+                                                                           .contenedorBotonesCerrarPdf{
+                                                                             width: 20%;
+                                                                           }
+
+
+                                                                           .columnaS{
+                                                                             width: 150%;
+                                                                           }
+
+
+                                                                           .columna2 img{
+                                                                             width: 40%;
+                                                                             height: 40%;
+                                                                           }
+
+                                                                           .columna40S img{
+                                                                             width: 50%;
+                                                                             height: 50%;
+                                                                           }
+
+                                                                           .columna2{
+                                                                             width: 140%;
+                                                                           }
+
+                                                                           .columna2 .imagen{
+                                                                             width: 80%;
+                                                                             height: 80%;
+                                                                           }
+
+
+                                                                           .columna img{
+                                                                             width: 80%;
+                                                                             height: 80%;
+                                                                           }
+
+
+                                                                           .transparentBackground1{
+                                                                             width: 45%;
+                                                                             padding: 0.5em;
+                                                                           }
+
+                                                                           .fila{
+                                                                             width: 50%;
+                                                                           }
+                                                                           .columnaS{
+                                                                             margin:0%;
+                                                                           }
+
+                                                                           #imagenProcesosLib2, #imagenProcesosLib3, #cimarronaje1{
+                                                                             display: none;
+                                                                           }
+
+                                                                           #cerrarVentana1, #cerrarVentana1S2, #cerrarVentana1S3, #cerrarVentana1S4 , #cerrarVentana1S5, #cerrarVentana1S6, #cerrarVentana1S7, #cerrarVentana1S8{
+                                                                           width: 110%;
+                                                                           height: 110%;
+
+                                                                           }
+
+                                                                           #cerrarVideo1,#cerrarVideo2{
+                                                                             width: 40%;
+                                                                             height: 40%;
+                                                                           }
+
+
+                                                                          .pdfVentana6, .pdfVentana3, .pdfVentana4{
+                                                                             width: 60%;
+                                                                             height: 60%;
+
+                                                                           }
+
+
+                                                                          }
+
+
+
+                                                                                portrait{
+                                                                                  background-color: #C12C2A;
+                                                                                  width: 100%;
+                                                                                  height: 100%;
+                                                                                  display: flex;
+                                                                                  justify-content: center;
+                                                                                  align-items: center;
+                                                                                  align-content: center;
+
+                                                                                }
+
+                                                                                .letraMsg{
+                                                                                  color: #E9BF21;
+                                                                                  text-align: center;
+                                                                                  font-size: 3em;
+                                                                                  font-family: "minimal";
+                                                                                  font-weight: bolder;
+                                                                                  padding: 0.5em;
+
+                                                                                }
+
+                                                                          @media (orientation: portrait) {
+                                                                              landscape{
+                                                                                  display: none;
+                                                                                    }
+                                                                              portrait{
+                                                                                display: flex;
+                                                                              }
+                                                                          }
+
+                                                                          @media (orientation: landscape) {
+                                                                              portrait{
+                                                                                  display: none;
+                                                                                    }
+                                                                              landscape{
+                                                                                display: block;
+                                                                              }
+                                                                          }

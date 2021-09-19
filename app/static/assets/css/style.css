@@ -1,0 +1,142 @@
+mainpage { margin: 100; padding: 100;}
+canvas { margin: auto; display: block; }
+
+
+
+
+/* HEADER */
+
+/* CSS header*/
+
+
+
+header{
+    width: 100%;
+    z-index: 1000;
+    position: fixed;
+    display: flex;
+    flex-flow: column nowrap;
+  }
+  
+  
+  .contenedorHeader{
+      width: 100%;
+      height: 80px;
+      z-index: 1300;
+      background-color:#FFFFF7;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      align-content: center;
+      flex-grow: row nowrap;
+  
+  }
+  .contenedorBotonesCapitulos{
+    display: flex;
+    justify-content: center;
+    flex-flow: row nowrap;
+    align-items: center;;
+    z-index: 1000;
+    width: 100%;
+  }
+  
+  
+  /* LOGO*/
+  
+  #logo-header {
+      float: left;
+      text-decoration: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-flow: row nowrap;
+    width:35%;
+  }
+  
+  #logo-header .nombreSitio {
+  
+      font-weight: 700;
+      font-size: 2em;
+    font-family: "minimal";
+    color:#c12c2a;
+  
+  }
+  
+  .img-logo{
+    width:20%;
+    padding: 5%;
+  }
+  
+  #logo-header .img-logo img {
+  
+    width: 100%;
+    height: 100%;
+  
+  }
+  nav {
+      float: right;
+  }
+  
+  nav ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      padding-right: 20px;
+  }
+  
+  nav ul li {
+      display: inline-block;
+      line-height: 80px;
+  }
+  
+  nav ul li a {
+      display: block;
+      padding: 0 10px;
+      text-decoration: none;
+    color:#b32e14;
+    font-family: "antipastoRegular";
+    font-size: 1.5em;
+  }
+  
+  nav ul li a:hover {
+      background:#da942e;
+    color:white;
+  }
+  
+  .contentAudio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;;
+  
+  
+  }
+  
+  .iconoAudio{
+    width: 30%;
+    background-color: rgba(243, 204, 49, 0.5);
+    padding: 2%;
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    border: 0px solid #000000;
+  }
+  
+  .iconoNoAudio{
+    width: 30%;
+    margin-top: 10%;
+    background-color: rgba(243, 204, 49, 0);
+    padding: 2%;
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    border: 0px solid #000000;
+    display: none;
+  }
+  
+  
+  .contentAudio:hover{
+    cursor: pointer;
+  }
+  
