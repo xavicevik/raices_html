@@ -7,6 +7,9 @@ from rest_framework import viewsets
 from rest_framework import permissions
 from .models import Parametros
 from .serializers import UserSerializer, GroupSerializer, ParametrosSerializer
+from django.conf import settings
+from django.contrib.auth.decorators import login_required
+
 
 import logging
 
@@ -18,13 +21,19 @@ from django import forms
 
 logger = logging.getLogger(__name__)
 
+@login_required
+def Intro(request):
+    template_name = 'intro/intro.html'
+    return render(request, template_name)
+
+@login_required
 def HistoriaInicio(request):
     template_name = 'historia/index.html'
     return render(request, template_name)
 
 class loginUsuario(LoginView):
+    pass
     #template_name = 'registration/login.html'
-    logger.error('Something went wrong!')
     #model = User
     #form_class = loginForm
     #def form_valid(self, form):

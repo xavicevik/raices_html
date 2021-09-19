@@ -298,6 +298,9 @@ input[type=text]:placeholder {
     </div>
 
     <!-- Login Form -->
+      {% if form.errors %}
+              <p>Los datos ingresados son incorrectos, intente nuevamente</p>
+      {% endif %}
       <form method="POST">
         {% csrf_token %}
       <input type="text" id="{{ form.username.auto_id }}" class="fadeIn second" name="{{ form.username.name }}" placeholder="login">
@@ -309,7 +312,7 @@ input[type=text]:placeholder {
 
     <!-- Remind Passowrd -->
     <div id="formFooter">
-      <a class="underlineHover" href="#">Forgot Password?</a>
+      <a class="underlineHover" href="{% url 'password_reset' %}">Forgot Password?</a>
     </div>
 
   </div>
@@ -317,8 +320,5 @@ input[type=text]:placeholder {
 
 
 </body>
-{# Assumes you setup the password_reset view in your URLconf #}
-<p><a href="{% url 'password_reset' %}">Lost password?</a></p>
-
 
 {% endblock %}

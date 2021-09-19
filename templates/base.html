@@ -30,7 +30,7 @@
 
                   <nav>
                     <ul>
-                      <li><a style="text-decoration:none;" href="historia.php">Historia</a></li>
+                      <li><a style="text-decoration:none;" href="{% url 'Historia' %}">Historia</a></li>
                   		<li><a style="text-decoration:none;" href="acerca.php">Acerca del proyecto</a></li>
                   		<li><a style="text-decoration:none;" id="" href="bibliografia.php"> Bibliografía </a></li>
                         {% if user.is_authenticated %}

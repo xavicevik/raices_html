@@ -71,17 +71,65 @@
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":700},
 	"sourceSize": {"w":400,"h":700}
+},
+"Chica0010.png":
+{
+	"frame": {"x":1600,"y":700,"w":400,"h":700},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":700},
+	"sourceSize": {"w":400,"h":700}
+},
+"Chica0011.png":
+{
+	"frame": {"x":0,"y":1400,"w":400,"h":700},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":700},
+	"sourceSize": {"w":400,"h":700}
+},
+"Chica0012.png":
+{
+	"frame": {"x":400,"y":1400,"w":400,"h":700},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":700},
+	"sourceSize": {"w":400,"h":700}
+},
+"Chica0013.png":
+{
+	"frame": {"x":800,"y":1400,"w":400,"h":700},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":700},
+	"sourceSize": {"w":400,"h":700}
+},
+"Chica0014.png":
+{
+	"frame": {"x":1200,"y":1400,"w":400,"h":700},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":700},
+	"sourceSize": {"w":400,"h":700}
+},
+"Chica0015.png":
+{
+	"frame": {"x":1600,"y":1400,"w":400,"h":700},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":700},
+	"sourceSize": {"w":400,"h":700}
 }},
 "animations": {
-	"Chica": ["Chica0001.png","Chica0002.png","Chica0003.png","Chica0004.png","Chica0005.png","Chica0006.png","Chica0007.png","Chica0008.png","Chica0009.png"]
+	"Chica": ["Chica0001.png","Chica0002.png","Chica0003.png","Chica0004.png","Chica0005.png","Chica0006.png","Chica0007.png","Chica0008.png","Chica0009.png","Chica0010.png","Chica0011.png","Chica0012.png","Chica0013.png","Chica0014.png","Chica0015.png"]
 },
 "meta": {
 	"app": "https://www.codeandweb.com/texturepacker",
 	"version": "1.0",
 	"image": "chica_prueba.png",
 	"format": "RGBA8888",
-	"size": {"w":2000,"h":1400},
+	"size": {"w":2000,"h":2100},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:bf7b44837df7723c10175a0df8e3360e:cd3dff3784df9df784184bd045c2b6af:01f9cfba46d6162c1275f821a68e7324$"
+	"smartupdate": "$TexturePacker:SmartUpdate:9d5b7ef6560779a9b9780ef8e676b4c1:cdbc058f9004cbe3649f713b99cbd36e:01f9cfba46d6162c1275f821a68e7324$"
 }
 }

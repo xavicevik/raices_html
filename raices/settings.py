@@ -144,7 +144,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = '/historia/'
+LOGIN_REDIRECT_URL = '/intro/'
 LOGOUT_REDIRECT_URL = 'https://www.afrotic.com.co'
 
 # Default primary key field type

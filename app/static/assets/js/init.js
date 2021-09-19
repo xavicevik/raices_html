@@ -70,7 +70,7 @@ $.ajax({
 
 console.log(usuario);
 // Definición de variables
-const aspectRatio = 16/9
+const aspectRatio = 2;//16/9;
 var widhwindow = window.innerWidth;
 var heightwindow = widhwindow/aspectRatio;
 var resolucionx = 1000;
@@ -98,6 +98,9 @@ let c = new Charm(PIXI);
 let fondo = PIXI.Sprite.from('../static/assets/img/fondooriginal.jpeg');
 fondo.width = widhwindow;
 fondo.height = heightwindow;
+fondo.anchor.set(0.5);
+fondo.x = widhwindow / 2;
+fondo.y = heightwindow / 2;
 app.stage.addChild(fondo);
 
 // Se crea el personaje principal
@@ -106,7 +109,7 @@ var ratio = pPrincipal.width / pPrincipal.height;
 pPrincipal.width = 250*widthRelativo;
 pPrincipal.height = pPrincipal.width / ratio;
 pPrincipal.x = 166*widthRelativo;
-pPrincipal.y = 267*heightRelativo;
+pPrincipal.y = 200*heightRelativo;
 
 // Se crea un contenedor para lo correspondiente con el personaje principal
 const perContainer = new PIXI.Container(); 
@@ -125,7 +128,7 @@ ratio = animatedBoca.width / animatedBoca.height;
 animatedBoca.width = pPrincipal.width/ 8;
 animatedBoca.height = animatedBoca.width / ratio;
 animatedBoca.x = pPrincipal.x + pPrincipal.x / 3.1;
-animatedBoca.y = pPrincipal.y + pPrincipal.y / 3.4;
+animatedBoca.y = pPrincipal.y + pPrincipal.y / 2.6;
 animatedBoca.animationSpeed = 2.1;
 
 let ojosA = PIXI.Texture.from('../static/assets/img/personajes/ojosopen.png');
@@ -163,7 +166,7 @@ ratio = ojosAni.width / ojosAni.height;
 ojosAni.width = pPrincipal.width/ 5.1;
 ojosAni.height = ojosAni.width / ratio;
 ojosAni.x = pPrincipal.x + pPrincipal.x / 3.8;
-ojosAni.y = pPrincipal.y + pPrincipal.y / 5.5;
+ojosAni.y = pPrincipal.y + pPrincipal.y / 4.2;
 ojosAni.animationSpeed = 0.2;
 ojosAni.loop = true;
 
@@ -236,9 +239,9 @@ nameappcontainer.addChild(logoRA);
 nameappcontainer.addChild(richText);
 richText.x = nameappcontainer.x + 120*widthRelativo;
 nameappcontainer.x = 1
-nameappcontainer.y = 120*heightRelativo;
+nameappcontainer.y = 80*heightRelativo;
 app.stage.addChild(nameappcontainer);
-c.slide(nameappcontainer, 250*widthRelativo, 120*heightRelativo, 60);
+c.slide(nameappcontainer, 250*widthRelativo, 80*heightRelativo, 60);
 
 let globoMensaje = PIXI.Sprite.from('../static/assets/img/globo.png');
 ratio = globoMensaje.width/globoMensaje.height;
@@ -248,7 +251,7 @@ let globoContainer = new PIXI.Container();
 
 globoContainer.addChild(globoMensaje);
 globoContainer.x = 80*widthRelativo;
-globoContainer.y = 210*heightRelativo;
+globoContainer.y = 150*heightRelativo;
 
 const style2 = new PIXI.TextStyle({
     fontFamily: 'Verdana',
@@ -282,7 +285,7 @@ mapa1.width = 600*widthRelativo;
 mapa1.height = mapa1.width / ratio;
 mapa1container.addChild(mapa1);
 mapa1container.x = 400*widthRelativo;
-mapa1container.y = 80*heightRelativo;
+mapa1container.y = 30*heightRelativo;
 
 let hist1t = PIXI.Texture.from('../static/assets/img/historia.png');
 let hist2t = PIXI.Texture.from('../static/assets/img/historia2.png');
@@ -306,16 +309,16 @@ var menuCapitulos_opcion3 = PIXI.Sprite.from('../static/assets/images/impMali.pn
 var menuCapitulos_opcion4 = PIXI.Sprite.from('../static/assets/images/impYolofo.png');
 
 ratio = menuCapitulos_opcion1.width / menuCapitulos_opcion1.height;
-menuCapitulos_opcion1.height = 100*heightRelativo;
+menuCapitulos_opcion1.height = 80*heightRelativo;
 menuCapitulos_opcion1.width  = menuCapitulos_opcion1.height *ratio;
 ratio = menuCapitulos_opcion2.width / menuCapitulos_opcion2.height;
-menuCapitulos_opcion2.height = 100*heightRelativo;
+menuCapitulos_opcion2.height = 80*heightRelativo;
 menuCapitulos_opcion2.width  = menuCapitulos_opcion2.height *ratio;
 ratio = menuCapitulos_opcion3.width / menuCapitulos_opcion3.height;
-menuCapitulos_opcion3.height = 100*heightRelativo;
+menuCapitulos_opcion3.height = 80*heightRelativo;
 menuCapitulos_opcion3.width  = menuCapitulos_opcion3.height *ratio;
 ratio = menuCapitulos_opcion4.width / menuCapitulos_opcion4.height;
-menuCapitulos_opcion4.height = 50*heightRelativo;
+menuCapitulos_opcion4.height = 40*heightRelativo;
 menuCapitulos_opcion4.width  = menuCapitulos_opcion4.height *ratio;
 menuCapitulos_opcion1.interactive = true;
 menuCapitulos_opcion1.buttonMode = true;
@@ -353,7 +356,7 @@ menuCapitulos_opcion1.anchor.set(0.5);
 menuCapitulos_opcion2.anchor.set(0.5);
 menuCapitulos_opcion3.anchor.set(0.5);
 menuCapitulos_opcion4.anchor.set(0.5);
-let step = (520*heightRelativo) / 8;
+let step = (500*heightRelativo) / 8;
 menuCapitulos_opcion1.y = step;
 menuCapitulos_opcion2.y = step*3;
 menuCapitulos_opcion3.y = step*5;
@@ -363,7 +366,7 @@ cap2.y = step*3 + menuCapitulos_opcion1.height/2;
 cap3.y = step*5 + menuCapitulos_opcion1.height/2;
 cap4.y = step*7 + menuCapitulos_opcion1.height/2;
 menuCapitulos.x = 50*widthRelativo;
-menuCapitulos.y = 60*heightRelativo;
+menuCapitulos.y = 2*heightRelativo;
 app.stage.addChild(menuCapitulos);
 
 // filtros de sombra
