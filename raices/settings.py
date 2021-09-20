@@ -92,9 +92,10 @@ DATABASES = {
     },
     'default':{
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'raices',
-        'USER': 'raices',
-        'PASSWORD':'veNHh7xADXfucLqS',
+        'NAME': 'sipsaeco_raices2',
+        'USER': 'sipsaeco_raices2',
+        'PASSWORD':'M)P)U*R{A=Ru',
+        'HOST': 'www.sipsae.com',
         'PORT': '3306',
         'OPTIONS': {
             'sql_mode':'traditional',
