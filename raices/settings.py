@@ -26,9 +26,7 @@ SECRET_KEY = 'django-insecure-_pt*b%le7hg%7#z-v1k=!!t(577s!ei^3553&8p9nvj8v786m%
 DEBUG = True
 
 ALLOWED_HOSTS = []
-STATICFILES_DIRS = [
-    BASE_DIR /'static/'
-]
+
 
 # Application definition
 
@@ -144,7 +142,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
+#STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/intro/'
