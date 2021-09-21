@@ -90,10 +90,13 @@ WSGI_APPLICATION = 'raices.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd192s7m3gdhcol',
+        'USER': 'raices',
+        'PASSWORD': 'raices',
+        'HOST': 'localhost',
+        'PORT': '',
     },
-
 }
 
 
@@ -149,9 +152,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 from django.db.backends.mysql.base import DatabaseWrapper
 DatabaseWrapper.data_types['DateTimeField'] = 'datetime'
 
-import dj_database_url
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
-
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+from decouple import config
+
+if config('DJANGO_PRODUCTION', default=False, cast=bool):
+    from .settings_production import *
