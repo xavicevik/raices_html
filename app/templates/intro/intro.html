@@ -6,9 +6,9 @@
           <div class="contenedorPagina">
 
             <div  id="videoInicial" class="centroPagina">
-              <div class="transparentBackground1"><video id="videoIntro" controls Autoplay>
+              {% comment %}<div class="transparentBackground1"><video id="videoIntro" controls Autoplay>
                  <source src="{% static './assets/videos/introd.mp4' %}" type="video/mp4">
-               </video> </div>
+               </video> </div>{% endcomment %}
                <br>
                <div id="botonSaltarIntro" class="contenedorBoton" > <a href="{% url 'Historia' %}">Saltar Intro </a></div>
             </div>

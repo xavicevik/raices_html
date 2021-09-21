@@ -89,17 +89,6 @@ header{
   flex-flow: column nowrap;
 }
 
-.contenedorHeader{
-    width: 100%;
-    z-index: 1300;
-    background-color:#FFFFF7;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    align-content: center;
-    flex-grow: row nowrap;
-
-}
 .contenedorBotonesCapitulos{
   display: flex;
   justify-content: center;
@@ -633,14 +622,6 @@ h6{
 .contenidoDesplegable{
    max-height:0;
    overflow:hidden;
-   -webkit-transition: max-height 500ms ease-out;
-   -moz-transition: max-height 500ms ease-out;
-   -o-transition: max-height 500ms ease-out;
-   transition: max-height 500ms ease-out;
-}
-.contenidoDesplegable.contenidoDesplegado{
-  width: 1%;
-   max-height:500;
    -webkit-transition: max-height 500ms ease-out;
    -moz-transition: max-height 500ms ease-out;
    -o-transition: max-height 500ms ease-out;
@@ -1354,10 +1335,6 @@ video{
        .textoBotonVideo{
          font-size: 1em;
          margin-left: 3em;
-       }
-
-       .contenedorPergamino h6{
-         font-size: 1.em;;;
        }
 
 

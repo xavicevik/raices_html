@@ -144,6 +144,8 @@ LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/intro/'
 LOGOUT_REDIRECT_URL = 'https://www.afrotic.com.co'
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 

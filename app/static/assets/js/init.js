@@ -45,8 +45,9 @@ void main(void) {
 }
 `;
 var usuario;
+/*
 var url_base = "http://127.0.0.1:8000/";
-var url = url_base + "users/2/";
+var url = url_base + "users/1/";
 var data;
 $.ajax({
   dataType: "json",
@@ -59,15 +60,17 @@ $.ajax({
                 usuario = val;
                 //return false;
             }
-            /*
+
             if (key == 'last_name') {
                 usuario = usuario + " " + val;
                 //return false;
             }
-            */
+
         });
   }
 });
+*/
+usuario = "Javier";
 
 console.log(usuario);
 // Definición de variables
