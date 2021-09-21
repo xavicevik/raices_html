@@ -5,8 +5,8 @@ from django.contrib.auth.models import User, Group
 from django.contrib.auth.views import LoginView, LogoutView
 from rest_framework import viewsets
 from rest_framework import permissions
-from .models import Parametros
-from .serializers import UserSerializer, GroupSerializer, ParametrosSerializer
+from .models import Parametros, Lenguajes
+from .serializers import UserSerializer, GroupSerializer, ParametrosSerializer, LenguajeSerializer
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 
@@ -81,4 +81,9 @@ class GroupViewSet(viewsets.ModelViewSet):
 class ParametrosViewSet(viewsets.ModelViewSet):
     queryset = Parametros.objects.all()
     serializer_class = ParametrosSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    #permission_classes = [permissions.IsAuthenticated]
+
+class LenguajeViewSet(viewsets.ModelViewSet):
+    queryset = Lenguajes.objects.all()
+    serializer_class = ParametrosSerializer
+    #permission_classes = [permissions.IsAuthenticated]

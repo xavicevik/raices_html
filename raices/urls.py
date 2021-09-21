@@ -24,6 +24,7 @@ router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
 router.register(r'parametros', views.ParametrosViewSet)
+router.register(r'lenguajes', views.LenguajeViewSet)
 
 urlpatterns = [
     path('login/', loginUsuario.as_view(), name='login'),

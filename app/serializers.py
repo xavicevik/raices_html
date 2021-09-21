@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User, Group
-from .models import Parametros
+from .models import Parametros, Lenguajes
 from rest_framework import serializers
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -17,3 +17,8 @@ class ParametrosSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Parametros
         fields = ['url', 'id', 'nombre', 'valorTexto', 'valorNumero']
+
+class LenguajeSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Lenguajes
+        fields = ['id', 'nombre', 'idioma', 'texto']
