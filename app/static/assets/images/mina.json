@@ -1,0 +1,399 @@
+{"frames": {
+
+"Sofia_TQ_Tiras_Camina_Parpadea0001.png":
+{
+	"frame": {"x":0,"y":0,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0002.png":
+{
+	"frame": {"x":283,"y":0,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0003.png":
+{
+	"frame": {"x":566,"y":0,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0004.png":
+{
+	"frame": {"x":849,"y":0,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0005.png":
+{
+	"frame": {"x":1132,"y":0,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0006.png":
+{
+	"frame": {"x":1415,"y":0,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0007.png":
+{
+	"frame": {"x":1698,"y":0,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0008.png":
+{
+	"frame": {"x":0,"y":378,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0009.png":
+{
+	"frame": {"x":283,"y":378,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0010.png":
+{
+	"frame": {"x":566,"y":378,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0011.png":
+{
+	"frame": {"x":849,"y":378,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0012.png":
+{
+	"frame": {"x":1132,"y":378,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0013.png":
+{
+	"frame": {"x":1415,"y":378,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0014.png":
+{
+	"frame": {"x":1698,"y":378,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0015.png":
+{
+	"frame": {"x":0,"y":756,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0016.png":
+{
+	"frame": {"x":283,"y":756,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0017.png":
+{
+	"frame": {"x":566,"y":756,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0018.png":
+{
+	"frame": {"x":849,"y":756,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0019.png":
+{
+	"frame": {"x":1132,"y":756,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0020.png":
+{
+	"frame": {"x":1415,"y":756,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0021.png":
+{
+	"frame": {"x":1698,"y":756,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0022.png":
+{
+	"frame": {"x":0,"y":1134,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0023.png":
+{
+	"frame": {"x":283,"y":1134,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0024.png":
+{
+	"frame": {"x":566,"y":1134,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0025.png":
+{
+	"frame": {"x":849,"y":1134,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0026.png":
+{
+	"frame": {"x":1132,"y":1134,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0027.png":
+{
+	"frame": {"x":1415,"y":1134,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0028.png":
+{
+	"frame": {"x":1698,"y":1134,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0029.png":
+{
+	"frame": {"x":0,"y":1512,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0030.png":
+{
+	"frame": {"x":283,"y":1512,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0031.png":
+{
+	"frame": {"x":566,"y":1512,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0032.png":
+{
+	"frame": {"x":849,"y":1512,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0033.png":
+{
+	"frame": {"x":1132,"y":1512,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0034.png":
+{
+	"frame": {"x":1415,"y":1512,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0035.png":
+{
+	"frame": {"x":1698,"y":1512,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0036.png":
+{
+	"frame": {"x":0,"y":1890,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0037.png":
+{
+	"frame": {"x":283,"y":1890,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0038.png":
+{
+	"frame": {"x":566,"y":1890,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0039.png":
+{
+	"frame": {"x":849,"y":1890,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0040.png":
+{
+	"frame": {"x":1132,"y":1890,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0041.png":
+{
+	"frame": {"x":1415,"y":1890,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0042.png":
+{
+	"frame": {"x":1698,"y":1890,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0043.png":
+{
+	"frame": {"x":0,"y":2268,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0044.png":
+{
+	"frame": {"x":283,"y":2268,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0045.png":
+{
+	"frame": {"x":566,"y":2268,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0046.png":
+{
+	"frame": {"x":849,"y":2268,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0047.png":
+{
+	"frame": {"x":1132,"y":2268,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+},
+"Sofia_TQ_Tiras_Camina_Parpadea0048.png":
+{
+	"frame": {"x":1415,"y":2268,"w":283,"h":378},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":283,"h":378},
+	"sourceSize": {"w":283,"h":378}
+}},
+"animations": {
+	"Sofia_TQ_Tiras_Camina_Parpadea": ["Sofia_TQ_Tiras_Camina_Parpadea0001.png","Sofia_TQ_Tiras_Camina_Parpadea0002.png","Sofia_TQ_Tiras_Camina_Parpadea0003.png","Sofia_TQ_Tiras_Camina_Parpadea0004.png","Sofia_TQ_Tiras_Camina_Parpadea0005.png","Sofia_TQ_Tiras_Camina_Parpadea0006.png","Sofia_TQ_Tiras_Camina_Parpadea0007.png","Sofia_TQ_Tiras_Camina_Parpadea0008.png","Sofia_TQ_Tiras_Camina_Parpadea0009.png","Sofia_TQ_Tiras_Camina_Parpadea0010.png","Sofia_TQ_Tiras_Camina_Parpadea0011.png","Sofia_TQ_Tiras_Camina_Parpadea0012.png","Sofia_TQ_Tiras_Camina_Parpadea0013.png","Sofia_TQ_Tiras_Camina_Parpadea0014.png","Sofia_TQ_Tiras_Camina_Parpadea0015.png","Sofia_TQ_Tiras_Camina_Parpadea0016.png","Sofia_TQ_Tiras_Camina_Parpadea0017.png","Sofia_TQ_Tiras_Camina_Parpadea0018.png","Sofia_TQ_Tiras_Camina_Parpadea0019.png","Sofia_TQ_Tiras_Camina_Parpadea0020.png","Sofia_TQ_Tiras_Camina_Parpadea0021.png","Sofia_TQ_Tiras_Camina_Parpadea0022.png","Sofia_TQ_Tiras_Camina_Parpadea0023.png","Sofia_TQ_Tiras_Camina_Parpadea0024.png","Sofia_TQ_Tiras_Camina_Parpadea0025.png","Sofia_TQ_Tiras_Camina_Parpadea0026.png","Sofia_TQ_Tiras_Camina_Parpadea0027.png","Sofia_TQ_Tiras_Camina_Parpadea0028.png","Sofia_TQ_Tiras_Camina_Parpadea0029.png","Sofia_TQ_Tiras_Camina_Parpadea0030.png","Sofia_TQ_Tiras_Camina_Parpadea0031.png","Sofia_TQ_Tiras_Camina_Parpadea0032.png","Sofia_TQ_Tiras_Camina_Parpadea0033.png","Sofia_TQ_Tiras_Camina_Parpadea0034.png","Sofia_TQ_Tiras_Camina_Parpadea0035.png","Sofia_TQ_Tiras_Camina_Parpadea0036.png","Sofia_TQ_Tiras_Camina_Parpadea0037.png","Sofia_TQ_Tiras_Camina_Parpadea0038.png","Sofia_TQ_Tiras_Camina_Parpadea0039.png","Sofia_TQ_Tiras_Camina_Parpadea0040.png","Sofia_TQ_Tiras_Camina_Parpadea0041.png","Sofia_TQ_Tiras_Camina_Parpadea0042.png","Sofia_TQ_Tiras_Camina_Parpadea0043.png","Sofia_TQ_Tiras_Camina_Parpadea0044.png","Sofia_TQ_Tiras_Camina_Parpadea0045.png","Sofia_TQ_Tiras_Camina_Parpadea0046.png","Sofia_TQ_Tiras_Camina_Parpadea0047.png","Sofia_TQ_Tiras_Camina_Parpadea0048.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "mina.png",
+	"format": "RGBA8888",
+	"size": {"w":1981,"h":2646},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:97c055de6af80743e23915e554cb123b:7fcbecadcb96d70b37f74226622f602d:92ae78da0efe9e601037c13be092ca3d$"
+}
+}
