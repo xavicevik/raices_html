@@ -390,7 +390,9 @@ filter.padding = 100;
 pPrincipal.filters = [filter];
 
 // sprite
+
 var anim;
+/*
 app.loader
     .add('../static/assets/images/chica_prueba.json')
     .load(onAssetsLoaded);
@@ -415,6 +417,55 @@ function onAssetsLoaded() {
 
     anim.onComplete = function () {
         console.log("complete");
+        //window.location.href = url_base + "capitulo1";
+    };
+}
+*/
+// sprite Sofia
+var sofia;
+app.loader
+    .add('sofia','../static/assets/images/mina.json')
+    .add('chica', '../static/assets/images/chica_prueba.json')
+    .load(onAssetsLoaded2);
+
+function onAssetsLoaded2() {
+    let frames = [];
+    let sofiaspr = app.loader.resources.sofia;
+    let chicaspr = app.loader.resources.chica;
+
+    // create an array of textures from an image path
+    for (let i = 1; i < 49; i++) {
+        const val = i < 10 ? `0${i}` : i;
+        // magically works since the spritesheet was loaded with the pixi loader
+        frames.push(PIXI.Texture.from(`Sofia_TQ_Tiras_Camina_Parpadea00${val}.png`));
+        //frames.push(PIXI.Texture.from(`Sofia_TQ_Tiras_Camina_Parpadea00${val}.png`));
+        //frames.push(PIXI.Texture.from(`rollSequence00${val}.png`));
+    }
+    sofia = new PIXI.AnimatedSprite(frames);
+    app.stage.addChild(sofia);
+    sofia.scale.set(1);
+    sofia.animationSpeed = 0.2;
+    sofia.x = pPrincipal.x - 100;
+    sofia.y = pPrincipal.y;
+    sofia.loop = true;
+    sofia.play();
+    c.slide(sofia, widhwindow, sofia.y, 500, "smoothstep", true);
+
+
+    frames = [];
+    for (let i = 1; i < 10; i++) {
+        frames.push(PIXI.Texture.from(`Chica000${i}.png`));
+    }
+    anim = new PIXI.AnimatedSprite(frames);
+    app.stage.addChild(anim);
+    anim.scale.set(0.5);
+    anim.animationSpeed = 0.2;
+    anim.x = pPrincipal.x - 100;
+    anim.y = pPrincipal.y;
+    anim.loop = true;
+
+    sofia.onComplete = function () {
+        console.log("complete sofia");
         //window.location.href = url_base + "capitulo1";
     };
 }
