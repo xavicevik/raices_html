@@ -438,7 +438,6 @@ function onAssetsLoaded2() {
         const val = i < 10 ? `0${i}` : i;
         // magically works since the spritesheet was loaded with the pixi loader
         frames.push(PIXI.Texture.from(`Sofia_TQ_Tiras_Camina_Parpadea00${val}.png`));
-        //frames.push(PIXI.Texture.from(`Sofia_TQ_Tiras_Camina_Parpadea00${val}.png`));
         //frames.push(PIXI.Texture.from(`rollSequence00${val}.png`));
     }
     sofia = new PIXI.AnimatedSprite(frames);
