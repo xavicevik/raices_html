@@ -2,9 +2,16 @@ usuario = "Javier";
 
 console.log(usuario);
 // Definición de variables
+const aspecCanvas = innerWidth / innerHeight;
+console.log(aspecCanvas);
 const aspectRatio = 16/9;
-var heightwindow = innerHeight - 80;
-var widhwindow = aspectRatio * heightwindow;
+if (aspecCanvas > 1.5) {
+    var heightwindow = innerHeight - 80;
+    var widhwindow = aspectRatio * heightwindow;
+} else {
+    var widhwindow = innerWidth;
+    var heightwindow = (widhwindow/aspectRatio) - 80;
+}
 var resolucionx = 1000;
 var resoluciony = resolucionx/aspectRatio;
 var widthRelativo = widhwindow/resolucionx;
@@ -16,6 +23,7 @@ var app = new PIXI.Application({width:widhwindow , height:heightwindow});
 app.renderer.backgroundColor = 0x061639;
 app.renderer.autoRezise = true;
 document.getElementById('mainpage').appendChild(app.view);
+app.stop();
 
 // Se define elemento de movimiento
 var c = new Charm(PIXI);
@@ -31,11 +39,12 @@ app.stage.addChild(fondo);
 // Titulo
 var iTitulo = PIXI.Sprite.from('../static/assets/img/titulo.png');
 var ratioTitulo = iTitulo.width / iTitulo.height;
-iTitulo.width = 800*widthRelativo;
-iTitulo.height = iTitulo.width / ratioTitulo;
+//iTitulo.width = 800*widthRelativo;
+//iTitulo.height = iTitulo.width / ratioTitulo;
+iTitulo.scale.set((800*widthRelativo)/(iTitulo.width));
+console.log(iTitulo.width+","+iTitulo.height);
 iTitulo.anchor.set(0.5);
-iTitulo.x = widhwindow / 2;
-iTitulo.y = heightwindow / 2;
+iTitulo.position.set(widhwindow / 2, heightwindow / 2)
 app.stage.addChild(iTitulo);
 
 // Pergamino
@@ -106,10 +115,10 @@ bPergamino.on('pointerover', onMouseOverBoton);
 bPergamino.on('pointerout', onMouseNotOverBoton);
 bPergamino.on('pointerdown', onClick);
 
-
 setup();
 function setup(delta) {
     console.log("inicializando");
+    app.start();
     app.ticker.add(delta => gameloop(delta));
 }
 

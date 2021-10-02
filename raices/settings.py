@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'raices',
-    'clear_cache',
+    #'clear_cache',
     'app',
     'widget_tweaks',
     'django_bootstrap5',
