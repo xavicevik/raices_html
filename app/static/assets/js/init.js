@@ -445,7 +445,7 @@ function onAssetsLoaded2() {
     sofia.scale.set(1);
     sofia.animationSpeed = 0.2;
     sofia.x = pPrincipal.x - 100;
-    sofia.y = pPrincipal.y;
+    sofia.y = pPrincipal.yimpBenin;
     sofia.loop = true;
     sofia.play();
     c.slide(sofia, widhwindow, sofia.y, 500, "smoothstep", true);
