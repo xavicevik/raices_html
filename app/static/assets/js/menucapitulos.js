@@ -1,5 +1,4 @@
 usuario = "Javier";
-var url_base = "http://127.0.0.1:8000/";
 
 // Definición de variables
 const aspecCanvas = innerWidth / innerHeight;
@@ -43,8 +42,8 @@ app.stop();
 
 // Se define elemento de movimiento
 var c = new Charm(PIXI);
-
-let fondo = PIXI.Sprite.from('../static/assets/img/fondo.jpg');
+// Se define el fondo de los capítulos
+let fondo = PIXI.Sprite.from('../static/assets/img/Mundos_01c.png');
 fondo.width = widhwindow;
 fondo.height = heightwindow;
 fondo.anchor.set(0.5);
@@ -52,29 +51,33 @@ fondo.x = widhwindow / 2;
 fondo.y = heightwindow / 2;
 app.stage.addChild(fondo);
 
-// Titulo
-app.loader.add('titulo', '../static/assets/img/titulo.png')
-    .add('iPergamino', '../static/assets/img/pergamino.png')
-    .add('menu1', '../static/assets/images/impBenin.png')
-    .add('menu2', '../static/assets/images/impKon.png')
-    .add('menu3', '../static/assets/images/impMali.png')
-    .add('menu4', '../static/assets/images/impYolofo.png')
-
-    .load(startup);
+// Se cargan los objetos y animaciones
 var iTitulo;
 var ratioTitulo;
-var menuCapitulos;
 var iPergamino;
 var ratio;
+var iCapitulo1, iCapitulo2, iCapitulo3, iCapitulo4, iCapitulo5, iCapitulo6;
+var bInicio, bAtras;
+
+app.loader.add('titulo', '../static/assets/img/titulo.png')
+    .add('capitulo1', '../static/assets/img/menu/iCapitulo1.png')
+    .add('capitulo2', '../static/assets/img/menu/iCapitulo2.png')
+    .add('capitulo3', '../static/assets/img/menu/iCapitulo3.png')
+    .add('capitulo4', '../static/assets/img/menu/iCapitulo4.png')
+    .add('capitulo5', '../static/assets/img/menu/iCapitulo5.png')
+    .add('capitulo6', '../static/assets/img/menu/iCapitulo6.png')
+    .add('bInicio', '../static/assets/img/botones/inicio.png')
+    .add('bAtras', '../static/assets/img/botones/atras.png')
+    .load(startup);
 
 function startup() {
     iTitulo = PIXI.Sprite.from(app.loader.resources.titulo.texture);
     ratioTitulo = iTitulo.width / iTitulo.height;
     iTitulo.anchor.set(0.5);
-    iTitulo.scale.set((800*widthRelativo)/(iTitulo.width));
-    iTitulo.position.set(widhwindow / 2, heightwindow / 2)
+    iTitulo.scale.set((200*widthRelativo)/(iTitulo.width));
+    iTitulo.position.set(widhwindow / 2, heightwindow / 16);
     app.stage.addChild(iTitulo);
-
+/*
     // Pergamino
     menuCapitulos = new PIXI.Container();
     iPergamino = PIXI.Sprite.from(app.loader.resources.iPergamino.texture);
@@ -85,39 +88,80 @@ function startup() {
     menuCapitulos.height = iPergamino.height;
     menuCapitulos.width = iPergamino.width;
     menuCapitulos.addChild(iPergamino);
-
+*/
     // Menú principl
     // Menú de capitulos
-    var menuCapitulos_opcion1 = PIXI.Sprite.from(app.loader.resources.menu1.texture);
-    var menuCapitulos_opcion2 = PIXI.Sprite.from(app.loader.resources.menu2.texture);
-    var menuCapitulos_opcion3 = PIXI.Sprite.from(app.loader.resources.menu3.texture);
-    var menuCapitulos_opcion4 = PIXI.Sprite.from(app.loader.resources.menu4.texture);
-    menuCapitulos_opcion1.scale.set((60*heightRelativo)/menuCapitulos_opcion1.width);
-    menuCapitulos_opcion2.scale.set((60*heightRelativo)/menuCapitulos_opcion2.width);
-    menuCapitulos_opcion3.scale.set((60*heightRelativo)/menuCapitulos_opcion3.width);
-    menuCapitulos_opcion4.scale.set((60*heightRelativo)/menuCapitulos_opcion4.width);
+    iCapitulo1 = PIXI.Sprite.from(app.loader.resources.capitulo1.texture);
+    iCapitulo2 = PIXI.Sprite.from(app.loader.resources.capitulo2.texture);
+    iCapitulo3 = PIXI.Sprite.from(app.loader.resources.capitulo3.texture);
+    iCapitulo4 = PIXI.Sprite.from(app.loader.resources.capitulo4.texture);
+    iCapitulo5 = PIXI.Sprite.from(app.loader.resources.capitulo5.texture);
+    iCapitulo6 = PIXI.Sprite.from(app.loader.resources.capitulo6.texture);
 
-    menuCapitulos_opcion1.interactive = true;
-    menuCapitulos_opcion1.buttonMode = true;
-    menuCapitulos_opcion1.on('pointerover', (event) => onMouseOverMenuCapitulo(menuCapitulos_opcion1));
-    menuCapitulos_opcion1.on('pointerout', (event) => onMouseNotOverMenuCapitulo(menuCapitulos_opcion1))
-    menuCapitulos_opcion1.on('pointerdown', (event) => onClickMenuCapitulo("capitulo1"))
-    menuCapitulos_opcion2.interactive = true;
-    menuCapitulos_opcion2.buttonMode = true;
-    menuCapitulos_opcion2.on('pointerover', (event) => onMouseOverMenuCapitulo(menuCapitulos_opcion2));
-    menuCapitulos_opcion2.on('pointerout', (event) => onMouseNotOverMenuCapitulo(menuCapitulos_opcion2))
-    menuCapitulos_opcion2.on('pointerdown', (event) => onClickMenuCapitulo("capitulo2"))
-    menuCapitulos_opcion3.interactive = true;
-    menuCapitulos_opcion3.buttonMode = true;
-    menuCapitulos_opcion3.on('pointerover', (event) => onMouseOverMenuCapitulo(menuCapitulos_opcion3));
-    menuCapitulos_opcion3.on('pointerout', (event) => onMouseNotOverMenuCapitulo(menuCapitulos_opcion3))
-    menuCapitulos_opcion3.on('pointerdown', (event) => onClickMenuCapitulo("capitulo3"))
-    menuCapitulos_opcion4.interactive = true;
-    menuCapitulos_opcion4.buttonMode = true;
-    menuCapitulos_opcion4.on('pointerover', (event) => onMouseOverMenuCapitulo(menuCapitulos_opcion4));
-    menuCapitulos_opcion4.on('pointerout', (event) => onMouseNotOverMenuCapitulo(menuCapitulos_opcion4))
-    menuCapitulos_opcion4.on('pointerdown', (event) => onClickMenuCapitulo("capitulo4"))
+    iCapitulo1.scale.set((140*heightRelativo)/iCapitulo1.width);
+    iCapitulo2.scale.set((140*heightRelativo)/iCapitulo2.width);
+    iCapitulo3.scale.set((140*heightRelativo)/iCapitulo3.width);
+    iCapitulo4.scale.set((140*heightRelativo)/iCapitulo4.width);
+    iCapitulo5.scale.set((140*heightRelativo)/iCapitulo5.width);
+    iCapitulo6.scale.set((140*heightRelativo)/iCapitulo6.width);
 
+    // Acciones de botón
+    iCapitulo1.interactive = true;
+    iCapitulo1.buttonMode = true;
+    iCapitulo1.on('pointerover', onMouseOverBoton);
+    iCapitulo1.on('pointerout', onMouseNotOverBoton);
+    iCapitulo1.on('pointerdown', (event) => onClickMenuCapitulo("capitulo1"))
+    iCapitulo2.interactive = true;
+    iCapitulo2.buttonMode = true;
+    iCapitulo2.on('pointerover', onMouseOverBoton);
+    iCapitulo2.on('pointerout', onMouseNotOverBoton);
+    iCapitulo2.on('pointerdown', (event) => onClickMenuCapitulo("capitulo2"))
+    iCapitulo3.interactive = true;
+    iCapitulo3.buttonMode = true;
+    iCapitulo3.on('pointerover', onMouseOverBoton);
+    iCapitulo3.on('pointerout', onMouseNotOverBoton);
+    iCapitulo3.on('pointerdown', (event) => onClickMenuCapitulo("capitulo3"))
+    iCapitulo4.interactive = true;
+    iCapitulo4.buttonMode = true;
+    iCapitulo4.on('pointerover', onMouseOverBoton);
+    iCapitulo4.on('pointerout', onMouseNotOverBoton);
+    iCapitulo4.on('pointerdown', (event) => onClickMenuCapitulo("capitulo4"))
+    iCapitulo5.interactive = true;
+    iCapitulo5.buttonMode = true;
+    iCapitulo5.on('pointerover', onMouseOverBoton);
+    iCapitulo5.on('pointerout', onMouseNotOverBoton);
+    iCapitulo5.on('pointerdown', (event) => onClickMenuCapitulo("capitulo4"))
+    iCapitulo6.interactive = true;
+    iCapitulo6.buttonMode = true;
+    iCapitulo6.on('pointerover', onMouseOverBoton);
+    iCapitulo6.on('pointerout', onMouseNotOverBoton);
+    iCapitulo6.on('pointerdown', (event) => onClickMenuCapitulo("capitulo4"))
+
+    iCapitulo1.anchor.set(0.5);
+    iCapitulo2.anchor.set(0.5);
+    iCapitulo3.anchor.set(0.5);
+    iCapitulo4.anchor.set(0.5);
+    iCapitulo5.anchor.set(0.5);
+    iCapitulo6.anchor.set(0.5);
+    iCapitulo1.x = 130*widthRelativo;
+    iCapitulo1.y = 330*heightRelativo;
+    iCapitulo2.x = 283*widthRelativo;
+    iCapitulo2.y = 165*heightRelativo;
+    iCapitulo3.x = 400*widthRelativo;
+    iCapitulo3.y = 400*heightRelativo;
+    iCapitulo4.x = 503*widthRelativo;
+    iCapitulo4.y = 145*heightRelativo;
+    iCapitulo5.x = 750*widthRelativo;
+    iCapitulo5.y = 430*heightRelativo;
+    iCapitulo6.x = 850*widthRelativo;
+    iCapitulo6.y = 165*heightRelativo;
+    app.stage.addChild(iCapitulo1);
+    app.stage.addChild(iCapitulo2);
+    app.stage.addChild(iCapitulo3);
+    app.stage.addChild(iCapitulo4);
+    app.stage.addChild(iCapitulo5);
+    app.stage.addChild(iCapitulo6);
+    /*
     const cap1 = new PIXI.Text('Capitulo 1', style2);
     cap1.anchor.set(0.5);
     const cap2 = new PIXI.Text('Capitulo 2', style2);
@@ -126,10 +170,10 @@ function startup() {
     cap3.anchor.set(0.5);
     const cap4 = new PIXI.Text('Capitulo 4', style2);
     cap4.anchor.set(0.5);
-    menuCapitulos.addChild(menuCapitulos_opcion1);
-    menuCapitulos.addChild(menuCapitulos_opcion2);
-    menuCapitulos.addChild(menuCapitulos_opcion3);
-    menuCapitulos.addChild(menuCapitulos_opcion4);
+    menuCapitulos.addChild(iCapitulo1);
+    menuCapitulos.addChild(iCapitulo2);
+    menuCapitulos.addChild(iCapitulo3);
+    menuCapitulos.addChild(iCapitulo4);
     menuCapitulos.addChild(cap1);
     menuCapitulos.addChild(cap2);
     menuCapitulos.addChild(cap3);
@@ -153,10 +197,10 @@ function startup() {
     menuCapitulos.y = 1;
     app.stage.addChild(menuCapitulos);
     //iPergamino.visible = true;
-
+*/
     // boton inicio
-    var bInicio = PIXI.Sprite.from('../static/assets/img/botones/inicio.png');
-    var ratio = bInicio.width / bInicio.height;
+    bInicio = PIXI.Sprite.from(app.loader.resources.bInicio.texture);
+    ratio = bInicio.width / bInicio.height;
     bInicio.width = 70*widthRelativo;
     bInicio.height = bInicio.width / ratio;
     bInicio.anchor.set(0.5);
@@ -165,8 +209,8 @@ function startup() {
     app.stage.addChild(bInicio);
 
     // boton volver
-    var bAtras = PIXI.Sprite.from('../static/assets/img/botones/atras.png');
-    var ratio = bAtras.width / bAtras.height;
+    bAtras = PIXI.Sprite.from(app.loader.resources.bAtras.texture);
+    ratio = bAtras.width / bAtras.height;
     bAtras.width = 70*widthRelativo;
     bAtras.height = bAtras.width / ratio;
     bAtras.anchor.set(0.5);
@@ -210,12 +254,6 @@ function startup() {
     bPergamino.on('pointerover', onMouseOverBoton);
     bPergamino.on('pointerout', onMouseNotOverBoton);
     bPergamino.on('pointerdown', onClick);
-
-    bAdelante.interactive = true;
-    bAdelante.buttonMode = true;
-    bAdelante.on('pointerover', onMouseOverBoton);
-    bAdelante.on('pointerout', onMouseNotOverBoton);
-    bAdelante.on('pointerdown', (event) => onClickButton("menu"));
 }
 
 setup();
@@ -237,10 +275,6 @@ function onMouseOverBoton() {
 function onMouseNotOverBoton(){
     this.width -= 30;
     this.height -= 30;
-}
-
-function onClickButton(object) {
-    window.location.href = url_base + object;
 }
 
 function onClick() {

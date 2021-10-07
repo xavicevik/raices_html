@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from app.views import HistoriaInicio, loginUsuario, logoutUsuario, Intro, CapituloUno, CapituloDos, CapituloTres
+from app.views import HistoriaInicio, loginUsuario, logoutUsuario, Menu, Intro, CapituloUno, CapituloDos, CapituloTres
 from app.views import CapituloCuatro, CapituloCinco, CapituloSeis
 from rest_framework import routers
 from app import views
@@ -33,6 +33,7 @@ urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
     path('intro/', Intro, name="intro"),
+    path('menu/', Menu, name="menu"),
     path('historia/', HistoriaInicio, name="Historia"),
     path('capitulo1', CapituloUno, name="capitulo1"),
     path('capitulo2', CapituloDos, name="capitulo2"),

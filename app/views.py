@@ -27,6 +27,11 @@ def Intro(request):
     return render(request, template_name)
 
 @login_required
+def Menu(request):
+    template_name = 'menu/index.html'
+    return render(request, template_name)
+
+@login_required
 def HistoriaInicio(request):
     template_name = 'historia/index.html'
     return render(request, template_name)
