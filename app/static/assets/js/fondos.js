@@ -1,5 +1,5 @@
 usuario = "Javier";
-var url_base = "http://127.0.0.1:8000/";
+url_base = window.location.origin+"/";
 
 // Definición de variables
 const aspecCanvas = innerWidth / innerHeight;
