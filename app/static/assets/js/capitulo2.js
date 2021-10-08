@@ -44,7 +44,7 @@ document.getElementById('mainpage').appendChild(app.view);
 // Se define elemento de movimiento
 var c = new Charm(PIXI);
 // Se define el fondo de los capítulos
-let fondo = PIXI.Sprite.from('../static/assets/img/fondo_.png');
+let fondo = PIXI.Sprite.from('../static/assets/img/fondooriginal.jpeg');
 fondo.width = widhwindow;
 fondo.height = heightwindow;
 fondo.anchor.set(0.5);

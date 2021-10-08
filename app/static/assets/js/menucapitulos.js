@@ -1,4 +1,5 @@
 usuario = "Javier";
+url_base = window.location.origin+"/";
 
 // Definición de variables
 const aspecCanvas = innerWidth / innerHeight;
@@ -18,13 +19,13 @@ var timeInterval = 0;
 
 const style2 = new PIXI.TextStyle({
     fontFamily: 'Verdana',
-    fontSize: 14*widthRelativo,
-    fontStyle: 'italic',
+    fontSize: 20,
+    //fontStyle: 'italic',
     fontWeight: 'bold',
     stroke: '#ffffff',
     strokeThickness: 5,
     dropShadow: true,
-    dropShadowColor: '#000000',
+    //dropShadowColor: '#000000',
     dropShadowBlur: 4,
     dropShadowAngle: Math.PI / 6,
     dropShadowDistance: 6,
@@ -149,12 +150,42 @@ function startup() {
     iCapitulo2.y = 165*heightRelativo;
     iCapitulo3.x = 400*widthRelativo;
     iCapitulo3.y = 400*heightRelativo;
-    iCapitulo4.x = 503*widthRelativo;
-    iCapitulo4.y = 145*heightRelativo;
+    iCapitulo4.x = 610*widthRelativo;
+    iCapitulo4.y = 132*heightRelativo;
     iCapitulo5.x = 750*widthRelativo;
     iCapitulo5.y = 430*heightRelativo;
     iCapitulo6.x = 850*widthRelativo;
     iCapitulo6.y = 165*heightRelativo;
+
+    const sbCap1 = new PIXI.Text('Africa Tierra Imperial', style2);
+    const sbCap2 = new PIXI.Text('Llegada a un nuevo mundo', style2);
+    const sbCap3 = new PIXI.Text('Actividades económicas y sociales', style2);
+    const sbCap4 = new PIXI.Text('Camino a la libertad', style2);
+    const sbCap5 = new PIXI.Text('Cultura Afrodescendiente', style2);
+    const sbCap6 = new PIXI.Text('Emprendimiento Acrocolombiano', style2);
+    sbCap1.anchor.set(0.5);
+    sbCap2.anchor.set(0.5);
+    sbCap3.anchor.set(0.5);
+    sbCap4.anchor.set(0.5);
+    sbCap5.anchor.set(0.5);
+    sbCap6.anchor.set(0.5);
+    sbCap1.scale.set((200*heightRelativo)/sbCap1.width);
+    sbCap1.x = 130*widthRelativo;
+    sbCap1.y = 395*heightRelativo;
+    app.stage.addChild(sbCap1);
+    sbCap2.scale.set((250*heightRelativo)/sbCap2.width);
+    sbCap2.x = 281*widthRelativo;
+    sbCap2.y = 233*heightRelativo;
+    app.stage.addChild(sbCap2);
+    sbCap3.scale.set((250*heightRelativo)/sbCap3.width);
+    sbCap3.x = 439*widthRelativo;
+    sbCap3.y = 502*heightRelativo;
+    app.stage.addChild(sbCap3);
+    sbCap4.scale.set((250*heightRelativo)/sbCap4.width);
+    sbCap4.x = 604*widthRelativo;
+    sbCap4.y = 190*heightRelativo;
+    app.stage.addChild(sbCap4);
+
     app.stage.addChild(iCapitulo1);
     app.stage.addChild(iCapitulo2);
     app.stage.addChild(iCapitulo3);
@@ -275,6 +306,10 @@ function onMouseOverBoton() {
 function onMouseNotOverBoton(){
     this.width -= 30;
     this.height -= 30;
+}
+
+function onClickMenuCapitulo(object) {
+    window.location.href = url_base + object;
 }
 
 function onClick() {
