@@ -54,6 +54,8 @@ app.stage.addChild(fondo);
 
 // Titulo
 app.loader.add('titulo', '../static/assets/img/titulo.png')
+    .add('raicestitulo', '../static/assets/images/raicesinicio.json')
+    .add('botoninicio', '../static/assets/images/botoninicio.json')
     .add('iPergamino', '../static/assets/img/pergamino.png')
     .add('menu1', '../static/assets/images/impBenin.png')
     .add('menu2', '../static/assets/images/impKon.png')
@@ -66,14 +68,59 @@ var ratioTitulo;
 var menuCapitulos;
 var iPergamino;
 var ratio;
+var frames;
+var iTituloResource, iTitulo, bInicio;
 
 function startup() {
+    frames = [];
+    iTituloResource = app.loader.resources.sofia;
+/*
     iTitulo = PIXI.Sprite.from(app.loader.resources.titulo.texture);
     ratioTitulo = iTitulo.width / iTitulo.height;
     iTitulo.anchor.set(0.5);
     iTitulo.scale.set((800*widthRelativo)/(iTitulo.width));
     iTitulo.position.set(widhwindow / 2, heightwindow / 2)
     app.stage.addChild(iTitulo);
+*/
+    // create an array of textures from an image path
+    for (let i = 1; i < 16; i++) {
+        //const val = i < 10 ? `0${i}` : i;
+        frames.push(PIXI.Texture.from(`Tiempo de carga animacio0001 (${i}).png`));
+    }
+
+    iTitulo = new PIXI.AnimatedSprite(frames);
+    iTitulo.onComplete = function () {
+        console.log("termino load");
+        window.location.href = url_base + "menu";
+    };
+    ratioTitulo = iTitulo.width / iTitulo.height;
+    iTitulo.anchor.set(0.5);
+    iTitulo.animationSpeed = 0.1;
+    iTitulo.scale.set((800*widthRelativo)/(iTitulo.width));
+    iTitulo.position.set(widhwindow / 2, heightwindow / 2);
+    iTitulo.loop = false;
+    iTitulo.stop();
+    app.stage.addChild(iTitulo);
+
+    // create an array of textures from an image path
+    frames = [];
+    for (let i = 1; i < 4; i++) {
+        frames.push(PIXI.Texture.from(`Boton de centro0001 (${i}).png`));
+    }
+    bInicio = new PIXI.AnimatedSprite(frames);
+    ratioTitulo = bInicio.width / bInicio.height;
+    bInicio.anchor.set(0.5);
+    bInicio.animationSpeed = 0.1;
+    bInicio.scale.set((55*widthRelativo)/(bInicio.width));
+    bInicio.position.set(478*widthRelativo, 379*heightRelativo);
+    bInicio.loop = true;
+    bInicio.play();
+    bInicio.interactive = true;
+    bInicio.buttonMode = true;
+    bInicio.on('pointerover', onMouseOverBoton);
+    bInicio.on('pointerout', onMouseNotOverBoton);
+    bInicio.on('pointerdown', onClickInicio);
+    app.stage.addChild(bInicio);
 
     // Pergamino
     menuCapitulos = new PIXI.Container();
@@ -234,6 +281,7 @@ function onMouseOverBoton() {
     this.height += 30;
 }
 
+
 function onMouseNotOverBoton(){
     this.width -= 30;
     this.height -= 30;
@@ -241,6 +289,10 @@ function onMouseNotOverBoton(){
 
 function onClickButton(object) {
     window.location.href = url_base + object;
+}
+
+function onClickInicio() {
+    iTitulo.play();
 }
 
 function onClick() {

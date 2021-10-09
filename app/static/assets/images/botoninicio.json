@@ -1,0 +1,36 @@
+{"frames": {
+
+"Boton de centro0001 (1).png":
+{
+	"frame": {"x":0,"y":0,"w":91,"h":91},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":91,"h":91},
+	"sourceSize": {"w":91,"h":91}
+},
+"Boton de centro0001 (2).png":
+{
+	"frame": {"x":91,"y":0,"w":91,"h":91},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":91,"h":91},
+	"sourceSize": {"w":91,"h":91}
+},
+"Boton de centro0001 (3).png":
+{
+	"frame": {"x":182,"y":0,"w":91,"h":91},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":91,"h":91},
+	"sourceSize": {"w":91,"h":91}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "botoninicio.png",
+	"format": "RGBA8888",
+	"size": {"w":273,"h":91},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:d9a41033c9b34431deab75ce2be54b91:2e94154dcbb431078607b5d22e57524c:def99050e751d0bb5599db398a56f08f$"
+}
+}
