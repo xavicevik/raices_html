@@ -53,8 +53,9 @@ fondo.anchor.set(0.5);
 fondo.x = widhwindow / 2;
 fondo.y = heightwindow / 2;
 app.stage.addChild(fondo);
-//fondo.visible = false;
+fondo.visible = false;
 
+/*
 iLoading = PIXI.Sprite.from('../static/assets/images/impBenin.png');
 iLoading.anchor.set(0.5);
 iLoading.scale.set(0.5);
@@ -66,7 +67,7 @@ tLoading.anchor.set(0.5);
 tLoading.x = widhwindow / 2;
 tLoading.y = (heightwindow / 2) +150;
 app.stage.addChild(tLoading);
-
+*/
 // Se cargan los objetos y animaciones
 var iTitulo;
 var ratioTitulo;
@@ -96,7 +97,6 @@ loader.onProgress.add(() => loading());
 
 function loading() {
 
-    wait(300);
 }
 
 function wait(ms){
