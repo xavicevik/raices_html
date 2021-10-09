@@ -84,7 +84,7 @@ loader.add('titulo', '../static/assets/img/titulo.png')
     .add('personaje', '../static/assets/img/personajes/principal.png')
     .add('mapa', '../static/assets/img/mapa1.png')
     .add('nube', '../static/assets/img/nube.png')
-    .add('story1', '../static/assets/img/prueba.json')
+    .add('story1', '../static/assets/img/storycapitulo1.json')
     .add('iPergamino', '../static/assets/img/pergamino.png')
     //.add('capitulo4', '../static/assets/img/menu/iCapitulo4.png')
     //.add('capitulo5', '../static/assets/img/menu/iCapitulo5.png')
@@ -111,7 +111,7 @@ function startup() {
     console.log("ruta: "+ loader.resources.story1.data.url);
     let urlsStory = loader.resources.story1.data.url;
     frames = [];
-    for (let i = 1; i < 13; i++) {
+    for (let i = 1; i < 24; i++) {
         //const val = i < 10 ? `0${i}` : i;
         //console.log(urlsStory[i]);
         frames.push(PIXI.Texture.from(urlsStory[i]));
@@ -258,7 +258,7 @@ function onClickMenuCapitulo(object) {
 function onClickStory(object) {
     //console.log(rStory1.currentFrame + 1);
     if (object == "adelante") {
-        if (rStory1.currentFrame < 11) {
+        if (rStory1.currentFrame < 22) {
             rStory1.gotoAndStop(rStory1.currentFrame + 1);
         } else {
             app.stage.removeChild(rStory1);
