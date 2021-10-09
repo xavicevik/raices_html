@@ -16,6 +16,7 @@ var resoluciony = resolucionx/aspectRatio;
 var widthRelativo = widhwindow/resolucionx;
 var heightRelativo = heightwindow/resoluciony;
 var timeInterval = 0;
+var iLoading;
 
 const style2 = new PIXI.TextStyle({
     fontFamily: 'Verdana',
@@ -44,6 +45,7 @@ document.getElementById('mainpage').appendChild(app.view);
 // Se define elemento de movimiento
 var c = new Charm(PIXI);
 // Se define el fondo de los capítulos
+
 let fondo = PIXI.Sprite.from('../static/assets/img/fondo_.png');
 fondo.width = widhwindow;
 fondo.height = heightwindow;
@@ -51,19 +53,38 @@ fondo.anchor.set(0.5);
 fondo.x = widhwindow / 2;
 fondo.y = heightwindow / 2;
 app.stage.addChild(fondo);
+//fondo.visible = false;
 
+iLoading = PIXI.Sprite.from('../static/assets/images/impBenin.png');
+iLoading.anchor.set(0.5);
+iLoading.scale.set(0.5);
+iLoading.x = widhwindow / 2;
+iLoading.y = heightwindow / 2;
+app.stage.addChild(iLoading);
+var tLoading = new PIXI.Text('Loading...');
+tLoading.anchor.set(0.5);
+tLoading.x = widhwindow / 2;
+tLoading.y = (heightwindow / 2) +150;
+app.stage.addChild(tLoading);
 
 // Se cargan los objetos y animaciones
 var iTitulo;
 var ratioTitulo;
 var pPrincipal;
 var iMapa;
+var rStory1;
+var frames;
+var iPergamino;
+var menuCapitulos;
+var ratio;
 
-
-app.loader.add('titulo', '../static/assets/img/titulo.png')
+const loader = new PIXI.Loader();
+loader.add('titulo', '../static/assets/img/titulo.png')
     .add('personaje', '../static/assets/img/personajes/principal.png')
     .add('mapa', '../static/assets/img/mapa1.png')
     .add('nube', '../static/assets/img/nube.png')
+    .add('story1', '../static/assets/img/prueba.json')
+    .add('iPergamino', '../static/assets/img/pergamino.png')
     //.add('capitulo4', '../static/assets/img/menu/iCapitulo4.png')
     //.add('capitulo5', '../static/assets/img/menu/iCapitulo5.png')
     //.add('capitulo6', '../static/assets/img/menu/iCapitulo6.png')
@@ -71,20 +92,78 @@ app.loader.add('titulo', '../static/assets/img/titulo.png')
     //.add('bAtras', '../static/assets/img/botones/atras.png')
     .load(startup);
 
+loader.onProgress.add(() => loading());
+
+function loading() {
+
+    wait(300);
+}
+
+function wait(ms){
+    var start = new Date().getTime();
+    var end = start;
+    while(end < start + ms) {
+      end = new Date().getTime();
+   }
+ }
+
 function startup() {
-    pPrincipal = PIXI.Sprite.from(app.loader.resources.personaje.texture);
+    console.log("ruta: "+ loader.resources.story1.data.url);
+    let urlsStory = loader.resources.story1.data.url;
+    frames = [];
+    for (let i = 1; i < 13; i++) {
+        //const val = i < 10 ? `0${i}` : i;
+        //console.log(urlsStory[i]);
+        frames.push(PIXI.Texture.from(urlsStory[i]));
+    }
+
+    rStory1 = new PIXI.AnimatedSprite(frames);
+    rStory1.onComplete = function () {
+        console.log("termino load Storyboard");
+        //console.log(rStory1.currentFrame);
+        //window.location.href = url_base + "menu";
+    };
+    ratioTitulo = rStory1.width / rStory1.height;
+    rStory1.anchor.set(0.5);
+    rStory1.animationSpeed = 0.01;
+    rStory1.height = heightwindow;
+    rStory1.width = widhwindow;
+    rStory1.position.set(widhwindow / 2, heightwindow / 2);
+    rStory1.loop = false;
+    rStory1.stop();
+    app.stage.addChild(rStory1);
+
+    menuCapitulos = new PIXI.Container();
+    iPergamino = PIXI.Sprite.from(loader.resources.iPergamino.texture);
+    ratio = iPergamino.width / iPergamino.height;
+    iPergamino.height = heightwindow
+    iPergamino.width = iPergamino.height * ratio;
+    iPergamino.anchor.set(0.0);
+    menuCapitulos.height = iPergamino.height;
+    menuCapitulos.width = iPergamino.width;
+    menuCapitulos.addChild(iPergamino);
+    menuCapitulos.x = 1;
+    menuCapitulos.y = 1;
+    app.stage.addChild(menuCapitulos);
+
+
+
+
+    pPrincipal = PIXI.Sprite.from(loader.resources.personaje.texture);
     ratioTitulo = pPrincipal.width / pPrincipal.height;
     pPrincipal.anchor.set(0.5);
     pPrincipal.scale.set((300*widthRelativo)/(pPrincipal.width));
     pPrincipal.position.set(200*widthRelativo, heightwindow / 2);
     app.stage.addChild(pPrincipal);
+    pPrincipal.visible = false;
 
-    iMapa = PIXI.Sprite.from(app.loader.resources.mapa.texture);
+    iMapa = PIXI.Sprite.from(loader.resources.mapa.texture);
     ratioTitulo = iMapa.width / iMapa.height;
     iMapa.anchor.set(0.5);
     iMapa.scale.set((500*widthRelativo)/(iMapa.width));
     iMapa.position.set(700*widthRelativo, heightwindow / 2);
     app.stage.addChild(iMapa);
+    iMapa.visible = false;
 
     // boton inicio
     var bInicio = PIXI.Sprite.from('../static/assets/img/botones/inicio.png');
@@ -141,8 +220,25 @@ function startup() {
     bInicio.buttonMode = true;
     bInicio.on('pointerover', onMouseOverBoton);
     bInicio.on('pointerout', onMouseNotOverBoton);
-    bInicio.on('pointerdown', (event) => onClickMenuCapitulo("menu"))
+    bInicio.on('pointerdown', (event) => onClickMenuCapitulo("menu"));
 
+    bAdelante.interactive = true;
+    bAdelante.buttonMode = true;
+    bAdelante.on('pointerover', onMouseOverBoton);
+    bAdelante.on('pointerout', onMouseNotOverBoton);
+    bAdelante.on('pointerdown', (event) => onClickStory("adelante"));
+
+    bAtras.interactive = true;
+    bAtras.buttonMode = true;
+    bAtras.on('pointerover', onMouseOverBoton);
+    bAtras.on('pointerout', onMouseNotOverBoton);
+    bAtras.on('pointerdown', (event) => onClickStory("atras"));
+
+}
+
+function capitulo1() {
+    fondo.visible = true;
+    pPrincipal.visible = true;
 }
 
 function onMouseOverBoton() {
@@ -157,4 +253,21 @@ function onMouseNotOverBoton(){
 
 function onClickMenuCapitulo(object) {
     window.location.href = url_base + object;
+}
+
+function onClickStory(object) {
+    //console.log(rStory1.currentFrame + 1);
+    if (object == "adelante") {
+        if (rStory1.currentFrame < 11) {
+            rStory1.gotoAndStop(rStory1.currentFrame + 1);
+        } else {
+            app.stage.removeChild(rStory1);
+            app.stage.removeChild(menuCapitulos);
+            capitulo1();
+        }
+    } else {
+        if (rStory1.currentFrame != 0) {
+            rStory1.gotoAndStop(rStory1.currentFrame - 1);
+        }
+    }
 }
