@@ -111,7 +111,7 @@ function startup() {
     console.log("ruta: "+ loader.resources.story1.data.url);
     let urlsStory = loader.resources.story1.data.url;
     frames = [];
-    for (let i = 1; i < 24; i++) {
+    for (let i = 1; i < 15; i++) {
         //const val = i < 10 ? `0${i}` : i;
         //console.log(urlsStory[i]);
         frames.push(PIXI.Texture.from(urlsStory[i]));
@@ -119,7 +119,7 @@ function startup() {
 
     rStory1 = new PIXI.AnimatedSprite(frames);
     rStory1.onComplete = function () {
-        console.log("termino load Storyboard");
+        console.log("Termino load Storyboard");
         //console.log(rStory1.currentFrame);
         //window.location.href = url_base + "menu";
     };
@@ -141,7 +141,7 @@ function startup() {
     iPergamino.anchor.set(0.0);
     menuCapitulos.height = iPergamino.height;
     menuCapitulos.width = iPergamino.width;
-    menuCapitulos.addChild(iPergamino);
+    //menuCapitulos.addChild(iPergamino);
     menuCapitulos.x = 1;
     menuCapitulos.y = 1;
     app.stage.addChild(menuCapitulos);
@@ -258,7 +258,7 @@ function onClickMenuCapitulo(object) {
 function onClickStory(object) {
     //console.log(rStory1.currentFrame + 1);
     if (object == "adelante") {
-        if (rStory1.currentFrame < 22) {
+        if (rStory1.currentFrame < 13) {
             rStory1.gotoAndStop(rStory1.currentFrame + 1);
         } else {
             app.stage.removeChild(rStory1);
