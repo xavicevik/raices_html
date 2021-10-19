@@ -19,18 +19,19 @@ var timeInterval = 0;
 
 const style2 = new PIXI.TextStyle({
     fontFamily: 'Verdana',
-    fontSize: 20,
+    fontSize: 40,
     //fontStyle: 'italic',
     fontWeight: 'bold',
     stroke: '#ffffff',
-    strokeThickness: 5,
-    dropShadow: true,
+    //strokeThickness: 5,
+    //dropShadow: true,
     //dropShadowColor: '#000000',
     dropShadowBlur: 4,
     dropShadowAngle: Math.PI / 6,
     dropShadowDistance: 6,
-    wordWrap: true,
-    wordWrapWidth: 440,
+    align: "center",
+    //wordWrap: true,
+    //wordWrapWidth: 440,
     lineJoin: 'round',
 });
 
@@ -74,9 +75,9 @@ app.loader.add('titulo', '../static/assets/img/titulo.png')
 function startup() {
     iTitulo = PIXI.Sprite.from(app.loader.resources.titulo.texture);
     ratioTitulo = iTitulo.width / iTitulo.height;
-    iTitulo.anchor.set(0.5);
-    iTitulo.scale.set((200*widthRelativo)/(iTitulo.width));
-    iTitulo.position.set(widhwindow / 2, heightwindow / 16);
+    //iTitulo.anchor.set(0.5);
+    iTitulo.scale.set((250*widthRelativo)/(iTitulo.width));
+    iTitulo.position.set(10, 10);
     app.stage.addChild(iTitulo);
 /*
     // Pergamino
@@ -148,43 +149,45 @@ function startup() {
     iCapitulo1.y = 330*heightRelativo;
     iCapitulo2.x = 283*widthRelativo;
     iCapitulo2.y = 165*heightRelativo;
-    iCapitulo3.x = 400*widthRelativo;
-    iCapitulo3.y = 400*heightRelativo;
+    iCapitulo3.x = 455*widthRelativo;
+    iCapitulo3.y = 439*heightRelativo;
     iCapitulo4.x = 610*widthRelativo;
     iCapitulo4.y = 132*heightRelativo;
-    iCapitulo5.x = 750*widthRelativo;
-    iCapitulo5.y = 430*heightRelativo;
-    iCapitulo6.x = 850*widthRelativo;
-    iCapitulo6.y = 165*heightRelativo;
+    iCapitulo5.x = 765*widthRelativo;
+    iCapitulo5.y = 377*heightRelativo;
+    iCapitulo6.x = 900*widthRelativo;
+    iCapitulo6.y = 147*heightRelativo;
 
-    const sbCap1 = new PIXI.Text('Africa Tierra Imperial', style2);
-    const sbCap2 = new PIXI.Text('Llegada a un nuevo mundo', style2);
-    const sbCap3 = new PIXI.Text('Actividades económicas y sociales', style2);
+    const sbCap1 = new PIXI.Text('Africa \nTierra Imperial', style2);
+    const sbCap2 = new PIXI.Text('Llegada a America', style2);
+    const sbCap3 = new PIXI.Text('Actividades \neconómicas y sociales', style2);
     const sbCap4 = new PIXI.Text('Camino a la libertad', style2);
-    const sbCap5 = new PIXI.Text('Cultura Afrodescendiente', style2);
-    const sbCap6 = new PIXI.Text('Emprendimiento Acrocolombiano', style2);
+    const sbCap5 = new PIXI.Text('Cultura \nAfrodescendiente', style2);
+    const sbCap6 = new PIXI.Text('Emprendimiento \nAfrocolombiano', style2);
     sbCap1.anchor.set(0.5);
     sbCap2.anchor.set(0.5);
     sbCap3.anchor.set(0.5);
     sbCap4.anchor.set(0.5);
     sbCap5.anchor.set(0.5);
     sbCap6.anchor.set(0.5);
-    sbCap1.scale.set((200*heightRelativo)/sbCap1.width);
+    sbCap1.scale.set((150*heightRelativo)/sbCap1.width);
     sbCap1.x = 130*widthRelativo;
     sbCap1.y = 395*heightRelativo;
-    app.stage.addChild(sbCap1);
-    sbCap2.scale.set((250*heightRelativo)/sbCap2.width);
+    sbCap2.scale.set((150*heightRelativo)/sbCap2.width);
     sbCap2.x = 281*widthRelativo;
     sbCap2.y = 233*heightRelativo;
-    app.stage.addChild(sbCap2);
-    sbCap3.scale.set((250*heightRelativo)/sbCap3.width);
+    sbCap3.scale.set((150*heightRelativo)/sbCap3.width);
     sbCap3.x = 439*widthRelativo;
     sbCap3.y = 502*heightRelativo;
-    app.stage.addChild(sbCap3);
-    sbCap4.scale.set((250*heightRelativo)/sbCap4.width);
+    sbCap4.scale.set((150*heightRelativo)/sbCap4.width);
     sbCap4.x = 604*widthRelativo;
     sbCap4.y = 190*heightRelativo;
-    app.stage.addChild(sbCap4);
+    sbCap5.scale.set((150*heightRelativo)/sbCap5.width);
+    sbCap5.x = 761*widthRelativo;
+    sbCap5.y = 432*heightRelativo;
+    sbCap6.scale.set((150*heightRelativo)/sbCap6.width);
+    sbCap6.x = 900*widthRelativo;
+    sbCap6.y = 210*heightRelativo;
 
     app.stage.addChild(iCapitulo1);
     app.stage.addChild(iCapitulo2);
@@ -192,6 +195,14 @@ function startup() {
     app.stage.addChild(iCapitulo4);
     app.stage.addChild(iCapitulo5);
     app.stage.addChild(iCapitulo6);
+
+    app.stage.addChild(sbCap1);
+    app.stage.addChild(sbCap2);
+    app.stage.addChild(sbCap3);
+    app.stage.addChild(sbCap4);
+    app.stage.addChild(sbCap5);
+    app.stage.addChild(sbCap6);
+
     /*
     const cap1 = new PIXI.Text('Capitulo 1', style2);
     cap1.anchor.set(0.5);
@@ -247,7 +258,7 @@ function startup() {
     bAtras.anchor.set(0.5);
     bAtras.x = 60;
     bAtras.y = 60;
-    app.stage.addChild(bAtras);
+    //app.stage.addChild(bAtras);
 
     // boton adelante
     var bAdelante = PIXI.Sprite.from('../static/assets/img/botones/adelante.png');
@@ -257,7 +268,7 @@ function startup() {
     bAdelante.anchor.set(0.5);
     bAdelante.x = widhwindow - 60;
     bAdelante.y = 60;
-    app.stage.addChild(bAdelante);
+    //app.stage.addChild(bAdelante);
 
     // boton menu
     var bMenu = PIXI.Sprite.from('../static/assets/img/botones/menu.png');
@@ -277,7 +288,7 @@ function startup() {
     bPergamino.anchor.set(0.5);
     bPergamino.x = widhwindow /2;
     bPergamino.y = heightwindow - 60;
-    app.stage.addChild(bPergamino);
+    //app.stage.addChild(bPergamino);
 
     // Acción de boton
     bPergamino.interactive = true;

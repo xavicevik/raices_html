@@ -219,7 +219,7 @@ function startup() {
     bAtras.anchor.set(0.5);
     bAtras.x = 60;
     bAtras.y = 60;
-    app.stage.addChild(bAtras);
+    //app.stage.addChild(bAtras);
 
     // boton adelante
     var bAdelante = PIXI.Sprite.from('../static/assets/img/botones/adelante.png');
@@ -229,7 +229,7 @@ function startup() {
     bAdelante.anchor.set(0.5);
     bAdelante.x = widhwindow - 60;
     bAdelante.y = 60;
-    app.stage.addChild(bAdelante);
+    //app.stage.addChild(bAdelante);
 
     // boton menu
     var bMenu = PIXI.Sprite.from('../static/assets/img/botones/menu.png');
@@ -249,7 +249,7 @@ function startup() {
     bPergamino.anchor.set(0.5);
     bPergamino.x = widhwindow /2;
     bPergamino.y = heightwindow - 60;
-    app.stage.addChild(bPergamino);
+    //app.stage.addChild(bPergamino);
 
     // Acción de boton
     bPergamino.interactive = true;

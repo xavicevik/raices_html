@@ -17,6 +17,7 @@ var widthRelativo = widhwindow/resolucionx;
 var heightRelativo = heightwindow/resoluciony;
 var timeInterval = 0;
 var iLoading;
+var nube1;
 
 const style2 = new PIXI.TextStyle({
     fontFamily: 'Verdana',
@@ -73,7 +74,7 @@ var iTitulo;
 var ratioTitulo;
 var pPrincipal;
 var iMapa;
-var rStory1;
+var rStory1, rKeita;
 var frames;
 var iPergamino;
 var menuCapitulos;
@@ -85,6 +86,7 @@ loader.add('titulo', '../static/assets/img/titulo.png')
     .add('mapa', '../static/assets/img/mapa1.png')
     .add('nube', '../static/assets/img/nube.png')
     .add('story1', '../static/assets/img/storycapitulo1.json')
+    .add('keita', '../static/assets/img/storycapituloKeita.json')
     .add('iPergamino', '../static/assets/img/pergamino.png')
     //.add('capitulo4', '../static/assets/img/menu/iCapitulo4.png')
     //.add('capitulo5', '../static/assets/img/menu/iCapitulo5.png')
@@ -111,7 +113,7 @@ function startup() {
     console.log("ruta: "+ loader.resources.story1.data.url);
     let urlsStory = loader.resources.story1.data.url;
     frames = [];
-    for (let i = 1; i < 15; i++) {
+    for (let i = 1; i < 25; i++) {
         //const val = i < 10 ? `0${i}` : i;
         //console.log(urlsStory[i]);
         frames.push(PIXI.Texture.from(urlsStory[i]));
@@ -132,6 +134,31 @@ function startup() {
     rStory1.loop = false;
     rStory1.stop();
     app.stage.addChild(rStory1);
+
+    let urlsKeita = loader.resources.keita.data.url;
+    frames = [];
+    for (let i = 1; i < 14; i++) {
+        //const val = i < 10 ? `0${i}` : i;
+        //console.log(urlsStory[i]);
+        frames.push(PIXI.Texture.from(urlsKeita[i]));
+    }
+
+    keita = new PIXI.AnimatedSprite(frames);
+    keita.onComplete = function () {
+        console.log("Termino load keita");
+        //console.log(rStory1.currentFrame);
+        //window.location.href = url_base + "menu";
+    };
+    ratioTitulo = keita.width / keita.height;
+    keita.anchor.set(0.5);
+    keita.animationSpeed = 0.3;
+    keita.height = heightwindow;
+    keita.width = widhwindow;
+    keita.position.set(widhwindow / 2, heightwindow / 2);
+    keita.loop = false;
+    keita.stop();
+    keita.visible = false;
+    app.stage.addChild(keita);
 
     menuCapitulos = new PIXI.Container();
     iPergamino = PIXI.Sprite.from(loader.resources.iPergamino.texture);
@@ -234,6 +261,25 @@ function startup() {
     bAtras.on('pointerout', onMouseNotOverBoton);
     bAtras.on('pointerdown', (event) => onClickStory("atras"));
 
+
+    nube1 = PIXI.Sprite.from('../static/assets/img/nube.png');
+    nube1.scale.set(0.3);
+    nube1.x = 50;
+    nube1.y = 50;
+    app.stage.addChild(nube1);
+    nube1.visible = false;
+    c.slide(nube1, widhwindow, 50, 2000, "smoothstep", true);
+
+}
+
+setup();
+function setup(delta) {
+    console.log("inicializando");
+    app.ticker.add(delta => gameloop(delta));
+}
+
+function gameloop(delta) {
+    c.update();
 }
 
 function capitulo1() {
@@ -258,7 +304,7 @@ function onClickMenuCapitulo(object) {
 function onClickStory(object) {
     //console.log(rStory1.currentFrame + 1);
     if (object == "adelante") {
-        if (rStory1.currentFrame < 13) {
+        if (rStory1.currentFrame < 23) {
             rStory1.gotoAndStop(rStory1.currentFrame + 1);
         } else {
             app.stage.removeChild(rStory1);
@@ -269,5 +315,22 @@ function onClickStory(object) {
         if (rStory1.currentFrame != 0) {
             rStory1.gotoAndStop(rStory1.currentFrame - 1);
         }
+    }
+    if (rStory1.currentFrame == 1 || rStory1.currentFrame == 2 || rStory1.currentFrame == 11
+        || rStory1.currentFrame == 12 || rStory1.currentFrame == 12 || rStory1.currentFrame == 13) {
+        console.log("nube visible");
+        nube1.visible = true;
+    } else {
+        console.log("nube invisible");
+        nube1.visible = false;
+    }
+    if (rStory1.currentFrame == 3 || rStory1.currentFrame == 4 || rStory1.currentFrame == 5) {
+        console.log("Keita visible");
+        keita.visible = true;
+        keita.gotoAndPlay(0);
+    } else {
+        console.log("nube invisible");
+        keita.visible = false;
+        keita.stop();
     }
 }
