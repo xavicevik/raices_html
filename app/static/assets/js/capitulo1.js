@@ -74,7 +74,7 @@ var iTitulo;
 var ratioTitulo;
 var pPrincipal;
 var iMapa;
-var rStory1, rKeita;
+var rStory1, rKeita, rVideointro;
 var frames;
 var iPergamino;
 var menuCapitulos;
@@ -87,6 +87,7 @@ loader.add('titulo', '../static/assets/img/titulo.png')
     .add('nube', '../static/assets/img/nube.png')
     .add('story1', '../static/assets/img/storycapitulo1.json')
     .add('keita', '../static/assets/img/storycapituloKeita.json')
+    .add('videointro', '../static/assets/img/storyintro.json')
     .add('iPergamino', '../static/assets/img/pergamino.png')
     //.add('capitulo4', '../static/assets/img/menu/iCapitulo4.png')
     //.add('capitulo5', '../static/assets/img/menu/iCapitulo5.png')
@@ -159,6 +160,31 @@ function startup() {
     keita.stop();
     keita.visible = false;
     app.stage.addChild(keita);
+
+    let urlsVideoIntro = loader.resources.videointro.data.url;
+    frames = [];
+    for (let i = 1; i < 121; i++) {
+        //const val = i < 10 ? `0${i}` : i;
+        //console.log(urlsStory[i]);
+        frames.push(PIXI.Texture.from(urlsVideoIntro[i]));
+    }
+
+    rVideointro = new PIXI.AnimatedSprite(frames);
+    rVideointro.onComplete = function () {
+        console.log("Termino load rVideointro");
+        //console.log(rStory1.currentFrame);
+        //window.location.href = url_base + "menu";
+    };
+    ratioTitulo = rVideointro.width / rVideointro.height;
+    rVideointro.anchor.set(0.5);
+    rVideointro.animationSpeed = 0.2;
+    rVideointro.height = heightwindow;
+    rVideointro.width = widhwindow;
+    rVideointro.position.set(widhwindow / 2, heightwindow / 2);
+    rVideointro.loop = false;
+    rVideointro.play();
+    rVideointro.visible = true;
+    app.stage.addChild(rVideointro);
 
     menuCapitulos = new PIXI.Container();
     iPergamino = PIXI.Sprite.from(loader.resources.iPergamino.texture);
@@ -332,5 +358,15 @@ function onClickStory(object) {
         console.log("nube invisible");
         keita.visible = false;
         keita.stop();
+    }
+
+     if (rStory1.currentFrame == 0) {
+        console.log("Story Video visible");
+        rVideointro.visible = true;
+        rVideointro.gotoAndPlay(0);
+    } else {
+        console.log("Videointro invisible");
+        rVideointro.visible = false;
+        rVideointro.stop();
     }
 }
