@@ -47,7 +47,7 @@ document.getElementById('mainpage').appendChild(app.view);
 var c = new Charm(PIXI);
 // Se define el fondo de los capítulos
 
-let fondo = PIXI.Sprite.from('../static/assets/img/fondo_.png');
+let fondo = PIXI.Sprite.from('../static/assets/img/fondocapitulo1.png');
 fondo.width = widhwindow;
 fondo.height = heightwindow;
 fondo.anchor.set(0.5);
@@ -111,6 +111,14 @@ function wait(ms){
  }
 
 function startup() {
+    iTitulo = PIXI.Sprite.from(loader.resources.titulo.texture);
+    ratioTitulo = iTitulo.width / iTitulo.height;
+    iTitulo.anchor.set(0.5);
+    iTitulo.scale.set((300*widthRelativo)/(iTitulo.width));
+    iTitulo.position.set(widhwindow/2, heightwindow/14);
+    iTitulo.visible = false;
+    app.stage.addChild(iTitulo);
+
     console.log("ruta: "+ loader.resources.story1.data.url);
     let urlsStory = loader.resources.story1.data.url;
     frames = [];
@@ -123,8 +131,6 @@ function startup() {
     rStory1 = new PIXI.AnimatedSprite(frames);
     rStory1.onComplete = function () {
         console.log("Termino load Storyboard");
-        //console.log(rStory1.currentFrame);
-        //window.location.href = url_base + "menu";
     };
     ratioTitulo = rStory1.width / rStory1.height;
     rStory1.anchor.set(0.5);
@@ -171,10 +177,11 @@ function startup() {
 
     rVideointro = new PIXI.AnimatedSprite(frames);
     rVideointro.onComplete = function () {
-        console.log("Termino load rVideointro");
-        //console.log(rStory1.currentFrame);
-        //window.location.href = url_base + "menu";
+        console.log("Termino load rVideointro "+rStory1.currentFrame);
+        rStory1.gotoAndStop(1);
+        rVideointro.visible = false;
     };
+
     ratioTitulo = rVideointro.width / rVideointro.height;
     rVideointro.anchor.set(0.5);
     rVideointro.animationSpeed = 0.2;
@@ -182,8 +189,8 @@ function startup() {
     rVideointro.width = widhwindow;
     rVideointro.position.set(widhwindow / 2, heightwindow / 2);
     rVideointro.loop = false;
-    rVideointro.play();
     rVideointro.visible = true;
+    //rVideointro.play();
     app.stage.addChild(rVideointro);
 
     menuCapitulos = new PIXI.Container();
@@ -298,6 +305,12 @@ function startup() {
 
 }
 
+loader.onComplete.add(() => {
+    console.log("Terminado el loader");
+    rVideointro.play();
+});
+
+
 setup();
 function setup(delta) {
     console.log("inicializando");
@@ -310,7 +323,8 @@ function gameloop(delta) {
 
 function capitulo1() {
     fondo.visible = true;
-    pPrincipal.visible = true;
+    //pPrincipal.visible = true;
+    iTitulo.visible = true;
 }
 
 function onMouseOverBoton() {

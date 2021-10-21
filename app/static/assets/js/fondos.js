@@ -209,7 +209,7 @@ function startup() {
     bInicio.anchor.set(0.5);
     bInicio.x = 60;
     bInicio.y = heightwindow - 60;
-    app.stage.addChild(bInicio);
+    //app.stage.addChild(bInicio);
 
     // boton volver
     var bAtras = PIXI.Sprite.from('../static/assets/img/botones/atras.png');
@@ -239,7 +239,7 @@ function startup() {
     bMenu.anchor.set(0.5);
     bMenu.x = widhwindow - 60;
     bMenu.y = heightwindow - 60;
-    app.stage.addChild(bMenu);
+    //app.stage.addChild(bMenu);
 
     // boton pergamino
     var bPergamino = PIXI.Sprite.from('../static/assets/img/botones/pergamino.png');
