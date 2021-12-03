@@ -2,6 +2,7 @@ usuario = "Javier";
 url_base = window.location.origin+"/";
 
 // Definición de variables
+var estado = 0;
 const aspecCanvas = innerWidth / innerHeight;
 const aspectRatio = 16/9;
 if (aspecCanvas > 1.5) {
@@ -18,9 +19,10 @@ var heightRelativo = heightwindow/resoluciony;
 var timeInterval = 0;
 var iLoading;
 var nube1;
+var bAdelantep, bAtrasp;
 
 const style2 = new PIXI.TextStyle({
-    fontFamily: 'Verdana',
+    fontFamily: 'Futura',
     fontSize: 20,
     fontStyle: 'italic',
     fontWeight: 'bold',
@@ -29,6 +31,40 @@ const style2 = new PIXI.TextStyle({
     dropShadow: true,
     dropShadowColor: '#000000',
     dropShadowBlur: 4,
+    dropShadowAngle: Math.PI / 6,
+    dropShadowDistance: 6,
+    wordWrap: true,
+    wordWrapWidth: 440,
+    lineJoin: 'round',
+});
+
+const style1 = new PIXI.TextStyle({
+    fontFamily: 'Futura',
+    fontSize: 20,
+    //fontStyle: 'italic',
+    //fontWeight: 'bold',
+    stroke: '#ffffff',
+    strokeThickness: 5,
+    //dropShadow: true,
+    //dropShadowColor: '#000000',
+    //dropShadowBlur: 4,
+    dropShadowAngle: Math.PI / 6,
+    dropShadowDistance: 6,
+    wordWrap: true,
+    wordWrapWidth: 440,
+    lineJoin: 'round',
+});
+
+const style3 = new PIXI.TextStyle({
+    fontFamily: 'Futura',
+    fontSize: 50,
+    //fontStyle: 'italic',
+    //fontWeight: 'bold',
+    stroke: '#ffffff',
+    strokeThickness: 5,
+    //dropShadow: true,
+    //dropShadowColor: '#000000',
+    //dropShadowBlur: 4,
     dropShadowAngle: Math.PI / 6,
     dropShadowDistance: 6,
     wordWrap: true,
@@ -47,7 +83,7 @@ document.getElementById('mainpage').appendChild(app.view);
 var c = new Charm(PIXI);
 // Se define el fondo de los capítulos
 
-let fondo = PIXI.Sprite.from('../static/assets/img/fondocapitulo1.png');
+var fondo = PIXI.Sprite.from('../static/assets/img/fondocapitulo1.png');
 fondo.width = widhwindow;
 fondo.height = heightwindow;
 fondo.anchor.set(0.5);
@@ -56,6 +92,29 @@ fondo.y = heightwindow / 2;
 app.stage.addChild(fondo);
 fondo.visible = false;
 
+var ifondoMapa = PIXI.Sprite.from('../static/assets/img/fondomapa.jpg');
+ifondoMapa.scale.set((widhwindow/ifondoMapa.width));
+ifondoMapa.anchor.set(0.5);
+ifondoMapa.x = widhwindow / 2;
+ifondoMapa.y = heightwindow / 2;
+app.stage.addChild(ifondoMapa);
+ifondoMapa.visible = false;
+
+var itextoInicio = PIXI.Sprite.from('../static/assets/img/textoInicio.png');
+itextoInicio.scale.set((420*widthRelativo)/(itextoInicio.width));
+itextoInicio.anchor.set(0.5);
+itextoInicio.x = widhwindow / 2;
+itextoInicio.y = heightwindow / 2;
+app.stage.addChild(itextoInicio);
+itextoInicio.visible = false;
+
+var rtMansaMunsa = PIXI.Sprite.from('../static/assets/img/rtmansamunsa.png');
+//ratioTitulo = rtMansaMunsa.width / rtMansaMunsa.height;
+rtMansaMunsa.anchor.set(0);
+rtMansaMunsa.scale.set((180*heightRelativo)/(rtMansaMunsa.height));
+rtMansaMunsa.position.set(410*widthRelativo, 220*heightRelativo);
+app.stage.addChild(rtMansaMunsa);
+rtMansaMunsa.visible = false;
 /*
 iLoading = PIXI.Sprite.from('../static/assets/images/impBenin.png');
 iLoading.anchor.set(0.5);
@@ -70,7 +129,7 @@ tLoading.y = (heightwindow / 2) +150;
 app.stage.addChild(tLoading);
 */
 // Se cargan los objetos y animaciones
-var iTitulo;
+//var iTitulo;
 var ratioTitulo;
 var pPrincipal;
 var iMapa;
@@ -79,6 +138,9 @@ var frames;
 var iPergamino;
 var menuCapitulos;
 var ratio;
+var bpdf, bpersonajes, iMansaMunsa;
+var iTextoPersonajes;
+var tMansaMunsa;
 
 const loader = new PIXI.Loader();
 loader.add('titulo', '../static/assets/img/titulo.png')
@@ -89,9 +151,9 @@ loader.add('titulo', '../static/assets/img/titulo.png')
     .add('keita', '../static/assets/img/storycapituloKeita.json')
     .add('videointro', '../static/assets/img/storyintro.json')
     .add('iPergamino', '../static/assets/img/pergamino.png')
-    //.add('capitulo4', '../static/assets/img/menu/iCapitulo4.png')
-    //.add('capitulo5', '../static/assets/img/menu/iCapitulo5.png')
-    //.add('capitulo6', '../static/assets/img/menu/iCapitulo6.png')
+    .add('pdf', '../static/assets/img/pdf.png')
+    .add('personajes', '../static/assets/img/personajes/personajesf.png')
+    .add('mansamunsa', '../static/assets/img/personajes/Mansa_Musa_TQ_Reposo_01b.png')
     //.add('bInicio', '../static/assets/img/botones/inicio.png')
     //.add('bAtras', '../static/assets/img/botones/atras.png')
     .load(startup);
@@ -111,6 +173,7 @@ function wait(ms){
  }
 
 function startup() {
+    /*
     iTitulo = PIXI.Sprite.from(loader.resources.titulo.texture);
     ratioTitulo = iTitulo.width / iTitulo.height;
     iTitulo.anchor.set(0.5);
@@ -118,11 +181,11 @@ function startup() {
     iTitulo.position.set(widhwindow/2, heightwindow/14);
     iTitulo.visible = false;
     app.stage.addChild(iTitulo);
-
+*/
     console.log("ruta: "+ loader.resources.story1.data.url);
     let urlsStory = loader.resources.story1.data.url;
     frames = [];
-    for (let i = 1; i < 25; i++) {
+    for (let i = 1; i < 24; i++) {
         //const val = i < 10 ? `0${i}` : i;
         //console.log(urlsStory[i]);
         frames.push(PIXI.Texture.from(urlsStory[i]));
@@ -158,7 +221,7 @@ function startup() {
     };
     ratioTitulo = keita.width / keita.height;
     keita.anchor.set(0.5);
-    keita.animationSpeed = 0.3;
+    keita.animationSpeed = 0.5;
     keita.height = heightwindow;
     keita.width = widhwindow;
     keita.position.set(widhwindow / 2, heightwindow / 2);
@@ -169,7 +232,7 @@ function startup() {
 
     let urlsVideoIntro = loader.resources.videointro.data.url;
     frames = [];
-    for (let i = 1; i < 121; i++) {
+    for (let i = 1; i < 121; i+=2) {
         //const val = i < 10 ? `0${i}` : i;
         //console.log(urlsStory[i]);
         frames.push(PIXI.Texture.from(urlsVideoIntro[i]));
@@ -224,6 +287,25 @@ function startup() {
     iMapa.position.set(700*widthRelativo, heightwindow / 2);
     app.stage.addChild(iMapa);
     iMapa.visible = false;
+
+    // boton pdf
+    bpdf = PIXI.Sprite.from(loader.resources.pdf.texture);
+    ratioTitulo = bpdf.width / bpdf.height;
+    bpdf.scale.set((100*widthRelativo)/(bpdf.width));
+    bpdf.anchor.set(0.5);
+    bpdf.x = 730*widthRelativo;
+    bpdf.y = 450*heightRelativo;
+    app.stage.addChild(bpdf);
+    bpdf.visible = false;
+
+    // boton de personajes
+    bpersonajes = PIXI.Sprite.from(loader.resources.personajes.texture);
+    ratioTitulo = bpersonajes.width / bpersonajes.height;
+    bpersonajes.anchor.set(0.5);
+    bpersonajes.scale.set((130*widthRelativo)/(bpersonajes.width));
+    bpersonajes.position.set(100*widthRelativo, 130*heightRelativo);
+    app.stage.addChild(bpersonajes);
+    bpersonajes.visible = false;
 
     // boton inicio
     var bInicio = PIXI.Sprite.from('../static/assets/img/botones/inicio.png');
@@ -294,6 +376,25 @@ function startup() {
     bAtras.on('pointerout', onMouseNotOverBoton);
     bAtras.on('pointerdown', (event) => onClickStory("atras"));
 
+    bPergamino.interactive = true;
+    bPergamino.buttonMode = true;
+    bPergamino.on('pointerover', onMouseOverBoton);
+    bPergamino.on('pointerout', onMouseNotOverBoton);
+    bPergamino.on('pointerdown', (event) => onClickStory("saltar"));
+
+    // Acción de boton
+    bpersonajes.interactive = true;
+    bpersonajes.buttonMode = true;
+    bpersonajes.on('pointerover', onMouseOverBoton);
+    bpersonajes.on('pointerout', onMouseNotOverBoton);
+    bpersonajes.on('pointerdown', (event) => onClickStory("adelante"));
+
+    // Acción de boton
+    bpdf.interactive = true;
+    bpdf.buttonMode = true;
+    bpdf.on('pointerover', onMouseOverBoton);
+    bpdf.on('pointerout', onMouseNotOverBoton);
+    bpdf.on('pointerdown', (event) => window.open("../static/assets/src/capitulo1.pdf", "Capitulo 1", "width=800, height=600"));
 
     nube1 = PIXI.Sprite.from('../static/assets/img/nube.png');
     nube1.scale.set(0.3);
@@ -324,7 +425,83 @@ function gameloop(delta) {
 function capitulo1() {
     fondo.visible = true;
     //pPrincipal.visible = true;
-    iTitulo.visible = true;
+    //iTitulo.visible = true;
+    itextoInicio.visible = true;
+    bpdf.visible = true;
+    //const itextoInicio = new PIXI.Text(textoInicio, style1);
+
+    //itextoInicio.anchor.set = 1;
+    //itextoInicio.position.set(widhwindow/2, heightwindow/2);
+    //app.stage.addChild(itextoInicio);
+}
+
+function capitulo11() {
+    fondo.visible = false;
+    itextoInicio.visible = false;
+    bpdf.visible = false;
+    ifondoMapa.visible = true;
+    bpersonajes.visible = true;
+
+    iTextoPersonajes = new PIXI.Text("Personajes", style1);
+    iTextoPersonajes.position.set(bpersonajes.x - bpersonajes.x/2, bpersonajes.y + bpersonajes.height/2);
+    app.stage.addChild(iTextoPersonajes);
+}
+
+function capitulo12() {
+    ifondoMapa.visible = false;
+    bpersonajes.visible = false;
+    iTextoPersonajes.visible = false;
+    fondo.visible = true;
+    rtMansaMunsa.visible = true;
+
+    // Mansa Munsa
+    iMansaMunsa = PIXI.Sprite.from(loader.resources.mansamunsa.texture);
+    ratioTitulo = iMansaMunsa.width / iMansaMunsa.height;
+    iMansaMunsa.anchor.set(0);
+    iMansaMunsa.scale.set((380*heightRelativo)/(iMansaMunsa.height));
+    iMansaMunsa.position.set(220*widthRelativo, 130*heightRelativo);
+    app.stage.addChild(iMansaMunsa);
+    tMansaMunsa = new PIXI.Text("Mansa Munsa", style3);
+    tMansaMunsa.position.set(450*widthRelativo, 130*heightRelativo);
+    app.stage.addChild(tMansaMunsa);
+    bpdf.visible = true;
+    //bpdf.x = 580*widthRelativo;
+    //bpdf.y = 400*heightRelativo;
+
+    // boton adelante
+    bAdelantep = PIXI.Sprite.from('../static/assets/img/botones/adelante.png');
+    ratio = bAdelantep.width / bAdelantep.height;
+    bAdelantep.width = 40*widthRelativo;
+    bAdelantep.height = bAdelantep.width / ratio;
+    bAdelantep.anchor.set(0.5);
+    bAdelantep.x = 820 * widthRelativo;
+    bAdelantep.y = heightwindow / 2;
+
+    bAtrasp = PIXI.Sprite.from('../static/assets/img/botones/atras.png');
+    ratio = bAtrasp.width / bAtrasp.height;
+    bAtrasp.width = 40*widthRelativo;
+    bAtrasp.height = bAtrasp.width / ratio;
+    bAtrasp.anchor.set(0.5);
+    bAtrasp.x = 220 * widthRelativo;
+    bAtrasp.y = heightwindow / 2;
+    app.stage.addChild(bAtrasp);
+    app.stage.addChild(bAdelantep);
+
+     // Acción de boton
+    bAtrasp.interactive = true;
+    bAtrasp.buttonMode = true;
+    bAtrasp.on('pointerover', onMouseOverBoton);
+    bAtrasp.on('pointerout', onMouseNotOverBoton);
+    bAtrasp.on('pointerdown', (event) => onClickStory("atras"));
+
+     // Acción de boton
+    bAdelantep.interactive = true;
+    bAdelantep.buttonMode = true;
+    bAdelantep.on('pointerover', onMouseOverBoton);
+    bAdelantep.on('pointerout', onMouseNotOverBoton);
+    bAdelantep.on('pointerdown', (event) => onClickStory("adelante"));
+
+    bpdf.on('pointerdown', (event) => window.open("../static/assets/src/mansamunsa.pdf", "Capitulo 1", "width=800, height=600"));
 }
 
 function onMouseOverBoton() {
@@ -343,44 +520,78 @@ function onClickMenuCapitulo(object) {
 
 function onClickStory(object) {
     //console.log(rStory1.currentFrame + 1);
-    if (object == "adelante") {
-        if (rStory1.currentFrame < 23) {
-            rStory1.gotoAndStop(rStory1.currentFrame + 1);
-        } else {
-            app.stage.removeChild(rStory1);
-            app.stage.removeChild(menuCapitulos);
-            capitulo1();
-        }
-    } else {
-        if (rStory1.currentFrame != 0) {
-            rStory1.gotoAndStop(rStory1.currentFrame - 1);
-        }
-    }
-    if (rStory1.currentFrame == 1 || rStory1.currentFrame == 2 || rStory1.currentFrame == 11
-        || rStory1.currentFrame == 12 || rStory1.currentFrame == 12 || rStory1.currentFrame == 13) {
-        console.log("nube visible");
-        nube1.visible = true;
-    } else {
-        console.log("nube invisible");
-        nube1.visible = false;
-    }
-    if (rStory1.currentFrame == 3 || rStory1.currentFrame == 4 || rStory1.currentFrame == 5) {
-        console.log("Keita visible");
-        keita.visible = true;
-        keita.gotoAndPlay(0);
-    } else {
-        console.log("nube invisible");
-        keita.visible = false;
-        keita.stop();
-    }
-
-     if (rStory1.currentFrame == 0) {
-        console.log("Story Video visible");
-        rVideointro.visible = true;
-        rVideointro.gotoAndPlay(0);
-    } else {
-        console.log("Videointro invisible");
-        rVideointro.visible = false;
+    if (object == "saltar") {
+        console.log("saltar");
+        estado = 1;
         rVideointro.stop();
+        rStory1.gotoAndStop(22);
+        app.stage.removeChild(rStory1);
+        app.stage.removeChild(rVideointro);
+        app.stage.removeChild(rKeita);
+        app.stage.removeChild(menuCapitulos);
+        capitulo1();
+    } else {
+        if (object == "adelante") {
+            if (rStory1.currentFrame < 22) {
+                rStory1.gotoAndStop(rStory1.currentFrame + 1);
+            } else {
+                switch (estado) {
+                    case 0:
+                        estado = 1;
+                        app.stage.removeChild(rStory1);
+                        app.stage.removeChild(menuCapitulos);
+                        capitulo1();
+                        break;
+                    case 1:
+                        estado = 11;
+                        capitulo11();
+                        console.log('Cap11');
+                        break;
+                    case 11:
+                        estado = 12;
+                        capitulo12();
+                        console.log('Cap12');
+                        break;
+                    default:
+                        console.log('Today only, 3 + 1 free!!');
+                }
+
+            }
+        } else {
+            if (rStory1.currentFrame != 0) {
+                rStory1.gotoAndStop(rStory1.currentFrame - 1);
+            }
+        }
+        if (rStory1.currentFrame == 1 || rStory1.currentFrame == 2 || rStory1.currentFrame == 11
+            || rStory1.currentFrame == 12 || rStory1.currentFrame == 12 || rStory1.currentFrame == 13) {
+            nube1.visible = true;
+        } else {
+            nube1.visible = false;
+        }
+        if (rStory1.currentFrame == 3 || rStory1.currentFrame == 4 || rStory1.currentFrame == 5) {
+            if (rStory1.currentFrame == 3) {
+                keita.visible = true;
+                keita.gotoAndStop(0);
+            }
+            if (rStory1.currentFrame == 4) {
+                keita.visible = true;
+                keita.gotoAndPlay(0);
+            }
+            if (rStory1.currentFrame == 5) {
+                keita.visible = true;
+                keita.gotoAndStop(12);
+            }
+        } else {
+            keita.visible = false;
+            keita.stop();
+        }
+
+        if (rStory1.currentFrame == 0) {
+            rVideointro.visible = true;
+            rVideointro.gotoAndPlay(0);
+        } else {
+            rVideointro.visible = false;
+            rVideointro.stop();
+        }
     }
 }

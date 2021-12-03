@@ -56,11 +56,12 @@ app.stage.addChild(fondo);
 app.loader.add('titulo', '../static/assets/img/titulo.png')
     .add('raicestitulo', '../static/assets/images/raicesinicio.json')
     .add('botoninicio', '../static/assets/images/botoninicio.json')
-    .add('iPergamino', '../static/assets/img/pergamino.png')
-    .add('menu1', '../static/assets/images/impBenin.png')
-    .add('menu2', '../static/assets/images/impKon.png')
-    .add('menu3', '../static/assets/images/impMali.png')
-    .add('menu4', '../static/assets/images/impYolofo.png')
+    .add('iIniciar', '../static/assets/img/Boton_Iniciar.png')
+    //.add('iPergamino', '../static/assets/img/pergamino.png')
+    //.add('menu1', '../static/assets/images/impBenin.png')
+    //.add('menu2', '../static/assets/images/impKon.png')
+    //.add('menu3', '../static/assets/images/impMali.png')
+    //.add('menu4', '../static/assets/images/impYolofo.png')
 
     .load(startup);
 var iTitulo;
@@ -69,7 +70,7 @@ var menuCapitulos;
 var iPergamino;
 var ratio;
 var frames;
-var iTituloResource, iTitulo, bInicio;
+var iTituloResource, iTitulo, bInicio, iIniciar;
 
 function startup() {
     frames = [];
@@ -123,6 +124,7 @@ function startup() {
     app.stage.addChild(bInicio);
 
     // Pergamino
+    /*
     menuCapitulos = new PIXI.Container();
     iPergamino = PIXI.Sprite.from(app.loader.resources.iPergamino.texture);
     ratio = iPergamino.width / iPergamino.height;
@@ -133,8 +135,11 @@ function startup() {
     menuCapitulos.width = iPergamino.width;
     menuCapitulos.addChild(iPergamino);
 
+/
+     */
     // Menú principl
     // Menú de capitulos
+    /*
     var menuCapitulos_opcion1 = PIXI.Sprite.from(app.loader.resources.menu1.texture);
     var menuCapitulos_opcion2 = PIXI.Sprite.from(app.loader.resources.menu2.texture);
     var menuCapitulos_opcion3 = PIXI.Sprite.from(app.loader.resources.menu3.texture);
@@ -200,69 +205,19 @@ function startup() {
     menuCapitulos.y = 1;
     app.stage.addChild(menuCapitulos);
     //iPergamino.visible = true;
+*/
+    // boton iIniciar
+    iIniciar = PIXI.Sprite.from('../static/assets/img/Boton_Iniciar.png');
+    var ratio = iIniciar.width / iIniciar.height;
+    iIniciar.width = 100*widthRelativo;
+    iIniciar.height = iIniciar.width / ratio;
+    iIniciar.anchor.set(0.5);
+    iIniciar.x = bInicio.x;
+    iIniciar.y = bInicio.y + 60 * heightRelativo;
+    app.stage.addChild(iIniciar);
 
-    // boton inicio
-    var bInicio = PIXI.Sprite.from('../static/assets/img/botones/inicio.png');
-    var ratio = bInicio.width / bInicio.height;
-    bInicio.width = 70*widthRelativo;
-    bInicio.height = bInicio.width / ratio;
-    bInicio.anchor.set(0.5);
-    bInicio.x = 60;
-    bInicio.y = heightwindow - 60;
-    //app.stage.addChild(bInicio);
 
-    // boton volver
-    var bAtras = PIXI.Sprite.from('../static/assets/img/botones/atras.png');
-    var ratio = bAtras.width / bAtras.height;
-    bAtras.width = 70*widthRelativo;
-    bAtras.height = bAtras.width / ratio;
-    bAtras.anchor.set(0.5);
-    bAtras.x = 60;
-    bAtras.y = 60;
-    //app.stage.addChild(bAtras);
 
-    // boton adelante
-    var bAdelante = PIXI.Sprite.from('../static/assets/img/botones/adelante.png');
-    var ratio = bAdelante.width / bAdelante.height;
-    bAdelante.width = 70*widthRelativo;
-    bAdelante.height = bAdelante.width / ratio;
-    bAdelante.anchor.set(0.5);
-    bAdelante.x = widhwindow - 60;
-    bAdelante.y = 60;
-    //app.stage.addChild(bAdelante);
-
-    // boton menu
-    var bMenu = PIXI.Sprite.from('../static/assets/img/botones/menu.png');
-    var ratio = bMenu.width / bMenu.height;
-    bMenu.width = 70*widthRelativo;
-    bMenu.height = bMenu.width / ratio;
-    bMenu.anchor.set(0.5);
-    bMenu.x = widhwindow - 60;
-    bMenu.y = heightwindow - 60;
-    //app.stage.addChild(bMenu);
-
-    // boton pergamino
-    var bPergamino = PIXI.Sprite.from('../static/assets/img/botones/pergamino.png');
-    var ratio = bPergamino.width / bPergamino.height;
-    bPergamino.width = 70*widthRelativo;
-    bPergamino.height = bPergamino.width / ratio;
-    bPergamino.anchor.set(0.5);
-    bPergamino.x = widhwindow /2;
-    bPergamino.y = heightwindow - 60;
-    //app.stage.addChild(bPergamino);
-
-    // Acción de boton
-    bPergamino.interactive = true;
-    bPergamino.buttonMode = true;
-    bPergamino.on('pointerover', onMouseOverBoton);
-    bPergamino.on('pointerout', onMouseNotOverBoton);
-    bPergamino.on('pointerdown', onClick);
-
-    bAdelante.interactive = true;
-    bAdelante.buttonMode = true;
-    bAdelante.on('pointerover', onMouseOverBoton);
-    bAdelante.on('pointerout', onMouseNotOverBoton);
-    bAdelante.on('pointerdown', (event) => onClickButton("menu"));
 }
 
 setup();
