@@ -87,7 +87,6 @@ loader.add('titulo', '../../static/assets/img/titulo.png')
     //.add('capitulo4', '../../static/assets/img/menu/iCapitulo4.png')
     //.add('capitulo5', '../../static/assets/img/menu/iCapitulo5.png')
     //.add('capitulo6', '../../static/assets/img/menu/iCapitulo6.png')
-    //.add('bInicio', '../../static/assets/img/botones/inicio.png')
     //.add('bAtras', '../../static/assets/img/botones/atras.png')
     .load(startup);
 
@@ -98,7 +97,7 @@ function startup() {
     pPrincipal.anchor.set(0.5);
     pPrincipal.scale.set((300*widthRelativo)/(pPrincipal.width));
     pPrincipal.position.set(200*widthRelativo, heightwindow / 2);
-    app.stage.addChild(pPrincipal);
+    app.stage.addChild(pPrincipal); 
 
     iMapa = PIXI.Sprite.from(app.loader.resources.mapa.texture);
     ratioTitulo = iMapa.width / iMapa.height;
@@ -136,7 +135,6 @@ function startup() {
     bAdelante.x = widhwindow - 60;
     bAdelante.y = 60;
     app.stage.addChild(bAdelante);
-
 
     // boton menu
     tInicio1 = loader.resources.tInicio1.texture;
