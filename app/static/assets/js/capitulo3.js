@@ -1,5 +1,5 @@
 usuario = "Javier";
-url_base = window.location.origin+"/";
+url_base = window.location.href+"../";
 
 // Definición de variables
 const aspecCanvas = innerWidth / innerHeight;
@@ -44,7 +44,7 @@ document.getElementById('mainpage').appendChild(app.view);
 // Se define elemento de movimiento
 var c = new Charm(PIXI);
 // Se define el fondo de los capítulos
-let fondo = PIXI.Sprite.from('../static/assets/img/fondocapitulo3.png');
+let fondo = PIXI.Sprite.from('../../static/assets/img/fondocapitulo3.png');
 fondo.width = widhwindow;
 fondo.height = heightwindow;
 fondo.anchor.set(0.5);
@@ -60,15 +60,15 @@ var pPrincipal;
 var iMapa;
 
 
-app.loader.add('titulo', '../static/assets/img/titulo.png')
-    .add('personaje', '../static/assets/img/personajes/principal.png')
-    //.add('mapa', '../static/assets/img/mapa1.png')
-    //.add('nube', '../static/assets/img/nube.png')
-    //.add('capitulo4', '../static/assets/img/menu/iCapitulo4.png')
-    //.add('capitulo5', '../static/assets/img/menu/iCapitulo5.png')
-    //.add('capitulo6', '../static/assets/img/menu/iCapitulo6.png')
-    //.add('bInicio', '../static/assets/img/botones/inicio.png')
-    //.add('bAtras', '../static/assets/img/botones/atras.png')
+app.loader.add('titulo', '../../static/assets/img/titulo.png')
+    .add('personaje', '../../static/assets/img/personajes/principal.png')
+    //.add('mapa', '../../static/assets/img/mapa1.png')
+    //.add('nube', '../../static/assets/img/nube.png')
+    //.add('capitulo4', '../../static/assets/img/menu/iCapitulo4.png')
+    //.add('capitulo5', '../../static/assets/img/menu/iCapitulo5.png')
+    //.add('capitulo6', '../../static/assets/img/menu/iCapitulo6.png')
+    //.add('bInicio', '../../static/assets/img/botones/inicio.png')
+    //.add('bAtras', '../../static/assets/img/botones/atras.png')
     .load(startup);
 
 function startup() {
@@ -88,7 +88,7 @@ function startup() {
     app.stage.addChild(iMapa);
 */
     // boton inicio
-    var bInicio = PIXI.Sprite.from('../static/assets/img/botones/inicio.png');
+    var bInicio = PIXI.Sprite.from('../../static/assets/img/botones/inicio.png');
     var ratio = bInicio.width / bInicio.height;
     bInicio.width = 70*widthRelativo;
     bInicio.height = bInicio.width / ratio;
@@ -98,7 +98,7 @@ function startup() {
     app.stage.addChild(bInicio);
 
     // boton volver
-    var bAtras = PIXI.Sprite.from('../static/assets/img/botones/atras.png');
+    var bAtras = PIXI.Sprite.from('../../static/assets/img/botones/atras.png');
     var ratio = bAtras.width / bAtras.height;
     bAtras.width = 70*widthRelativo;
     bAtras.height = bAtras.width / ratio;
@@ -108,7 +108,7 @@ function startup() {
     app.stage.addChild(bAtras);
 
     // boton adelante
-    var bAdelante = PIXI.Sprite.from('../static/assets/img/botones/adelante.png');
+    var bAdelante = PIXI.Sprite.from('../../static/assets/img/botones/adelante.png');
     var ratio = bAdelante.width / bAdelante.height;
     bAdelante.width = 70*widthRelativo;
     bAdelante.height = bAdelante.width / ratio;
@@ -118,7 +118,7 @@ function startup() {
     app.stage.addChild(bAdelante);
 
     // boton menu
-    var bMenu = PIXI.Sprite.from('../static/assets/img/botones/menu.png');
+    var bMenu = PIXI.Sprite.from('../../static/assets/img/botones/menu.png');
     var ratio = bMenu.width / bMenu.height;
     bMenu.width = 70*widthRelativo;
     bMenu.height = bMenu.width / ratio;
@@ -128,7 +128,7 @@ function startup() {
     app.stage.addChild(bMenu);
 
     // boton pergamino
-    var bPergamino = PIXI.Sprite.from('../static/assets/img/botones/pergamino.png');
+    var bPergamino = PIXI.Sprite.from('../../static/assets/img/botones/pergamino.png');
     var ratio = bPergamino.width / bPergamino.height;
     bPergamino.width = 70*widthRelativo;
     bPergamino.height = bPergamino.width / ratio;
@@ -157,5 +157,5 @@ function onMouseNotOverBoton(){
 }
 
 function onClickMenuCapitulo(object) {
-    window.location.href = url_base + object;
+    window.location.href = url_base + object + "/";
 }

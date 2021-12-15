@@ -1,5 +1,5 @@
 usuario = "Javier";
-url_base = window.location.origin+"/";
+url_base = window.location.href+"../";
 
 // Definición de variables
 const aspecCanvas = innerWidth / innerHeight;
@@ -45,7 +45,7 @@ app.stop();
 // Se define elemento de movimiento
 var c = new Charm(PIXI);
 // Se define el fondo de los capítulos
-let fondo = PIXI.Sprite.from('../static/assets/img/Mundos_01c.png');
+let fondo = PIXI.Sprite.from('../../static/assets/img/Mundos_01c.png');
 fondo.width = widhwindow;
 fondo.height = heightwindow;
 fondo.anchor.set(0.5);
@@ -61,15 +61,15 @@ var ratio;
 var iCapitulo1, iCapitulo2, iCapitulo3, iCapitulo4, iCapitulo5, iCapitulo6;
 var bInicio, bAtras;
 
-app.loader.add('titulo', '../static/assets/img/titulo.png')
-    .add('capitulo1', '../static/assets/img/menu/iCapitulo1.png')
-    .add('capitulo2', '../static/assets/img/menu/iCapitulo2.png')
-    .add('capitulo3', '../static/assets/img/menu/iCapitulo3.png')
-    .add('capitulo4', '../static/assets/img/menu/iCapitulo4.png')
-    .add('capitulo5', '../static/assets/img/menu/iCapitulo5.png')
-    .add('capitulo6', '../static/assets/img/menu/iCapitulo6.png')
-    .add('bInicio', '../static/assets/img/botones/inicio.png')
-    .add('bAtras', '../static/assets/img/botones/atras.png')
+app.loader.add('titulo', '../../static/assets/img/titulo.png')
+    .add('capitulo1', '../../static/assets/img/menu/iCapitulo1.png')
+    .add('capitulo2', '../../static/assets/img/menu/iCapitulo2.png')
+    .add('capitulo3', '../../static/assets/img/menu/iCapitulo3.png')
+    .add('capitulo4', '../../static/assets/img/menu/iCapitulo4.png')
+    .add('capitulo5', '../../static/assets/img/menu/iCapitulo5.png')
+    .add('capitulo6', '../../static/assets/img/menu/iCapitulo6.png')
+    .add('bInicio', '../../static/assets/img/botones/inicio.png')
+    .add('bAtras', '../../static/assets/img/botones/atras.png')
     .load(startup);
 
 function startup() {
@@ -262,7 +262,7 @@ function startup() {
     //app.stage.addChild(bAtras);
 
     // boton adelante
-    var bAdelante = PIXI.Sprite.from('../static/assets/img/botones/adelante.png');
+    var bAdelante = PIXI.Sprite.from('../../static/assets/img/botones/adelante.png');
     var ratio = bAdelante.width / bAdelante.height;
     bAdelante.width = 70*widthRelativo;
     bAdelante.height = bAdelante.width / ratio;
@@ -272,7 +272,7 @@ function startup() {
     //app.stage.addChild(bAdelante);
 
     // boton menu
-    var bMenu = PIXI.Sprite.from('../static/assets/img/botones/menu.png');
+    var bMenu = PIXI.Sprite.from('../../static/assets/img/botones/menu.png');
     var ratio = bMenu.width / bMenu.height;
     bMenu.width = 70*widthRelativo;
     bMenu.height = bMenu.width / ratio;
@@ -282,7 +282,7 @@ function startup() {
     app.stage.addChild(bMenu);
 
     // boton pergamino
-    var bPergamino = PIXI.Sprite.from('../static/assets/img/botones/pergamino.png');
+    var bPergamino = PIXI.Sprite.from('../../static/assets/img/botones/pergamino.png');
     var ratio = bPergamino.width / bPergamino.height;
     bPergamino.width = 70*widthRelativo;
     bPergamino.height = bPergamino.width / ratio;
@@ -321,7 +321,7 @@ function onMouseNotOverBoton(){
 }
 
 function onClickMenuCapitulo(object) {
-    window.location.href = url_base + object;
+    window.location.href = url_base + object + '/';
 }
 
 function onClick() {

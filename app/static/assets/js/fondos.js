@@ -1,5 +1,5 @@
 usuario = "Javier";
-url_base = window.location.origin+"/";
+url_base = window.location.href+"../";
 
 // Definición de variables
 const aspecCanvas = innerWidth / innerHeight;
@@ -44,7 +44,7 @@ app.stop();
 // Se define elemento de movimiento
 var c = new Charm(PIXI);
 
-let fondo = PIXI.Sprite.from('../static/assets/img/fondo.jpg');
+let fondo = PIXI.Sprite.from('../../static/assets/img/fondo.jpg');
 fondo.width = widhwindow;
 fondo.height = heightwindow;
 fondo.anchor.set(0.5);
@@ -53,15 +53,15 @@ fondo.y = heightwindow / 2;
 app.stage.addChild(fondo);
 
 // Titulo
-app.loader.add('titulo', '../static/assets/img/titulo.png')
-    .add('raicestitulo', '../static/assets/images/raicesinicio.json')
-    .add('botoninicio', '../static/assets/images/botoninicio.json')
-    .add('iIniciar', '../static/assets/img/Boton_Iniciar.png')
-    //.add('iPergamino', '../static/assets/img/pergamino.png')
-    //.add('menu1', '../static/assets/images/impBenin.png')
-    //.add('menu2', '../static/assets/images/impKon.png')
-    //.add('menu3', '../static/assets/images/impMali.png')
-    //.add('menu4', '../static/assets/images/impYolofo.png')
+app.loader.add('titulo', '../../static/assets/img/titulo.png')
+    .add('raicestitulo', '../../static/assets/images/raicesinicio.json')
+    .add('botoninicio', '../../static/assets/images/botoninicio.json')
+    .add('iIniciar', '../../static/assets/img/Boton_Iniciar.png')
+    //.add('iPergamino', '../../static/assets/img/pergamino.png')
+    //.add('menu1', '../../static/assets/images/impBenin.png')
+    //.add('menu2', '../../static/assets/images/impKon.png')
+    //.add('menu3', '../../static/assets/images/impMali.png')
+    //.add('menu4', '../../static/assets/images/impYolofo.png')
 
     .load(startup);
 var iTitulo;
@@ -92,7 +92,7 @@ function startup() {
     iTitulo = new PIXI.AnimatedSprite(frames);
     iTitulo.onComplete = function () {
         console.log("termino load");
-        window.location.href = url_base + "menu";
+        window.location.href = url_base + "menu/";
     };
     ratioTitulo = iTitulo.width / iTitulo.height;
     iTitulo.anchor.set(0.5);
@@ -207,7 +207,7 @@ function startup() {
     //iPergamino.visible = true;
 */
     // boton iIniciar
-    iIniciar = PIXI.Sprite.from('../static/assets/img/Boton_Iniciar.png');
+    iIniciar = PIXI.Sprite.from('../../static/assets/img/Boton_Iniciar.png');
     var ratio = iIniciar.width / iIniciar.height;
     iIniciar.width = 100*widthRelativo;
     iIniciar.height = iIniciar.width / ratio;

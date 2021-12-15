@@ -44,8 +44,7 @@ document.getElementById('mainpage').appendChild(app.view);
 // Se define elemento de movimiento
 var c = new Charm(PIXI);
 // Se define el fondo de los capítulos
-let tfondo1 = PIXI.Texture.from('../../static/assets/img/fondocapitulo5.png');
-let tfondo2 = PIXI.Texture.from('../../static/assets/img/fondocapitulo5_over.png');
+let tfondo1 = PIXI.Texture.from('../../static/assets/img/fondocapitulo6.png');
 var fondo = new PIXI.Sprite(tfondo1);
 fondo.width = widhwindow;
 fondo.height = heightwindow;
@@ -53,6 +52,17 @@ fondo.anchor.set(0.5);
 fondo.x = widhwindow / 2;
 fondo.y = heightwindow / 2;
 app.stage.addChild(fondo);
+
+let tfondo2 = PIXI.Texture.from('../../static/assets/img/fondo_transparente.png');
+var fondotransparente = new PIXI.Sprite(tfondo2);
+fondotransparente.width = widhwindow;
+fondotransparente.height = heightwindow;
+fondotransparente.anchor.set(0.5);
+fondotransparente.x = widhwindow / 2;
+fondotransparente.y = heightwindow / 2;
+app.stage.addChild(fondotransparente);
+fondotransparente.visible = false;
+
 
 // Fondo musica
 var fondoMusica = new PIXI.Sprite.from('../../static/assets/img/fondo_musica.png');
@@ -91,8 +101,8 @@ var ratioTitulo;
 var pPrincipal;
 var iMapa;
 var bMenu;
-var tInicio1, tInicio2;
-var bPersonajes, bGastro, bMusica, bArte, bVestu, bInstrumentos, bBailes;
+var tInicio1, tInicio2, tInicio3;
+var bEsocial, bEcreativo, bMusica, bArte, bVestu, bInstrumentos, bBailes;
 var tPersonajes1, tPersonajes2, tGastro1, tGastro2, tMusica1, tMusica2, tArte1, tArte2, tVestu1, tVestu2, tfondoM1, tfondoM2;
 var cMenu;
 var iNota;
@@ -103,10 +113,8 @@ loader.add('titulo', '../../static/assets/img/titulo.png')
     .add('tInicio1','../../static/assets/img/botones_cap5/Boton_Iniciar_Cap_05.png')
     .add('tInicio2','../../static/assets/img/botones_cap5/Boton_Iniciar_Cap_05_Over.png')
     .add('tInicio3','../../static/assets/img/botones_cap5/Boton_Volver_Cap_05.png')
-    .add('tPersonajes1','../../static/assets/img/botones_cap5/Boton_Personajes_Cap_05.png')
-    .add('tPersonajes2','../../static/assets/img/botones_cap5/Boton_Personajes_Cap_05_Over.png')
-    .add('tGastro1','../../static/assets/img/botones_cap5/Boton_Gastronomia_Cap_05.png')
-    .add('tGastro2','../../static/assets/img/botones_cap5/Boton_Gastronomia_Cap_05_Over.png')
+    .add('tEsocial','../../static/assets/img/botones_cap6/Boton_social.png')
+    .add('tEcreativo','../../static/assets/img/botones_cap6/Boton_creativo.png')
     .add('tMusica1','../../static/assets/img/botones_cap5/Boton_Musica_Cap_05.png')
     .add('tMusica2','../../static/assets/img/botones_cap5/Boton_Musica_Cap_05_Over.png')
     .add('tArte1','../../static/assets/img/botones_cap5/Boton_Arte_Afro_Cap_05.png')
@@ -189,16 +197,6 @@ function startup() {
     bMenu.on('pointerout', onMouseNotOverInicio);
     bMenu.on('pointerdown', onClickMenuInicio);
 
-    // boton pergamino
-    var bPergamino = PIXI.Sprite.from('../../static/assets/img/botones/pergamino.png');
-    var ratio = bPergamino.width / bPergamino.height;
-    bPergamino.width = 70*widthRelativo;
-    bPergamino.height = bPergamino.width / ratio;
-    bPergamino.anchor.set(0.5);
-    bPergamino.x = widhwindow /2;
-    bPergamino.y = heightwindow - 60;
-    app.stage.addChild(bPergamino);
-
     // Nota musical
     iNota = new PIXI.Sprite(loader.resources.notaM.texture);
     var ratio = iNota.width / iNota.height;
@@ -232,60 +230,24 @@ function startup() {
     cMenuMusica = new PIXI.Container;
 
     // botones del menu
-    tPersonajes1 = loader.resources.tPersonajes1.texture;
-    tPersonajes2 = loader.resources.tPersonajes2.texture;
-    bPersonajes = new PIXI.Sprite(tPersonajes1);
-    var ratio = bPersonajes.width / bPersonajes.height;
-    bPersonajes.width = 180*widthRelativo;
-    bPersonajes.height = bPersonajes.width / ratio;
-    bPersonajes.anchor.set(0.5);
-    bPersonajes.x = cMenu.width/2;
-    bPersonajes.y = 1;
-    cMenu.addChild(bPersonajes);
+    bEsocial = new PIXI.Sprite(loader.resources.tEsocial.texture);
+    var ratio = bEsocial.width / bEsocial.height;
+    bEsocial.width = 300*widthRelativo;
+    bEsocial.height = bEsocial.width / ratio;
+    bEsocial.anchor.set(0.5);
+    bEsocial.x = cMenu.width/2;
+    bEsocial.y = 100*heightRelativo;
+    cMenu.addChild(bEsocial);
 
-    tGastro1 = loader.resources.tGastro1.texture;
-    tGastro2 = loader.resources.tGastro2.texture;
-    bGastro = new PIXI.Sprite(tGastro1);
-    var ratio = bGastro.width / bGastro.height;
-    bGastro.width = 180*widthRelativo;
-    bGastro.height = bGastro.width / ratio;
-    bGastro.anchor.set(0.5);
-    bGastro.x = 1;
-    bGastro.y = 100*heightRelativo;
-    cMenu.addChild(bGastro);
+    bEcreativo = new PIXI.Sprite(loader.resources.tEcreativo.texture);
+    var ratio = bEcreativo.width / bEcreativo.height;
+    bEcreativo.width = 300*widthRelativo;
+    bEcreativo.height = bEcreativo.width / ratio;
+    bEcreativo.anchor.set(0.5);
+    bEcreativo.x = 1;
+    bEcreativo.y = 200*heightRelativo;
+    cMenu.addChild(bEcreativo);
 
-    tMusica1 = loader.resources.tMusica1.texture;
-    tMusica2 = loader.resources.tMusica2.texture;
-    bMusica = new PIXI.Sprite(tMusica1);
-    var ratio = bMusica.width / bMusica.height;
-    bMusica.width = 180*widthRelativo;
-    bMusica.height = bMusica.width / ratio;
-    bMusica.anchor.set(0.5);
-    bMusica.x = 1;
-    bMusica.y = 200*heightRelativo;
-    cMenu.addChild(bMusica);
-
-    tArte1 = loader.resources.tArte1.texture;
-    tArte2 = loader.resources.tArte2.texture;
-    bArte = new PIXI.Sprite(tArte1);
-    var ratio = bArte.width / bArte.height;
-    bArte.width = 180*widthRelativo;
-    bArte.height = bArte.width / ratio;
-    bArte.anchor.set(0.5);
-    bArte.x = 1;
-    bArte.y = 300*heightRelativo;
-    cMenu.addChild(bArte);
-
-    tVestu1 = loader.resources.tVestu1.texture;
-    tVestu2 = loader.resources.tVestu2.texture;
-    bVestu = new PIXI.Sprite(tVestu1);
-    var ratio = bVestu.width / bVestu.height;
-    bVestu.width = 180*widthRelativo;
-    bVestu.height = bVestu.width / ratio;
-    bVestu.anchor.set(0.5);
-    bVestu.x = 1;
-    bVestu.y = 400*heightRelativo;
-    cMenu.addChild(bVestu);
 
     cMenu.x = 200*widthRelativo;
     cMenu.y = 100*heightRelativo;
@@ -377,24 +339,20 @@ function onMouseNotOverBoton() {
 
 function onClickMenuInicio() {
     if (eInicio == "inicio") {
-        if (fondo.visible == false) {
-            fondo.visible = true;
-            fondoMusica.visible = false;
-            cMenuMusica.visible = false;
-            fondo.texture = tfondo2;
+        if (fondotransparente.visible == false) {
+            //fondo.visible = true;
+            fondotransparente.visible = true;
             bMenu.texture = tInicio3;
             cMenu.visible = true;
             eInicio = "volver";
         } else {
-            fondo.texture = tfondo2;
+            fondotransparente.visible = false;
             bMenu.texture = tInicio3;
             cMenu.visible = true;
             eInicio = "volver";
         }
     } else if (eInicio == "volver") {
-            fondoMusica.visible = false;
-            cMenuMusica.visible = false;
-            fondo.texture = tfondo1;
+            fondotransparente.visible = false;
             bMenu.texture = tInicio1;
             cMenu.visible = false;
             eInicio = "inicio";
