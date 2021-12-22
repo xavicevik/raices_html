@@ -93,21 +93,6 @@ loader.add('titulo', '../../static/assets/img/titulo.png')
     .load(startup);
 
 function startup() {
-    /*
-    pPrincipal = PIXI.Sprite.from(app.loader.resources.personaje.texture);
-    ratioTitulo = pPrincipal.width / pPrincipal.height;
-    pPrincipal.anchor.set(0.5);
-    pPrincipal.scale.set((300*widthRelativo)/(pPrincipal.width));
-    pPrincipal.position.set(200*widthRelativo, heightwindow / 2);
-    app.stage.addChild(pPrincipal); 
-
-    iMapa = PIXI.Sprite.from(app.loader.resources.mapa.texture);
-    ratioTitulo = iMapa.width / iMapa.height;
-    iMapa.anchor.set(0.5);
-    iMapa.scale.set((500*widthRelativo)/(iMapa.width));
-    iMapa.position.set(700*widthRelativo, heightwindow / 2);
-    app.stage.addChild(iMapa);
-*/
     // boton inicio
     var bInicio = PIXI.Sprite.from('../../static/assets/img/botones/inicio.png');
     var ratio = bInicio.width / bInicio.height;
