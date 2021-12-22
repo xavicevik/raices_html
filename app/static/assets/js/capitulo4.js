@@ -70,7 +70,7 @@ var bMenu;
 var iMapa;
 var eInicio = "inicio";
 var cMenu;
-var bAntidiscrimina, bCimarronaje, bCronologia, bLegislacione;
+var bGeneralidades, bProcesoslibertarios, bOrganizaciones, bLey70, bLegislacion, bCimarronaje;
 
 
 const loader = new PIXI.Loader();
@@ -78,10 +78,12 @@ loader.add('titulo', '../../static/assets/img/titulo.png')
     .add('tInicio1','../../static/assets/img/botones_cap5/Boton_Iniciar_Cap_05.png')
     .add('tInicio2','../../static/assets/img/botones_cap5/Boton_Iniciar_Cap_05_Over.png')
     .add('tInicio3','../../static/assets/img/botones_cap5/Boton_Volver_Cap_05.png')
-    .add('tAntidiscrimina','../../static/assets/img/botones_cap4/Boton_antidiscriminacion.png')
+    .add('tGeneralidades','../../static/assets/img/botones_cap4/Boton_generalidades.png')
+    .add('tProcesoslibertarios','../../static/assets/img/botones_cap4/Boton_procesoslibertarios.png')
+    .add('tOrganizaciones','../../static/assets/img/botones_cap4/Boton_organizacionesypersonajes.png')
+    .add('tLey70','../../static/assets/img/botones_cap4/Boton_ley701993.png')
+    .add('tLegislacion','../../static/assets/img/botones_cap4/Boton_legislacionespecial.png')
     .add('tCimarronaje','../../static/assets/img/botones_cap4/Boton_cimarronaje.png')
-    .add('tCronologia','../../static/assets/img/botones_cap4/Boton_cronologia.png')
-    .add('tLegislacione','../../static/assets/img/botones_cap4/Boton_legislacionespecial.png')
     //.add('mapa', '../../static/assets/img/mapa1.png')
     //.add('nube', '../../static/assets/img/nube.png')
     //.add('capitulo4', '../../static/assets/img/menu/iCapitulo4.png')
@@ -167,43 +169,103 @@ function startup() {
     cMenu = new PIXI.Container;
 
     // botones del menu
-    bAntidiscrimina = new PIXI.Sprite(loader.resources.tAntidiscrimina.texture);
-    var ratio = bAntidiscrimina.width / bAntidiscrimina.height;
-    bAntidiscrimina.width = 300*widthRelativo;
-    bAntidiscrimina.height = bAntidiscrimina.width / ratio;
-    bAntidiscrimina.anchor.set(0.5);
-    bAntidiscrimina.x = cMenu.width/2;
-    bAntidiscrimina.y = 100*heightRelativo;
-    cMenu.addChild(bAntidiscrimina);
+    bGeneralidades = new PIXI.Sprite(loader.resources.tGeneralidades.texture);
+    var ratio = bGeneralidades.width / bGeneralidades.height;
+    bGeneralidades.width = 300*widthRelativo;
+    bGeneralidades.height = bGeneralidades.width / ratio;
+    bGeneralidades.anchor.set(0.5);
+    bGeneralidades.x = 1;
+    bGeneralidades.y = 100*heightRelativo;
+    cMenu.addChild(bGeneralidades);
+
+    bProcesoslibertarios = new PIXI.Sprite(loader.resources.tProcesoslibertarios.texture);
+    var ratio = bProcesoslibertarios.width / bProcesoslibertarios.height;
+    bProcesoslibertarios.width = 300*widthRelativo;
+    bProcesoslibertarios.height = bProcesoslibertarios.width / ratio;
+    bProcesoslibertarios.anchor.set(0.5);
+    bProcesoslibertarios.x = 1;
+    bProcesoslibertarios.y = 200*heightRelativo;
+    cMenu.addChild(bProcesoslibertarios);
+
+    bOrganizaciones = new PIXI.Sprite(loader.resources.tOrganizaciones.texture);
+    var ratio = bOrganizaciones.width / bOrganizaciones.height;
+    bOrganizaciones.width = 300*widthRelativo;
+    bOrganizaciones.height = bOrganizaciones.width / ratio;
+    bOrganizaciones.anchor.set(0.5);
+    bOrganizaciones.x = 1;
+    bOrganizaciones.y = 300*heightRelativo;
+    cMenu.addChild(bOrganizaciones);
+
+    bLey70 = new PIXI.Sprite(loader.resources.tLey70.texture);
+    var ratio = bLey70.width / bLey70.height;
+    bLey70.width = 300*widthRelativo;
+    bLey70.height = bLey70.width / ratio;
+    bLey70.anchor.set(0.5);
+    bLey70.x = widhwindow/2;
+    bLey70.y = 100*heightRelativo;
+    cMenu.addChild(bLey70);
+
+    bLegislacion = new PIXI.Sprite(loader.resources.tLegislacion.texture);
+    var ratio = bLegislacion.width / bLegislacion.height;
+    bLegislacion.width = 300*widthRelativo;
+    bLegislacion.height = bLegislacion.width / ratio;
+    bLegislacion.anchor.set(0.5);
+    bLegislacion.x = widhwindow/2;
+    bLegislacion.y = 200*heightRelativo;
+    cMenu.addChild(bLegislacion);
 
     bCimarronaje = new PIXI.Sprite(loader.resources.tCimarronaje.texture);
     var ratio = bCimarronaje.width / bCimarronaje.height;
     bCimarronaje.width = 300*widthRelativo;
     bCimarronaje.height = bCimarronaje.width / ratio;
     bCimarronaje.anchor.set(0.5);
-    bCimarronaje.x = 1;
-    bCimarronaje.y = 200*heightRelativo;
+    bCimarronaje.x = widhwindow/2;
+    bCimarronaje.y = 300*heightRelativo;
     cMenu.addChild(bCimarronaje);
-
 
     cMenu.x = 200*widthRelativo;
     cMenu.y = 100*heightRelativo;
     app.stage.addChild(cMenu);
     cMenu.visible = false;
 
-     // Acción de boton
-     bMusica.interactive = true;
-     bMusica.buttonMode = true;
-     bMusica.on('pointerover', onMouseOverBoton);
-     bMusica.on('pointerout', onMouseNotOverBoton);
-     bMusica.on('pointerdown', (event) => onClickOpcion("musica"));
- 
-     // Acción de boton
-     bBailes.interactive = true;
-     bBailes.buttonMode = true;
-     bBailes.on('pointerover', onMouseOverBoton);
-     bBailes.on('pointerout', onMouseNotOverBoton);
-     bBailes.on('pointerdown', (event) => onClickOpcion("bailes"));
+    // Acción de boton
+
+    bGeneralidades.interactive = true;
+    bGeneralidades.buttonMode = true;
+    bGeneralidades.on('pointerover', onMouseOverBoton);
+    bGeneralidades.on('pointerout', onMouseNotOverBoton);
+    bGeneralidades.on('pointerdown', (event) => window.open("../../static/assets/src/capitulo4/GENERALIDADES.pdf", "Generalidades", "width=800, height=600"));
+
+    bProcesoslibertarios.interactive = true;
+    bProcesoslibertarios.buttonMode = true;
+    bProcesoslibertarios.on('pointerover', onMouseOverBoton);
+    bProcesoslibertarios.on('pointerout', onMouseNotOverBoton);
+    bProcesoslibertarios.on('pointerdown', (event) => window.open("../../static/assets/src/capitulo4/PROCESOS_LIBERTARIOS.pdf", "Procesos Libertarios", "width=800, height=600"));
+
+    bOrganizaciones.interactive = true;
+    bOrganizaciones.buttonMode = true;
+    bOrganizaciones.on('pointerover', onMouseOverBoton);
+    bOrganizaciones.on('pointerout', onMouseNotOverBoton);
+    bOrganizaciones.on('pointerdown', (event) => window.open("../../static/assets/src/capitulo4/ORGANIZACIONES.pdf", "Organizaciones", "width=800, height=600"));
+
+    bLey70.interactive = true;
+    bLey70.buttonMode = true;
+    bLey70.on('pointerover', onMouseOverBoton);
+    bLey70.on('pointerout', onMouseNotOverBoton);
+    bLey70.on('pointerdown', (event) => window.open("../../static/assets/src/capitulo4/LEY70DE1993.pdf", "Ley 70 de 1993", "width=800, height=600"));
+
+    bLegislacion.interactive = true;
+    bLegislacion.buttonMode = true;
+    bLegislacion.on('pointerover', onMouseOverBoton);
+    bLegislacion.on('pointerout', onMouseNotOverBoton);
+    bLegislacion.on('pointerdown', (event) => window.open("../../static/assets/src/capitulo4/LEGISLACION_ESPECIAL.pdf", "Legislación Especial", "width=800, height=600"));
+
+    bCimarronaje.interactive = true;
+    bCimarronaje.buttonMode = true;
+    bCimarronaje.on('pointerover', onMouseOverBoton);
+    bCimarronaje.on('pointerout', onMouseNotOverBoton);
+    bCimarronaje.on('pointerdown', (event) => window.open("../../static/assets/src/capitulo4/CIMARRONES_JURIDICO.pdf", "Cimarronaje Jurídico", "width=800, height=600"));
+
     
 
 }
@@ -215,11 +277,6 @@ function onMouseOverInicio() {
 }
 
 function onMouseNotOverInicio() {
-    if (eInicio == "inicio" || eInicio == "musica_inicio") {
-        this.texture = tInicio1;
-    } else if (fondoBailes.visible == true || fondoInstrumentos.visible == true ) {
-        this.texture = tInicio3;
-    }
     this.width -= 20;
     this.height -= 20;
 }
