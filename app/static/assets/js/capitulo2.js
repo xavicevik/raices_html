@@ -53,6 +53,27 @@ fondo.x = widhwindow / 2;
 fondo.y = heightwindow / 2;
 app.stage.addChild(fondo);
 
+
+const style1 = new PIXI.TextStyle({
+    fontFamily: 'Futura',
+    fontSize: 25,
+    stroke: '#ffffff',
+    strokeThickness: 5,
+    dropShadowAngle: Math.PI / 6,
+    dropShadowDistance: 6,
+    wordWrap: true,
+    wordWrapWidth: 440,
+    lineJoin: 'round',
+});
+
+var tNext = new PIXI.Text("Siguiente", style1);
+var tBack = new PIXI.Text("Anterior", style1);
+tNext.anchor.set(0.5);
+tNext.position.set(widhwindow - 60, 120);
+tBack.anchor.set(0.5);
+tBack.position.set(60, 120);
+
+
 let tfondo2 = PIXI.Texture.from('../../static/assets/img/fondo_transparente.png');
 var fondotransparente = new PIXI.Sprite(tfondo2);
 fondotransparente.width = widhwindow;
@@ -72,7 +93,7 @@ var iMapa;
 var nubet;
 var rbarca, rtriangulo, resclavos;
 let urlsStory;
-var bTratanegros, bConsecuencias, bEmbarque, bEsclavitud, bTriangulo;
+var bTratanegros, bConsecuencias, bEmbarque, bEsclavitud, bTriangulo, bImagenes;
 var eInicio = "inicio";
 
 const loader = new PIXI.Loader();
@@ -81,6 +102,7 @@ loader.add('titulo', '../../static/assets/img/titulo.png')
     .add('barca', '../../static/assets/img/barca.json')
     .add('triangulo', '../../static/assets/img/triangulo.json')
     .add('esclavos', '../../static/assets/img/esclavos.json')
+    .add('tImagenes','../../static/assets/img/botones_cap2/Boton_imagenes.png')
     .add('tTratanegros','../../static/assets/img/botones_cap2/Boton_tratanegros.png')
     .add('tConsecuencias','../../static/assets/img/botones_cap2/Boton_consecuencias.png')
     .add('tEmbarque','../../static/assets/img/botones_cap2/Boton_embarque.png')
@@ -156,6 +178,12 @@ function startup() {
     app.stage.addChild(rtriangulo);
     rtriangulo.visible = false;
 
+    app.stage.addChild(tBack);
+    app.stage.addChild(tNext);
+
+    tNext.visible = false;
+    tBack.visible = false;
+
     // boton inicio
     var bInicio = PIXI.Sprite.from('../../static/assets/img/botones/inicio.png');
     var ratio = bInicio.width / bInicio.height;
@@ -215,7 +243,7 @@ function startup() {
     bTratanegros.width = 200*widthRelativo;
     bTratanegros.height = bTratanegros.width / ratio;
     bTratanegros.anchor.set(0.5);
-    bTratanegros.x = cMenu.width/2;
+    bTratanegros.x = 1;
     bTratanegros.y = 100*heightRelativo;
     cMenu.addChild(bTratanegros);
 
@@ -224,7 +252,7 @@ function startup() {
     bEsclavitud.width = 200*widthRelativo;
     bEsclavitud.height = bEsclavitud.width / ratio;
     bEsclavitud.anchor.set(0.5);
-    bEsclavitud.x = cMenu.width/2;
+    bEsclavitud.x = 1;
     bEsclavitud.y = 200*heightRelativo;
     cMenu.addChild(bEsclavitud);
 
@@ -233,16 +261,16 @@ function startup() {
     bEmbarque.width = 200*widthRelativo;
     bEmbarque.height = bEmbarque.width / ratio;
     bEmbarque.anchor.set(0.5);
-    bEmbarque.x = cMenu.width/2;
+    bEmbarque.x = 1;
     bEmbarque.y = 300*heightRelativo;
     cMenu.addChild(bEmbarque);
 
     bTriangulo = new PIXI.Sprite(loader.resources.tTriangulo.texture);
     var ratio = bTriangulo.width / bTriangulo.height;
-    bTriangulo.width = 200*widthRelativo;
+    bTriangulo.width = 220*widthRelativo;
     bTriangulo.height = bTriangulo.width / ratio;
     bTriangulo.anchor.set(0.5);
-    bTriangulo.x = cMenu.width;
+    bTriangulo.x = widhwindow/2;
     bTriangulo.y = 100*heightRelativo;
     cMenu.addChild(bTriangulo);
 
@@ -251,9 +279,18 @@ function startup() {
     bConsecuencias.width = 200*widthRelativo;
     bConsecuencias.height = bConsecuencias.width / ratio;
     bConsecuencias.anchor.set(0.5);
-    bConsecuencias.x = cMenu.width;
+    bConsecuencias.x = widhwindow/2;
     bConsecuencias.y = 200*heightRelativo;
     cMenu.addChild(bConsecuencias);
+
+    bImagenes = new PIXI.Sprite(loader.resources.tImagenes.texture);
+    var ratio = bImagenes.width / bImagenes.height;
+    bImagenes.width = 200*widthRelativo;
+    bImagenes.height = bImagenes.width / ratio;
+    bImagenes.anchor.set(0.5);
+    bImagenes.x = widhwindow/2;
+    bImagenes.y = 300*heightRelativo;
+    cMenu.addChild(bImagenes);
 
     cMenu.x = 200*widthRelativo;
     cMenu.y = 100*heightRelativo;
@@ -308,31 +345,42 @@ function startup() {
     bAdelante.on('pointerout', onMouseNotOverBoton);
     bAdelante.on('pointerdown', (event) => onClickStory("adelante"));
 
-     // Acción de boton
-     bTratanegros.interactive = true;
-     bTratanegros.buttonMode = true;
-     bTratanegros.on('pointerover', onMouseOverBoton);
-     bTratanegros.on('pointerout', onMouseNotOverBoton);
-     bTratanegros.on('pointerdown', (event) => onClickOpcion("tratanegros"));
+    // Acción de boton
+    bTratanegros.interactive = true;
+    bTratanegros.buttonMode = true;
+    bTratanegros.on('pointerover', onMouseOverBoton);
+    bTratanegros.on('pointerout', onMouseNotOverBoton);
+    bTratanegros.on('pointerdown', (event) => window.open("../../static/assets/src/capitulo2/TRATA.pdf", "Trata de Negros", "width=800, height=600"));
 
-     bEsclavitud.interactive = true;
-     bEsclavitud.buttonMode = true;
-     bEsclavitud.on('pointerover', onMouseOverBoton);
-     bEsclavitud.on('pointerout', onMouseNotOverBoton);
-     bEsclavitud.on('pointerdown', (event) => onClickOpcion("esclavitud"));
+    bEsclavitud.interactive = true;
+    bEsclavitud.buttonMode = true;
+    bEsclavitud.on('pointerover', onMouseOverBoton);
+    bEsclavitud.on('pointerout', onMouseNotOverBoton);
+    bEsclavitud.on('pointerdown', (event) => window.open("../../static/assets/src/capitulo2/ESCLAVITUD.pdf", "Trata de Negros", "width=800, height=600"));
 
-     bTriangulo.interactive = true;
-     bTriangulo.buttonMode = true;
-     bTriangulo.on('pointerover', onMouseOverBoton);
-     bTriangulo.on('pointerout', onMouseNotOverBoton);
-     bTriangulo.on('pointerdown', (event) => onClickOpcion("triangulo"));
+    bTriangulo.interactive = true;
+    bTriangulo.buttonMode = true;
+    bTriangulo.on('pointerover', onMouseOverBoton);
+    bTriangulo.on('pointerout', onMouseNotOverBoton);
+    bTriangulo.on('pointerdown', (event) => onClickOpcion("triangulo"));
 
-     bEmbarque.interactive = true;
-     bEmbarque.buttonMode = true;
-     bEmbarque.on('pointerover', onMouseOverBoton);
-     bEmbarque.on('pointerout', onMouseNotOverBoton);
-     bEmbarque.on('pointerdown', (event) => onClickOpcion("embarque"));
+    bConsecuencias.interactive = true;
+    bConsecuencias.buttonMode = true;
+    bConsecuencias.on('pointerover', onMouseOverBoton);
+    bConsecuencias.on('pointerout', onMouseNotOverBoton);
+    bConsecuencias.on('pointerdown', (event) => window.open("../../static/assets/src/capitulo2/CONSECUENCIAS.pdf", "Consecuencias", "width=800, height=600"));
 
+    bEmbarque.interactive = true;
+    bEmbarque.buttonMode = true;
+    bEmbarque.on('pointerover', onMouseOverBoton);
+    bEmbarque.on('pointerout', onMouseNotOverBoton);
+    bEmbarque.on('pointerdown', (event) => window.open("../../static/assets/src/capitulo2/EMBARQUE.pdf", "Embarque", "width=800, height=600"));
+
+    bImagenes.interactive = true;
+    bImagenes.buttonMode = true;
+    bImagenes.on('pointerover', onMouseOverBoton);
+    bImagenes.on('pointerout', onMouseNotOverBoton);
+    bImagenes.on('pointerdown', (event) => onClickOpcion("tratanegros"));
 }
 
 setup();
@@ -498,6 +546,8 @@ function onClickStory(object) {
 }
 
 function onClickOpcion(object) {
+    tNext.visible = true;
+    tBack.visible = true;
     fondotransparente.visible = false;
     cMenu.visible = false;
     if (object == "tratanegros") {
