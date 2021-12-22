@@ -52,17 +52,34 @@ fondo.x = widhwindow / 2;
 fondo.y = heightwindow / 2;
 app.stage.addChild(fondo);
 
+let tfondo2 = PIXI.Texture.from('../../static/assets/img/fondo_transparente.png');
+var fondotransparente = new PIXI.Sprite(tfondo2);
+fondotransparente.width = widhwindow;
+fondotransparente.height = heightwindow;
+fondotransparente.anchor.set(0.5);
+fondotransparente.x = widhwindow / 2;
+fondotransparente.y = heightwindow / 2;
+app.stage.addChild(fondotransparente);
+fondotransparente.visible = false;
+
 
 // Se cargan los objetos y animaciones
 var iTitulo;
 var ratioTitulo;
 var pPrincipal;
 var iMapa;
+var eInicio = "inicio";
+var bGeneralidades, bAsentamientos, bMestizaje;
 
 
-app.loader.add('titulo', '../../static/assets/img/titulo.png')
-    .add('personaje', '../../static/assets/img/personajes/principal.png')
-    //.add('mapa', '../../static/assets/img/mapa1.png')
+const loader = new PIXI.Loader();
+loader.add('titulo', '../../static/assets/img/titulo.png')
+    .add('tInicio1','../../static/assets/img/botones_cap5/Boton_Iniciar_Cap_05.png')
+    .add('tInicio2','../../static/assets/img/botones_cap5/Boton_Iniciar_Cap_05_Over.png')
+    .add('tInicio3','../../static/assets/img/botones_cap5/Boton_Volver_Cap_05.png')
+    .add('tGeneralidades','../../static/assets/img/botones_cap3/Boton_generalidades.png')
+    .add('tAsentamientos','../../static/assets/img/botones_cap3/Boton_asentamientos.png')
+    .add('tMestizaje','../../static/assets/img/botones_cap3/Boton_mestizaje.png')
     //.add('nube', '../../static/assets/img/nube.png')
     //.add('capitulo4', '../../static/assets/img/menu/iCapitulo4.png')
     //.add('capitulo5', '../../static/assets/img/menu/iCapitulo5.png')
@@ -72,21 +89,7 @@ app.loader.add('titulo', '../../static/assets/img/titulo.png')
     .load(startup);
 
 function startup() {
-    /*
-    pPrincipal = PIXI.Sprite.from(app.loader.resources.personaje.texture);
-    ratioTitulo = pPrincipal.width / pPrincipal.height;
-    pPrincipal.anchor.set(0.5);
-    pPrincipal.scale.set((300*widthRelativo)/(pPrincipal.width));
-    pPrincipal.position.set(200*widthRelativo, heightwindow / 2);
-    app.stage.addChild(pPrincipal);
 
-    iMapa = PIXI.Sprite.from(app.loader.resources.mapa.texture);
-    ratioTitulo = iMapa.width / iMapa.height;
-    iMapa.anchor.set(0.5);
-    iMapa.scale.set((500*widthRelativo)/(iMapa.width));
-    iMapa.position.set(700*widthRelativo, heightwindow / 2);
-    app.stage.addChild(iMapa);
-*/
     // boton inicio
     var bInicio = PIXI.Sprite.from('../../static/assets/img/botones/inicio.png');
     var ratio = bInicio.width / bInicio.height;
@@ -118,24 +121,61 @@ function startup() {
     app.stage.addChild(bAdelante);
 
     // boton menu
-    var bMenu = PIXI.Sprite.from('../../static/assets/img/botones/menu.png');
+    tInicio1 = loader.resources.tInicio1.texture;
+    tInicio2 = loader.resources.tInicio2.texture;
+    tInicio3 = loader.resources.tInicio3.texture;
+    bMenu = new PIXI.Sprite(tInicio1);
     var ratio = bMenu.width / bMenu.height;
-    bMenu.width = 70*widthRelativo;
+    bMenu.width = 180*widthRelativo;
     bMenu.height = bMenu.width / ratio;
     bMenu.anchor.set(0.5);
-    bMenu.x = widhwindow - 60;
+    bMenu.x = widhwindow - 150;
     bMenu.y = heightwindow - 60;
     app.stage.addChild(bMenu);
 
-    // boton pergamino
-    var bPergamino = PIXI.Sprite.from('../../static/assets/img/botones/pergamino.png');
-    var ratio = bPergamino.width / bPergamino.height;
-    bPergamino.width = 70*widthRelativo;
-    bPergamino.height = bPergamino.width / ratio;
-    bPergamino.anchor.set(0.5);
-    bPergamino.x = widhwindow /2;
-    bPergamino.y = heightwindow - 60;
-    app.stage.addChild(bPergamino);
+    // Contenedor del menu
+    cMenu = new PIXI.Container;
+
+    // botones del menu
+    bGeneralidades = new PIXI.Sprite(loader.resources.tGeneralidades.texture);
+    var ratio = bGeneralidades.width / bGeneralidades.height;
+    bGeneralidades.width = 300*widthRelativo;
+    bGeneralidades.height = bGeneralidades.width / ratio;
+    bGeneralidades.anchor.set(0.5);
+    bGeneralidades.x = 1;
+    bGeneralidades.y = 100*heightRelativo;
+    cMenu.addChild(bGeneralidades);
+
+    bMestizaje = new PIXI.Sprite(loader.resources.tMestizaje.texture);
+    var ratio = bMestizaje.width / bMestizaje.height;
+    bMestizaje.width = 300*widthRelativo;
+    bMestizaje.height = bMestizaje.width / ratio;
+    bMestizaje.anchor.set(0.5);
+    bMestizaje.x = 1;
+    bMestizaje.y = 200*heightRelativo;
+    cMenu.addChild(bMestizaje);
+
+    bAsentamientos = new PIXI.Sprite(loader.resources.tAsentamientos.texture);
+    var ratio = bAsentamientos.width / bAsentamientos.height;
+    bAsentamientos.width = 300*widthRelativo;
+    bAsentamientos.height = bAsentamientos.width / ratio;
+    bAsentamientos.anchor.set(0.5);
+    bAsentamientos.x = 1;
+    bAsentamientos.y = 300*heightRelativo;
+    cMenu.addChild(bAsentamientos);
+
+    cMenu.x = widhwindow/2;
+    cMenu.y = 100*heightRelativo;
+    app.stage.addChild(cMenu);
+    cMenu.visible = false;
+
+    // Acción de boton
+    bMenu.interactive = true;
+    bMenu.buttonMode = true;
+    bMenu.on('pointerover', onMouseOverInicio);
+    bMenu.on('pointerout', onMouseNotOverInicio);
+    bMenu.on('pointerdown', onClickMenuInicio);
+
 
     // Acción de boton
     bInicio.interactive = true;
@@ -144,18 +184,79 @@ function startup() {
     bInicio.on('pointerout', onMouseNotOverBoton);
     bInicio.on('pointerdown', (event) => onClickMenuCapitulo("menu"))
 
+    bGeneralidades.interactive = true;
+    bGeneralidades.buttonMode = true;
+    bGeneralidades.on('pointerover', onMouseOverBoton);
+    bGeneralidades.on('pointerout', onMouseNotOverBoton);
+    bGeneralidades.on('pointerdown', (event) => window.open("../../static/assets/src/capitulo3/GENERALIDADES.pdf", "Generalidades", "width=800, height=600"));
+
+    bAsentamientos.interactive = true;
+    bAsentamientos.buttonMode = true;
+    bAsentamientos.on('pointerover', onMouseOverBoton);
+    bAsentamientos.on('pointerout', onMouseNotOverBoton);
+    bAsentamientos.on('pointerdown', (event) => window.open("../../static/assets/src/capitulo3/cap03_asentamientos.pdf", "Asentamientos", "width=800, height=600"));
+
+    bMestizaje.interactive = true;
+    bMestizaje.buttonMode = true;
+    bMestizaje.on('pointerover', onMouseOverBoton);
+    bMestizaje.on('pointerout', onMouseNotOverBoton);
+    bMestizaje.on('pointerdown', (event) => window.open("../../static/assets/src/capitulo3/mezcla.png", "Mestizaje", "width=800, height=600"));
+
+
+}
+
+function onMouseOverInicio() {
+    this.texture = tInicio2;
+    this.width += 20;
+    this.height += 20;
+}
+
+function onMouseNotOverInicio() {
+    this.width -= 20;
+    this.height -= 20;
 }
 
 function onMouseOverBoton() {
-    this.width += 30;
-    this.height += 30;
+    this.width += 20;
+    this.height += 20;
 }
 
 function onMouseNotOverBoton(){
-    this.width -= 30;
-    this.height -= 30;
+    this.width -= 20;
+    this.height -= 20;
 }
 
 function onClickMenuCapitulo(object) {
     window.location.href = url_base + object + "/";
+}
+
+function onClickMenuInicio() {
+    if (eInicio == "inicio") {
+        if (fondotransparente.visible == false) {
+            //fondo.visible = true;
+            fondotransparente.visible = true;
+            bMenu.texture = tInicio3;
+            cMenu.visible = true;
+            eInicio = "volver";
+        } else {
+            fondotransparente.visible = false;
+            bMenu.texture = tInicio3;
+            cMenu.visible = true;
+            eInicio = "volver";
+        }
+    } else if (eInicio == "volver") {
+            fondotransparente.visible = false;
+            bMenu.texture = tInicio1;
+            cMenu.visible = false;
+            eInicio = "inicio";
+    } else if (eInicio == "musica_inicio" || eInicio == "bailes_inicio" || eInicio == "instrumentos_inicio") {
+        fondo.visible = false;
+        fondoBailes.visible = false;
+        fondoInstrumentos.visible = false;
+        fondoMusica.visible = true;
+        cMenuMusica.visible = true;
+        bMenu.texture = tInicio3;
+        cMenu.visible = false;
+        eInicio = "inicio";
+    }
 }
