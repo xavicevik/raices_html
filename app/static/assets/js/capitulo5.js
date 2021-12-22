@@ -94,6 +94,8 @@ var bMenu;
 var tInicio1, tInicio2;
 var bPersonajes, bGastro, bMusica, bArte, bVestu, bInstrumentos, bBailes;
 var tPersonajes1, tPersonajes2, tGastro1, tGastro2, tMusica1, tMusica2, tArte1, tArte2, tVestu1, tVestu2, tfondoM1, tfondoM2;
+var tNombres, tRaizal, tLiteratura;
+var bNombres, bRaizal, bLiteratura;
 var cMenu;
 var iNota;
 var eInicio = "inicio";
@@ -113,6 +115,9 @@ loader.add('titulo', '../../static/assets/img/titulo.png')
     .add('tArte2','../../static/assets/img/botones_cap5/Boton_Arte_Afro_Cap_05_Over.png')
     .add('tVestu1','../../static/assets/img/botones_cap5/Boton_Vestuario_Cap_05.png')
     .add('tVestu2','../../static/assets/img/botones_cap5/Boton_Vestuario_Cap_05_Over.png')
+    .add('tNombres','../../static/assets/img/botones_cap5/Boton_nombres_Cap_05.png')
+    .add('tRaizal','../../static/assets/img/botones_cap5/Boton_raizal_Cap_05.png')
+    .add('tLiteratura','../../static/assets/img/botones_cap5/Boton_literatura_Cap_05.png')
     .add('notaM', '../../static/assets/img/notas_musical.png')
     .add('mapa', '../../static/assets/img/mapa1.png')
     .add('instrumentos', '../../static/assets/img/botones_cap5/Boton_Instrumentos_Cap05.png')
@@ -124,21 +129,7 @@ loader.add('titulo', '../../static/assets/img/titulo.png')
     .load(startup);
 
 function startup() {
-    /*
-    pPrincipal = PIXI.Sprite.from(app.loader.resources.personaje.texture);
-    ratioTitulo = pPrincipal.width / pPrincipal.height;
-    pPrincipal.anchor.set(0.5);
-    pPrincipal.scale.set((300*widthRelativo)/(pPrincipal.width));
-    pPrincipal.position.set(200*widthRelativo, heightwindow / 2);
-    app.stage.addChild(pPrincipal);
-
-    iMapa = PIXI.Sprite.from(app.loader.resources.mapa.texture);
-    ratioTitulo = iMapa.width / iMapa.height;
-    iMapa.anchor.set(0.5);
-    iMapa.scale.set((500*widthRelativo)/(iMapa.width));
-    iMapa.position.set(700*widthRelativo, heightwindow / 2);
-    app.stage.addChild(iMapa);
-*/
+ 
     // boton inicio
     var bInicio = PIXI.Sprite.from('../../static/assets/img/botones/inicio.png');
     var ratio = bInicio.width / bInicio.height;
@@ -189,15 +180,6 @@ function startup() {
     bMenu.on('pointerout', onMouseNotOverInicio);
     bMenu.on('pointerdown', onClickMenuInicio);
 
-    // boton pergamino
-    var bPergamino = PIXI.Sprite.from('../../static/assets/img/botones/pergamino.png');
-    var ratio = bPergamino.width / bPergamino.height;
-    bPergamino.width = 70*widthRelativo;
-    bPergamino.height = bPergamino.width / ratio;
-    bPergamino.anchor.set(0.5);
-    bPergamino.x = widhwindow /2;
-    bPergamino.y = heightwindow - 60;
-    app.stage.addChild(bPergamino);
 
     // Nota musical
     iNota = new PIXI.Sprite(loader.resources.notaM.texture);
@@ -232,16 +214,15 @@ function startup() {
     cMenuMusica = new PIXI.Container;
 
     // botones del menu
-    tPersonajes1 = loader.resources.tPersonajes1.texture;
-    tPersonajes2 = loader.resources.tPersonajes2.texture;
-    bPersonajes = new PIXI.Sprite(tPersonajes1);
-    var ratio = bPersonajes.width / bPersonajes.height;
-    bPersonajes.width = 180*widthRelativo;
-    bPersonajes.height = bPersonajes.width / ratio;
-    bPersonajes.anchor.set(0.5);
-    bPersonajes.x = cMenu.width/2;
-    bPersonajes.y = 1;
-    cMenu.addChild(bPersonajes);
+    tNombres = loader.resources.tNombres.texture;
+    bNombres = new PIXI.Sprite(tNombres);
+    var ratio = bNombres.width / bNombres.height;
+    bNombres.width = 180*widthRelativo;
+    bNombres.height = bNombres.width / ratio;
+    bNombres.anchor.set(0.5);
+    bNombres.x = cMenu.width/2;
+    bNombres.y = 1;
+    cMenu.addChild(bNombres);
 
     tGastro1 = loader.resources.tGastro1.texture;
     tGastro2 = loader.resources.tGastro2.texture;
@@ -276,16 +257,15 @@ function startup() {
     bArte.y = 300*heightRelativo;
     cMenu.addChild(bArte);
 
-    tVestu1 = loader.resources.tVestu1.texture;
-    tVestu2 = loader.resources.tVestu2.texture;
-    bVestu = new PIXI.Sprite(tVestu1);
-    var ratio = bVestu.width / bVestu.height;
-    bVestu.width = 180*widthRelativo;
-    bVestu.height = bVestu.width / ratio;
-    bVestu.anchor.set(0.5);
-    bVestu.x = 1;
-    bVestu.y = 400*heightRelativo;
-    cMenu.addChild(bVestu);
+    tRaizal = loader.resources.tRaizal.texture;
+    bRaizal = new PIXI.Sprite(tRaizal);
+    var ratio = bRaizal.width / bRaizal.height;
+    bRaizal.width = 180*widthRelativo;
+    bRaizal.height = bRaizal.width / ratio;
+    bRaizal.anchor.set(0.5);
+    bRaizal.x = 1;
+    bRaizal.y = 400*heightRelativo;
+    cMenu.addChild(bRaizal);
 
     cMenu.x = 200*widthRelativo;
     cMenu.y = 100*heightRelativo;
@@ -336,6 +316,34 @@ function startup() {
     bInstrumentos.on('pointerover', onMouseOverBoton);
     bInstrumentos.on('pointerout', onMouseNotOverBoton);
     bInstrumentos.on('pointerdown', (event) => onClickOpcion("instrumentos"));
+
+    bRaizal.interactive = true;
+    bRaizal.buttonMode = true;
+    bRaizal.on('pointerover', onMouseOverBoton);
+    bRaizal.on('pointerout', onMouseNotOverBoton);
+    bRaizal.on('pointerdown', (event) => window.open("../../static/assets/src/capitulo5/RAIZAL.pdf", "", "width=800, height=600"));
+
+
+    bNombres.interactive = true;
+    bNombres.buttonMode = true;
+    bNombres.on('pointerover', onMouseOverBoton);
+    bNombres.on('pointerout', onMouseNotOverBoton);
+    bNombres.on('pointerdown', (event) => window.open("../../static/assets/src/capitulo5/NOMBRES.pdf", "", "width=800, height=600"));
+
+
+    bGastro.interactive = true;
+    bGastro.buttonMode = true;
+    bGastro.on('pointerover', onMouseOverBoton);
+    bGastro.on('pointerout', onMouseNotOverBoton);
+    bGastro.on('pointerdown', (event) => window.open("../../static/assets/src/capitulo5/COCINA_AFROCOLOMBIANA.pdf", "", "width=800, height=600"));
+
+
+    bArte.interactive = true;
+    bArte.buttonMode = true;
+    bArte.on('pointerover', onMouseOverBoton);
+    bArte.on('pointerout', onMouseNotOverBoton);
+    bArte.on('pointerdown', (event) => window.open("../../static/assets/src/capitulo5/LITERATURA_AFRICANA.pdf", "", "width=800, height=600"));
+
 
 }
 

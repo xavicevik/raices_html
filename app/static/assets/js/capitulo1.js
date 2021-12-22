@@ -101,7 +101,7 @@ var itextoInicio, rtMansaMunsa;
 var ratioTitulo;
 var pPrincipal;
 var iMapa;
-var rStory1, rKeita, rVideointro;
+var rStory1, rKeita, rVideointro, rpersonajes;
 var frames;
 var iPergamino;
 var menuCapitulos;
@@ -109,6 +109,9 @@ var ratio;
 var bpdf, bpersonajes, iMansaMunsa;
 var iTextoPersonajes;
 var tMansaMunsa;
+var bIBenin, bIGhana, bIMali, bIKong, bIGranz, bImperios;
+var personajesjson;
+
 
 const loader = new PIXI.Loader();
 loader.add('titulo', '../../static/assets/img/titulo.png')
@@ -124,6 +127,14 @@ loader.add('titulo', '../../static/assets/img/titulo.png')
     .add('fondoMapa', '../../static/assets/img/fondomapa.jpg')
     .add('textoInicio', '../../static/assets/img/textoInicio.png')
     .add('tMansaMunsa', '../../static/assets/img/rtmansamunsa.png')
+    .add('tIBenin','../../static/assets/img/botones_cap1/Boton_benin.png')
+    .add('tIGhana','../../static/assets/img/botones_cap1/Boton_ghana.png')
+    .add('tIMali','../../static/assets/img/botones_cap1/Boton_mali.png')
+    .add('tIKong','../../static/assets/img/botones_cap1/Boton_kong.png')
+    .add('tIGranz','../../static/assets/img/botones_cap1/Boton_granzimbawe.png')
+    .add('tImperios','../../static/assets/img/botones_cap1/Boton_imperiosyreinos.png')
+    .add('personajesjson', '../../static/assets/img/personajesjson.json')
+
     .load(startup);
 
 loader.onProgress.add(() => loading());
@@ -246,12 +257,28 @@ function startup() {
     app.stage.addChild(itextoInicio);
     itextoInicio.visible = false;
 
+    
     rtMansaMunsa = PIXI.Sprite.from(loader.resources.tMansaMunsa.texture);
     rtMansaMunsa.anchor.set(0);
     rtMansaMunsa.scale.set((180*heightRelativo)/(rtMansaMunsa.height));
     rtMansaMunsa.position.set(410*widthRelativo, 220*heightRelativo);
-    app.stage.addChild(rtMansaMunsa);
-    rtMansaMunsa.visible = false;
+
+
+    urlsStory = loader.resources.personajesjson.data.url;
+    frames = [];
+    for (let i = 1; i < 5; i++) {
+        frames.push(PIXI.Texture.from(urlsStory[i]));
+    }
+
+    rpersonajes = new PIXI.AnimatedSprite(frames);
+    rpersonajes.anchor.set(0.5);
+    rpersonajes.animationSpeed = 0.01;
+    rpersonajes.scale.set((180*heightRelativo)/(rtMansaMunsa.height));
+    rpersonajes.position.set(widhwindow/2, heightwindow/2 + 25*heightRelativo);
+    rpersonajes.loop = true;
+    rpersonajes.stop();
+    rpersonajes.visible = false;
+    app.stage.addChild(rpersonajes);
 
     // boton pdf
     bpdf = PIXI.Sprite.from(loader.resources.pdf.texture);
@@ -322,6 +349,70 @@ function startup() {
     bPergamino.y = heightwindow - 60;
     app.stage.addChild(bPergamino);
 
+    // Contenedor del menu
+    cMenu = new PIXI.Container;
+
+    // botones del menu
+    bIBenin = new PIXI.Sprite(loader.resources.tIBenin.texture);
+    var ratio = bIBenin.width / bIBenin.height;
+    bIBenin.width = 130*widthRelativo;
+    bIBenin.height = bIBenin.width / ratio;
+    bIBenin.anchor.set(0.5);
+    bIBenin.x = 620*widthRelativo;
+    bIBenin.y = 300*heightRelativo;
+    cMenu.addChild(bIBenin);
+
+    bIGhana = new PIXI.Sprite(loader.resources.tIGhana.texture);
+    var ratio = bIGhana.width / bIGhana.height;
+    bIGhana.width = 150*widthRelativo;
+    bIGhana.height = bIGhana.width / ratio;
+    bIGhana.anchor.set(0.5);
+    bIGhana.x = 480*widthRelativo;
+    bIGhana.y = 415*heightRelativo;
+    cMenu.addChild(bIGhana);
+
+    bIGranz = new PIXI.Sprite(loader.resources.tIGranz.texture);
+    var ratio = bIGranz.width / bIGranz.height;
+    bIGranz.width = 150*widthRelativo;
+    bIGranz.height = bIGranz.width / ratio;
+    bIGranz.anchor.set(0.5);
+    bIGranz.x = 880*widthRelativo;
+    bIGranz.y = 260*heightRelativo;
+    cMenu.addChild(bIGranz);
+
+    bImperios = new PIXI.Sprite(loader.resources.tImperios.texture);
+    var ratio = bImperios.width / bImperios.height;
+    bImperios.width = 150*widthRelativo;
+    bImperios.height = bImperios.width / ratio;
+    bImperios.anchor.set(0.5);
+    bImperios.x = 190*widthRelativo;
+    bImperios.y = 430*heightRelativo;
+    cMenu.addChild(bImperios);
+
+    bIKong = new PIXI.Sprite(loader.resources.tIKong.texture);
+    var ratio = bIKong.width / bIKong.height;
+    bIKong.width = 150*widthRelativo;
+    bIKong.height = bIKong.width / ratio;
+    bIKong.anchor.set(0.5);
+    bIKong.x = 810*widthRelativo;
+    bIKong.y = 450*heightRelativo;
+    cMenu.addChild(bIKong);
+
+    bIMali = new PIXI.Sprite(loader.resources.tIMali.texture);
+    var ratio = bIMali.width / bIMali.height;
+    bIMali.width = 150*widthRelativo;
+    bIMali.height = bIMali.width / ratio;
+    bIMali.anchor.set(0.5);
+    bIMali.x = 390*widthRelativo;
+    bIMali.y = 145*heightRelativo;
+    cMenu.addChild(bIMali);
+
+    cMenu.x = 1;
+    cMenu.y = 1;
+    app.stage.addChild(cMenu);
+    cMenu.visible = false;
+
+
     // Acción de boton
     bInicio.interactive = true;
     bInicio.buttonMode = true;
@@ -369,6 +460,45 @@ function startup() {
     nube1.visible = false;
     c.slide(nube1, widhwindow, 50, 2000, "smoothstep", true);
 
+    // Acciones botones imperios
+    bImperios.interactive = true;
+    bImperios.buttonMode = true;
+    bImperios.on('pointerover', onMouseOverBoton);
+    bImperios.on('pointerout', onMouseNotOverBoton);
+    bImperios.on('pointerdown', (event) => window.open("../../static/assets/src/capitulo1/IMPERIOS_Y_REINOS.pdf", "", "width=800, height=600"));
+
+    bIMali.interactive = true;
+    bIMali.buttonMode = true;
+    bIMali.on('pointerover', onMouseOverBoton);
+    bIMali.on('pointerout', onMouseNotOverBoton);
+    bIMali.on('pointerdown', (event) => window.open("../../static/assets/src/capitulo1/IMPERIO_DE_MALI.pdf", "", "width=800, height=600"));
+
+    bIGhana.interactive = true;
+    bIGhana.buttonMode = true;
+    bIGhana.on('pointerover', onMouseOverBoton);
+    bIGhana.on('pointerout', onMouseNotOverBoton);
+    bIGhana.on('pointerdown', (event) => window.open("../../static/assets/src/capitulo1/IMPERIO_DE_GHANA.pdf", "", "width=800, height=600"));
+
+    bIBenin.interactive = true;
+    bIBenin.buttonMode = true;
+    bIBenin.on('pointerover', onMouseOverBoton);
+    bIBenin.on('pointerout', onMouseNotOverBoton);
+    bIBenin.on('pointerdown', (event) => window.open("../../static/assets/src/capitulo1/IMPERIO_DE_BENIN.pdf", "", "width=800, height=600"));
+
+    bIKong.interactive = true;
+    bIKong.buttonMode = true;
+    bIKong.on('pointerover', onMouseOverBoton);
+    bIKong.on('pointerout', onMouseNotOverBoton);
+    bIKong.on('pointerdown', (event) => window.open("../../static/assets/src/capitulo1/IMPERIO_DE_KONG.pdf", "", "width=800, height=600"));
+
+    bIGranz.interactive = true;
+    bIGranz.buttonMode = true;
+    bIGranz.on('pointerover', onMouseOverBoton);
+    bIGranz.on('pointerout', onMouseNotOverBoton);
+    bIGranz.on('pointerdown', (event) => window.open("../../static/assets/src/capitulo1/GRAN_ZIMBABWE.pdf", "", "width=800, height=600"));
+
+
+
 }
 
 loader.onComplete.add(() => {
@@ -400,6 +530,7 @@ function capitulo11() {
     bpdf.visible = false;
     ifondoMapa.visible = true;
     bpersonajes.visible = true;
+    cMenu.visible = true;
 
     iTextoPersonajes = new PIXI.Text("Personajes", style1);
     iTextoPersonajes.position.set(bpersonajes.x - bpersonajes.x/2, bpersonajes.y + bpersonajes.height/2);
@@ -408,12 +539,15 @@ function capitulo11() {
 
 function capitulo12() {
     ifondoMapa.visible = false;
+    cMenu.visible = false;
     bpersonajes.visible = false;
     iTextoPersonajes.visible = false;
     fondo.visible = true;
-    rtMansaMunsa.visible = true;
+    //rtMansaMunsa.visible = true;
+    rpersonajes.visible = true;
 
     // Mansa Munsa
+    /*
     iMansaMunsa = PIXI.Sprite.from(loader.resources.mansamunsa.texture);
     ratioTitulo = iMansaMunsa.width / iMansaMunsa.height;
     iMansaMunsa.anchor.set(0);
@@ -422,7 +556,8 @@ function capitulo12() {
     app.stage.addChild(iMansaMunsa);
     tMansaMunsa = new PIXI.Text("Mansa Munsa", style3);
     tMansaMunsa.position.set(450*widthRelativo, 130*heightRelativo);
-    app.stage.addChild(tMansaMunsa);
+    */
+    //app.stage.addChild(tMansaMunsa);
     bpdf.visible = true;
     //bpdf.x = 580*widthRelativo;
     //bpdf.y = 400*heightRelativo;
@@ -451,16 +586,22 @@ function capitulo12() {
     bAtrasp.buttonMode = true;
     bAtrasp.on('pointerover', onMouseOverBoton);
     bAtrasp.on('pointerout', onMouseNotOverBoton);
-    bAtrasp.on('pointerdown', (event) => onClickStory("atras"));
+    bAtrasp.on('pointerdown', (event) => onClickPersonajes("atras"));
 
      // Acción de boton
     bAdelantep.interactive = true;
     bAdelantep.buttonMode = true;
     bAdelantep.on('pointerover', onMouseOverBoton);
     bAdelantep.on('pointerout', onMouseNotOverBoton);
-    bAdelantep.on('pointerdown', (event) => onClickStory("adelante"));
+    bAdelantep.on('pointerdown', (event) => onClickPersonajes("adelante"));
 
-    bpdf.on('pointerdown', (event) => window.open("../../static/assets/src/mansamunsa.pdf", "Capitulo 1", "width=800, height=600"));
+    bpdf.on('pointerdown', onClickOpenPdf);
+}
+
+function onClickOpenPdf() {
+    let nombrearchivo = 'personaje_0'+ rpersonajes.currentFrame + '.pdf';
+    window.open("../../static/assets/src/capitulo1/" + nombrearchivo, "Capitulo 1", "width=800, height=600");
+
 }
 
 function onMouseOverBoton() {
@@ -475,6 +616,16 @@ function onMouseNotOverBoton(){
 
 function onClickMenuCapitulo(object) {
     window.location.href = url_base + object + '/';
+}
+
+function onClickPersonajes(object) {
+    if (object == "adelante") {
+        rpersonajes.gotoAndStop(rpersonajes.currentFrame + 1);
+    } else {
+        if (object == 'atras') {
+            rpersonajes.gotoAndStop(rpersonajes.currentFrame - 1);
+        }
+    }
 }
 
 function onClickStory(object) {
