@@ -72,6 +72,19 @@ const style3 = new PIXI.TextStyle({
     lineJoin: 'round',
 });
 
+const style4 = new PIXI.TextStyle({
+    fontFamily: 'Futura',
+    fontSize: 20,
+    stroke: '#ffffff',
+    strokeThickness: 5,
+    dropShadowAngle: Math.PI / 6,
+    dropShadowDistance: 6,
+    wordWrap: true,
+    wordWrapWidth: 440,
+    lineJoin: 'round',
+});
+
+
 // Se crea la aplicación con el tamaño relativo respecto al ancho de la pantalla
 var app = new PIXI.Application({width:widhwindow , height:heightwindow});
 app.renderer.backgroundColor = 0x061639;
@@ -92,8 +105,12 @@ fondo.y = heightwindow / 2;
 app.stage.addChild(fondo);
 fondo.visible = false;
 
-var ifondoMapa;
+var tNext = new PIXI.Text("Siguiente", style4);
+tNext.anchor.set(0.5);
+tNext.position.set(widhwindow - 60, 120);
 
+
+var ifondoMapa;
 var itextoInicio, rtMansaMunsa;
 
 // Se cargan los objetos y animaciones
@@ -219,6 +236,9 @@ function startup() {
     rVideointro.stop();
     //rVideointro.play();
     app.stage.addChild(rVideointro);
+
+    app.stage.addChild(tNext);
+    tNext.visible = true;
 
     menuCapitulos = new PIXI.Container();
     iPergamino = PIXI.Sprite.from(loader.resources.iPergamino.texture);
