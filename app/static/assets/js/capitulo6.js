@@ -107,6 +107,8 @@ var tPersonajes1, tPersonajes2, tGastro1, tGastro2, tMusica1, tMusica2, tArte1, 
 var cMenu;
 var iNota;
 var eInicio = "inicio";
+var urlsStory;
+var rCreativo, rSocial;
 
 const loader = new PIXI.Loader();
 loader.add('titulo', '../../static/assets/img/titulo.png')
@@ -125,28 +127,47 @@ loader.add('titulo', '../../static/assets/img/titulo.png')
     .add('mapa', '../../static/assets/img/mapa1.png')
     .add('instrumentos', '../../static/assets/img/botones_cap5/Boton_Instrumentos_Cap05.png')
     .add('bailes', '../../static/assets/img/botones_cap5/Boton_Bailes_Cap05.png')
-    //.add('capitulo5', '../../static/assets/img/menu/iCapitulo5.png')
-    //.add('capitulo6', '../../static/assets/img/menu/iCapitulo6.png')
+    .add('tCreativo', '../../static/assets/img/emprendimientocreativo.json')
+    .add('tSocial', '../../static/assets/img/emprendimientosocial.json')
     //.add('bInicio', '../../static/assets/img/botones/inicio.png')
     //.add('bAtras', '../../static/assets/img/botones/atras.png')
     .load(startup);
 
 function startup() {
-    /*
-    pPrincipal = PIXI.Sprite.from(app.loader.resources.personaje.texture);
-    ratioTitulo = pPrincipal.width / pPrincipal.height;
-    pPrincipal.anchor.set(0.5);
-    pPrincipal.scale.set((300*widthRelativo)/(pPrincipal.width));
-    pPrincipal.position.set(200*widthRelativo, heightwindow / 2);
-    app.stage.addChild(pPrincipal);
+    urlsStory = loader.resources.tCreativo.data.url;
+    frames = [];
+    for (let i = 1; i < 11; i++) {
+        frames.push(PIXI.Texture.from(urlsStory[i]));
+    }
 
-    iMapa = PIXI.Sprite.from(app.loader.resources.mapa.texture);
-    ratioTitulo = iMapa.width / iMapa.height;
-    iMapa.anchor.set(0.5);
-    iMapa.scale.set((500*widthRelativo)/(iMapa.width));
-    iMapa.position.set(700*widthRelativo, heightwindow / 2);
-    app.stage.addChild(iMapa);
-*/
+    rCreativo = new PIXI.AnimatedSprite(frames);
+    rCreativo.anchor.set(0.5);
+    rCreativo.animationSpeed = 0.01;
+    rCreativo.height = heightwindow;
+    rCreativo.width = widhwindow;
+    rCreativo.position.set(widhwindow / 2, heightwindow / 2);
+    rCreativo.loop = true;
+    rCreativo.stop();
+    rCreativo.visible = false;
+    app.stage.addChild(rCreativo);
+
+    urlsStory = loader.resources.tSocial.data.url;
+    frames = [];
+    for (let i = 1; i < 29; i++) {
+        frames.push(PIXI.Texture.from(urlsStory[i]));
+    }
+
+    rSocial = new PIXI.AnimatedSprite(frames);
+    rSocial.anchor.set(0.5);
+    rSocial.animationSpeed = 0.01;
+    rSocial.height = heightwindow;
+    rSocial.width = widhwindow;
+    rSocial.position.set(widhwindow / 2, heightwindow / 2);
+    rSocial.loop = true;
+    rSocial.stop();
+    rSocial.visible = false;
+    app.stage.addChild(rSocial);
+
     // boton inicio
     var bInicio = PIXI.Sprite.from('../../static/assets/img/botones/inicio.png');
     var ratio = bInicio.width / bInicio.height;
@@ -225,6 +246,9 @@ function startup() {
     bInicio.on('pointerout', onMouseNotOverBoton);
     bInicio.on('pointerdown', (event) => onClickMenuCapitulo("menu"))
 
+
+
+
     // Contenedor del menu
     cMenu = new PIXI.Container;
     cMenuMusica = new PIXI.Container;
@@ -254,50 +278,34 @@ function startup() {
     app.stage.addChild(cMenu);
     cMenu.visible = false;
 
-    bBailes = new PIXI.Sprite(loader.resources.bailes.texture);
-    var ratio = bBailes.width / bBailes.height;
-    bBailes.width = 300*widthRelativo;
-    bBailes.height = bBailes.width / ratio;
-    bBailes.anchor.set(0.5);
-    bBailes.x = 1;
-    bBailes.y = 200*heightRelativo;
+    
+    bAdelante.interactive = true;
+    bAdelante.buttonMode = true;
+    bAdelante.on('pointerover', onMouseOverBoton);
+    bAdelante.on('pointerout', onMouseNotOverBoton);
+    bAdelante.on('pointerdown', (event) => onClickStory("adelante"));
 
-    bInstrumentos = new PIXI.Sprite(loader.resources.instrumentos.texture);
-    var ratio = bInstrumentos.width / bInstrumentos.height;
-    bInstrumentos.width = 300*widthRelativo;
-    bInstrumentos.height = bInstrumentos.width / ratio;
-    bInstrumentos.anchor.set(0.5);
-    bInstrumentos.x = 1;
-    bInstrumentos.y = 100*heightRelativo;
-    cMenuMusica.addChild(bBailes);
-    cMenuMusica.addChild(bInstrumentos);
+    bAtras.interactive = true;
+    bAtras.buttonMode = true;
+    bAtras.on('pointerover', onMouseOverBoton);
+    bAtras.on('pointerout', onMouseNotOverBoton);
+    bAtras.on('pointerdown', (event) => onClickStory("atras"));
 
-    cMenuMusica.x = 800*widthRelativo;
-    cMenuMusica.y = 100*heightRelativo;
-    app.stage.addChild(cMenuMusica);
-    cMenuMusica.visible = false;
-
-
-     // Acción de boton
-    bMusica.interactive = true;
-    bMusica.buttonMode = true;
-    bMusica.on('pointerover', onMouseOverBoton);
-    bMusica.on('pointerout', onMouseNotOverBoton);
-    bMusica.on('pointerdown', (event) => onClickOpcion("musica"));
 
     // Acción de boton
-    bBailes.interactive = true;
-    bBailes.buttonMode = true;
-    bBailes.on('pointerover', onMouseOverBoton);
-    bBailes.on('pointerout', onMouseNotOverBoton);
-    bBailes.on('pointerdown', (event) => onClickOpcion("bailes"));
+    bEsocial.interactive = true;
+    bEsocial.buttonMode = true;
+    bEsocial.on('pointerover', onMouseOverBoton);
+    bEsocial.on('pointerout', onMouseNotOverBoton);
+    bEsocial.on('pointerdown', (event) => onClickOpcion("social"));
 
     // Acción de boton
-    bInstrumentos.interactive = true;
-    bInstrumentos.buttonMode = true;
-    bInstrumentos.on('pointerover', onMouseOverBoton);
-    bInstrumentos.on('pointerout', onMouseNotOverBoton);
-    bInstrumentos.on('pointerdown', (event) => onClickOpcion("instrumentos"));
+    bEcreativo.interactive = true;
+    bEcreativo.buttonMode = true;
+    bEcreativo.on('pointerover', onMouseOverBoton);
+    bEcreativo.on('pointerout', onMouseNotOverBoton);
+    bEcreativo.on('pointerdown', (event) => onClickOpcion("creativo"));
+
 
 }
 
@@ -351,11 +359,17 @@ function onClickMenuInicio() {
             cMenu.visible = true;
             eInicio = "volver";
         }
+    } else if (eInicio == "volver_creativo") {
+        fondotransparente.visible = false;
+        rCreativo.visible = false;
+        bMenu.texture = tInicio1;
+        cMenu.visible = false;
+        eInicio = "inicio";
     } else if (eInicio == "volver") {
-            fondotransparente.visible = false;
-            bMenu.texture = tInicio1;
-            cMenu.visible = false;
-            eInicio = "inicio";
+        fondotransparente.visible = false;
+        bMenu.texture = tInicio1;
+        cMenu.visible = false;
+        eInicio = "inicio";
     } else if (eInicio == "musica_inicio" || eInicio == "bailes_inicio" || eInicio == "instrumentos_inicio") {
         fondo.visible = false;
         fondoBailes.visible = false;
@@ -368,46 +382,40 @@ function onClickMenuInicio() {
     }
 }
 
-function OpcionMusica() {
-    fondo.visible = false;
-    fondoMusica.visible = true;
-    bMenu.texture = tInicio1;
-    eInicio = "musica_inicio";
-    cMenu.visible = false;
-    //cMenuMusica.visible = true;
-}
-
-function OpcionBailes() {
-    fondo.visible = false;
-    fondoMusica.visible = false;
-    fondoBailes.visible = true;
-    bMenu.texture = tInicio3;
-    eInicio = "bailes_inicio";
-    cMenu.visible = false;
-    cMenuMusica.visible = false;
-}
-
-function OpcionInstrumentos() {
-    fondo.visible = false;
-    fondoMusica.visible = false;
-    fondoInstrumentos.visible = true;
-    bMenu.texture = tInicio3;
-    eInicio = "instrumentos_inicio";
-    cMenu.visible = false;
-    cMenuMusica.visible = false;
-}
 
 function onClickMenuCapitulo(object) {
     window.location.href = url_base + object + "/";
 }
 
 function onClickOpcion(object) {
-    //console.log(rStory1.currentFrame + 1);
-    if (object == "musica") {
-        OpcionMusica();
-    } else if (object == "bailes") {
-        OpcionBailes();
-    } else if (object == "instrumentos") {
-        OpcionInstrumentos();
+    if (object == "creativo") {
+        eInicio = "volver_creativo";
+        rCreativo.visible = true;
+        cMenu.visible = false;
+    } else if (object == "social") {
+        eInicio = "volver_social";
+        rSocial.visible = true;
+        cMenu.visible = false;
+    }
+}
+
+function onClickStory(object) {
+    if (eInicio == "volver_creativo") {
+        if (object == "adelante") {
+            rCreativo.gotoAndStop(rCreativo.currentFrame + 1);
+        } else {
+            if (object == "atras") {
+                rCreativo.gotoAndStop(rCreativo.currentFrame - 1);
+            }
+        }
+    }
+    if (eInicio == "volver_social") {
+        if (object == "adelante") {
+            rSocial.gotoAndStop(rSocial.currentFrame + 1);
+        } else {
+            if (object == "atras") {
+                rSocial.gotoAndStop(rSocial.currentFrame - 1);
+            }
+        }
     }
 }
