@@ -54,6 +54,7 @@ fondo.x = widhwindow / 2;
 fondo.y = heightwindow / 2;
 app.stage.addChild(fondo);
 
+
 // Fondo musica
 var fondoMusica = new PIXI.Sprite.from('../../static/assets/img/fondo_musica.png');
 fondoMusica.width = widhwindow;
@@ -63,6 +64,7 @@ fondoMusica.x = widhwindow / 2;
 fondoMusica.y = heightwindow / 2;
 app.stage.addChild(fondoMusica);
 fondoMusica.visible = false;
+
 
 // Fondo Bailes
 var fondoBailes = new PIXI.Sprite.from('../../static/assets/img/bailes.png');
@@ -99,6 +101,7 @@ var bNombres, bRaizal, bLiteratura;
 var cMenu;
 var iNota;
 var eInicio = "inicio";
+var rInstrumentos, rRitmos;
 
 const loader = new PIXI.Loader();
 loader.add('titulo', '../../static/assets/img/titulo.png')
@@ -122,6 +125,8 @@ loader.add('titulo', '../../static/assets/img/titulo.png')
     .add('mapa', '../../static/assets/img/mapa1.png')
     .add('instrumentos', '../../static/assets/img/botones_cap5/Boton_Instrumentos_Cap05.png')
     .add('bailes', '../../static/assets/img/botones_cap5/Boton_Bailes_Cap05.png')
+    .add('instrumentos_musicales', '../../static/assets/img/instrumentos_musicales.json')
+    .add('ritmos_musicales', '../../static/assets/img/ritmos_musicales.json')
     //.add('capitulo5', '../../static/assets/img/menu/iCapitulo5.png')
     //.add('capitulo6', '../../static/assets/img/menu/iCapitulo6.png')
     //.add('bInicio', '../../static/assets/img/botones/inicio.png')
@@ -129,7 +134,43 @@ loader.add('titulo', '../../static/assets/img/titulo.png')
     .load(startup);
 
 function startup() {
- 
+    urlsStory = loader.resources.instrumentos_musicales.data.url;
+    frames = [];
+    for (let i = 1; i < 7; i++) {
+        frames.push(PIXI.Texture.from(urlsStory[i]));
+    }
+
+    rInstrumentos = new PIXI.AnimatedSprite(frames);
+    ratioTitulo = rInstrumentos.width / rInstrumentos.height;
+    rInstrumentos.anchor.set(0.5);
+    rInstrumentos.animationSpeed = 0.1;
+    rInstrumentos.width = 380*heightRelativo;
+    rInstrumentos.height = 280;
+    rInstrumentos.position.set(700 * widthRelativo, heightwindow / 2);
+    rInstrumentos.loop = true;
+    rInstrumentos.stop();
+    rInstrumentos.visible = false;
+    app.stage.addChild(rInstrumentos);
+
+
+    urlsStory = loader.resources.ritmos_musicales.data.url;
+    frames = [];
+    for (let i = 1; i < 7; i++) {
+        frames.push(PIXI.Texture.from(urlsStory[i]));
+    }
+
+    rRitmos = new PIXI.AnimatedSprite(frames);
+    ratioTitulo = rRitmos.width / rRitmos.height;
+    rRitmos.anchor.set(0.5);
+    rRitmos.animationSpeed = 0.1;
+    rRitmos.width = 480*heightRelativo;
+    rRitmos.height = 350;
+    rRitmos.position.set(630 * widthRelativo, heightwindow / 2);
+    rRitmos.loop = true;
+    rRitmos.stop();
+    rRitmos.visible = false;
+    app.stage.addChild(rRitmos);
+
     // boton inicio
     var bInicio = PIXI.Sprite.from('../../static/assets/img/botones/inicio.png');
     var ratio = bInicio.width / bInicio.height;
@@ -344,6 +385,19 @@ function startup() {
     bArte.on('pointerout', onMouseNotOverBoton);
     bArte.on('pointerdown', (event) => window.open("../../static/assets/src/capitulo5/LITERATURA_AFRICANA.pdf", "", "width=800, height=600"));
 
+    // Acción de boton
+    bAtras.interactive = true;
+    bAtras.buttonMode = true;
+    bAtras.on('pointerover', onMouseOverBoton);
+    bAtras.on('pointerout', onMouseNotOverBoton);
+    bAtras.on('pointerdown', (event) => onClickStory("atras"));
+
+    // Acción de boton
+    bAdelante.interactive = true;
+    bAdelante.buttonMode = true;
+    bAdelante.on('pointerover', onMouseOverBoton);
+    bAdelante.on('pointerout', onMouseNotOverBoton);
+    bAdelante.on('pointerdown', (event) => onClickStory("adelante"));
 
 }
 
@@ -410,6 +464,8 @@ function onClickMenuInicio() {
         fondo.visible = false;
         fondoBailes.visible = false;
         fondoInstrumentos.visible = false;
+        rInstrumentos.visible = false;
+        rRitmos.visible = false;
         fondoMusica.visible = true;
         cMenuMusica.visible = true;
         bMenu.texture = tInicio3;
@@ -435,6 +491,7 @@ function OpcionBailes() {
     eInicio = "bailes_inicio";
     cMenu.visible = false;
     cMenuMusica.visible = false;
+    rRitmos.visible = true;
 }
 
 function OpcionInstrumentos() {
@@ -445,6 +502,7 @@ function OpcionInstrumentos() {
     eInicio = "instrumentos_inicio";
     cMenu.visible = false;
     cMenuMusica.visible = false;
+    rInstrumentos.visible = true;
 }
 
 function onClickMenuCapitulo(object) {
@@ -460,4 +518,26 @@ function onClickOpcion(object) {
     } else if (object == "instrumentos") {
         OpcionInstrumentos();
     }
+}
+
+function onClickStory(object) {
+    if (eInicio == "instrumentos_inicio") {
+        if (object == "adelante") {
+            rInstrumentos.gotoAndStop(rInstrumentos.currentFrame + 1);
+        } else {
+            if (object == "atras") {
+                rInstrumentos.gotoAndStop(rInstrumentos.currentFrame - 1);
+            }
+        }
+    }
+    if (eInicio == "bailes_inicio") {
+        if (object == "adelante") {
+            rRitmos.gotoAndStop(rRitmos.currentFrame + 1);
+        } else {
+            if (object == "atras") {
+                rRitmos.gotoAndStop(rRitmos.currentFrame - 1);
+            }
+        }
+    }
+        
 }

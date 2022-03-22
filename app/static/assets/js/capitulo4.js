@@ -71,6 +71,7 @@ var iMapa;
 var eInicio = "inicio";
 var cMenu;
 var bGeneralidades, bProcesoslibertarios, bOrganizaciones, bLey70, bLegislacion, bCimarronaje;
+var sLiber, sLiber2, sLiber3;
 
 
 const loader = new PIXI.Loader();
@@ -84,6 +85,7 @@ loader.add('titulo', '../../static/assets/img/titulo.png')
     .add('tLey70','../../static/assets/img/botones_cap4/Boton_ley701993.png')
     .add('tLegislacion','../../static/assets/img/botones_cap4/Boton_legislacionespecial.png')
     .add('tCimarronaje','../../static/assets/img/botones_cap4/Boton_cimarronaje.png')
+    .add('liber', '../../static/assets/img/libertad.png')
     //.add('mapa', '../../static/assets/img/mapa1.png')
     //.add('nube', '../../static/assets/img/nube.png')
     //.add('capitulo4', '../../static/assets/img/menu/iCapitulo4.png')
@@ -213,8 +215,33 @@ function startup() {
     app.stage.addChild(cMenu);
     cMenu.visible = false;
 
-    // Acción de boton
+    sLiber = PIXI.Sprite.from(loader.resources.liber.texture);
+    sLiber.scale.set(0.6);
+    sLiber.x = 600;
+    sLiber.y = 70;
+    app.stage.addChild(sLiber);
+    //c.slide(sLiber, widhwindow, 50, 2000, "smoothstep", true);
+    c.slide(sLiber, 400*widthRelativo, 100*heightRelativo, 200, "smoothstep", true);
+    c.pulse(sLiber, 20, 0.5);
 
+    sLiber2 = PIXI.Sprite.from(loader.resources.liber.texture);
+    sLiber2.scale.set(0.5);
+    sLiber2.x = 100;
+    sLiber2.y = 100;
+    app.stage.addChild(sLiber2);
+    c.slide(sLiber2, 200, 50, 120, "smoothstep", true);
+    //c.slide(sLiber2, 100*widthRelativo, 300*heightRelativo, 100, "smoothstep", true);
+    c.pulse(sLiber2, 80, 0.4);
+
+    sLiber3 = PIXI.Sprite.from(loader.resources.liber.texture);
+    sLiber3.scale.set(0.5);
+    sLiber3.x = 800;
+    sLiber3.y = 120;
+    app.stage.addChild(sLiber3);
+    c.slide(sLiber3, 900, 80, 80, "smoothstep", true);
+    c.pulse(sLiber3, 20, 0.7);
+
+    // Acción de boton
     bGeneralidades.interactive = true;
     bGeneralidades.buttonMode = true;
     bGeneralidades.on('pointerover', onMouseOverBoton);
@@ -253,6 +280,16 @@ function startup() {
 
     
 
+}
+
+setup();
+function setup(delta) {
+    console.log("inicializando");
+    app.ticker.add(delta => gameloop(delta));
+}
+
+function gameloop(delta) {
+    c.update();
 }
 
 function onMouseOverInicio() {

@@ -37,6 +37,7 @@ urlpatterns = [
     path('intro/', HistoriaInicio, name="intro"),
     path('menu/', Menu, name="menu"),
     path('historia/', HistoriaInicio, name="Historia"),
+    path('bibliografia/', Bibliografia, name="Historia"),
     path('capitulo1', CapituloUno, name="capitulo1"),
     path('capitulo2', CapituloDos, name="capitulo2"),
     path('capitulo3', CapituloTres, name="capitulo3"),

@@ -109,6 +109,7 @@ var iNota;
 var eInicio = "inicio";
 var urlsStory;
 var rCreativo, rSocial;
+var aBombillo;
 
 const loader = new PIXI.Loader();
 loader.add('titulo', '../../static/assets/img/titulo.png')
@@ -123,14 +124,13 @@ loader.add('titulo', '../../static/assets/img/titulo.png')
     .add('tArte2','../../static/assets/img/botones_cap5/Boton_Arte_Afro_Cap_05_Over.png')
     .add('tVestu1','../../static/assets/img/botones_cap5/Boton_Vestuario_Cap_05.png')
     .add('tVestu2','../../static/assets/img/botones_cap5/Boton_Vestuario_Cap_05_Over.png')
-    .add('notaM', '../../static/assets/img/notas_musical.png')
+    .add('notaM', '../../static/assets/img/electricidad.png')
     .add('mapa', '../../static/assets/img/mapa1.png')
     .add('instrumentos', '../../static/assets/img/botones_cap5/Boton_Instrumentos_Cap05.png')
     .add('bailes', '../../static/assets/img/botones_cap5/Boton_Bailes_Cap05.png')
     .add('tCreativo', '../../static/assets/img/emprendimientocreativo.json')
     .add('tSocial', '../../static/assets/img/emprendimientosocial.json')
-    //.add('bInicio', '../../static/assets/img/botones/inicio.png')
-    //.add('bAtras', '../../static/assets/img/botones/atras.png')
+    .add('aBombillo', '../../static/assets/img/bombillo.json')
     .load(startup);
 
 function startup() {
@@ -221,7 +221,7 @@ function startup() {
     // Nota musical
     iNota = new PIXI.Sprite(loader.resources.notaM.texture);
     var ratio = iNota.width / iNota.height;
-    iNota.width = 100*widthRelativo;
+    iNota.width = 70*widthRelativo;
     iNota.height = iNota.width / ratio;
     iNota.anchor.set(0.5);
     iNota.x = 200*widthRelativo;
@@ -229,7 +229,7 @@ function startup() {
     app.stage.addChild(iNota);
     //c.fadeOut(iNota);
     //c.fadeIn(iNota);
-    c.slide(iNota, 400*widthRelativo, 100*heightRelativo, 200, "smoothstep", true);
+    c.slide(iNota, 370*widthRelativo, 150*heightRelativo, 200, "smoothstep", true);
     c.pulse(iNota, 20, 0.5);
     /*
     c.scale(
@@ -245,9 +245,6 @@ function startup() {
     bInicio.on('pointerover', onMouseOverBoton);
     bInicio.on('pointerout', onMouseNotOverBoton);
     bInicio.on('pointerdown', (event) => onClickMenuCapitulo("menu"))
-
-
-
 
     // Contenedor del menu
     cMenu = new PIXI.Container;
@@ -271,6 +268,24 @@ function startup() {
     bEcreativo.x = 1;
     bEcreativo.y = 200*heightRelativo;
     cMenu.addChild(bEcreativo);
+
+    urlsStory = loader.resources.aBombillo.data.url;
+    frames = [];
+    for (let i = 1; i < 3; i++) {
+        frames.push(PIXI.Texture.from(urlsStory[i]));
+    }
+
+    aBombillo = new PIXI.AnimatedSprite(frames);
+    var ratio = aBombillo.width / aBombillo.height;
+    aBombillo.animationSpeed = 0.03;
+    aBombillo.width = 200*widthRelativo;
+    aBombillo.height = aBombillo.width / ratio;
+    aBombillo.x = 600 * widthRelativo;
+    aBombillo.y = 100 * heightRelativo;
+    aBombillo.loop = true;
+    aBombillo.play();
+    aBombillo.visible = true;
+    app.stage.addChild(aBombillo);
 
 
     cMenu.x = 200*widthRelativo;
