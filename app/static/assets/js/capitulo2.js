@@ -214,6 +214,17 @@ function startup() {
     bAdelante.y = 60;
     app.stage.addChild(bAdelante);
 
+    // boton personajes
+    var bPersonajes02 = PIXI.Sprite.from('../../static/assets/img/botones_cap2/bPersonajes02.png');
+    var ratio = bPersonajes02.width / bPersonajes02.height;
+    bPersonajes02.width = 120*widthRelativo;
+    bPersonajes02.height = bPersonajes02.width / ratio;
+    bPersonajes02.anchor.set(0.5);
+    bPersonajes02.x = 220 * widthRelativo;
+    bPersonajes02.y = 520 * heightRelativo;
+    app.stage.addChild(bPersonajes02);
+
+
     // boton menu
     tInicio1 = loader.resources.tInicio1.texture;
     tInicio2 = loader.resources.tInicio2.texture;
@@ -351,6 +362,15 @@ function startup() {
     bTratanegros.on('pointerover', onMouseOverBoton);
     bTratanegros.on('pointerout', onMouseNotOverBoton);
     bTratanegros.on('pointerdown', (event) => window.open("../../static/assets/src/capitulo2/TRATA.pdf", "Trata de Negros", "width=800, height=600"));
+
+
+    // Acción de boton
+    bPersonajes02.interactive = true;
+    bPersonajes02.buttonMode = true;
+    bPersonajes02.on('pointerover', onMouseOverBoton);
+    bPersonajes02.on('pointerout', onMouseNotOverBoton);
+    bPersonajes02.on('pointerdown', (event) => onClickOpcion("personajes"));
+
 
     bEsclavitud.interactive = true;
     bEsclavitud.buttonMode = true;
