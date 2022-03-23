@@ -349,16 +349,6 @@ function startup() {
     bAdelante.y = 60;
     app.stage.addChild(bAdelante);
 
-    // boton menu
-    var bMenu = PIXI.Sprite.from('../../static/assets/img/botones/menu.png');
-    var ratio = bMenu.width / bMenu.height;
-    bMenu.width = 70*widthRelativo;
-    bMenu.height = bMenu.width / ratio;
-    bMenu.anchor.set(0.5);
-    bMenu.x = widhwindow - 60;
-    bMenu.y = heightwindow - 60;
-    app.stage.addChild(bMenu);
-
     // boton pergamino
     var bPergamino = PIXI.Sprite.from('../../static/assets/img/botones/pergamino.png');
     var ratio = bPergamino.width / bPergamino.height;

@@ -73,25 +73,7 @@ app.loader.add('titulo', '../../static/assets/img/titulo.png')
     .load(startup);
 
 function startup() {
- /*
-    iTitulo = PIXI.Sprite.from(app.loader.resources.titulo.texture);
-    ratioTitulo = iTitulo.width / iTitulo.height;
-    //iTitulo.anchor.set(0.5);
-    iTitulo.scale.set((250*widthRelativo)/(iTitulo.width));
-    iTitulo.position.set(10, 10);
-    app.stage.addChild(iTitulo);
 
-    // Pergamino
-    menuCapitulos = new PIXI.Container();
-    iPergamino = PIXI.Sprite.from(app.loader.resources.iPergamino.texture);
-    ratio = iPergamino.width / iPergamino.height;
-    iPergamino.height = heightwindow
-    iPergamino.width = iPergamino.height * ratio;
-    iPergamino.anchor.set(0.0);
-    menuCapitulos.height = iPergamino.height;
-    menuCapitulos.width = iPergamino.width;
-    menuCapitulos.addChild(iPergamino);
-*/
     // Menú principl
     // Menú de capitulos
     iCapitulo1 = PIXI.Sprite.from(app.loader.resources.capitulo1.texture);
@@ -204,43 +186,7 @@ function startup() {
     app.stage.addChild(sbCap5);
     app.stage.addChild(sbCap6);
 
-    /*
-    const cap1 = new PIXI.Text('Capitulo 1', style2);
-    cap1.anchor.set(0.5);
-    const cap2 = new PIXI.Text('Capitulo 2', style2);
-    cap2.anchor.set(0.5);
-    const cap3 = new PIXI.Text('Capitulo 3', style2);
-    cap3.anchor.set(0.5);
-    const cap4 = new PIXI.Text('Capitulo 4', style2);
-    cap4.anchor.set(0.5);
-    menuCapitulos.addChild(iCapitulo1);
-    menuCapitulos.addChild(iCapitulo2);
-    menuCapitulos.addChild(iCapitulo3);
-    menuCapitulos.addChild(iCapitulo4);
-    menuCapitulos.addChild(cap1);
-    menuCapitulos.addChild(cap2);
-    menuCapitulos.addChild(cap3);
-    menuCapitulos.addChild(cap4);
-    menuCapitulos_opcion1.anchor.set(0.5);
-    menuCapitulos_opcion2.anchor.set(0.5);
-    menuCapitulos_opcion3.anchor.set(0.5);
-    menuCapitulos_opcion4.anchor.set(0.5);
-    let step = (500*heightRelativo) / 8;
-    menuCapitulos_opcion1.y = step;
-    menuCapitulos_opcion2.y = step*3;
-    menuCapitulos_opcion3.y = step*5;
-    menuCapitulos_opcion4.y = step*7;
-    menuCapitulos_opcion1.x = menuCapitulos_opcion2.x = menuCapitulos_opcion3.x = menuCapitulos_opcion4.x = iPergamino.width / 2;
-    cap1.x = cap2.x = cap3.x = cap4.x = iPergamino.width / 2;
-    cap1.y = step + menuCapitulos_opcion1.height/2;
-    cap2.y = step*3 + menuCapitulos_opcion1.height/2;
-    cap3.y = step*5 + menuCapitulos_opcion1.height/2;
-    cap4.y = step*7 + menuCapitulos_opcion1.height/2;
-    menuCapitulos.x = -menuCapitulos.width;
-    menuCapitulos.y = 1;
-    app.stage.addChild(menuCapitulos);
-    //iPergamino.visible = true;
-*/
+
     // boton inicio
     bInicio = PIXI.Sprite.from(app.loader.resources.bInicio.texture);
     ratio = bInicio.width / bInicio.height;
@@ -271,32 +217,6 @@ function startup() {
     bAdelante.y = 60;
     //app.stage.addChild(bAdelante);
 
-    // boton menu
-    var bMenu = PIXI.Sprite.from('../../static/assets/img/botones/menu.png');
-    var ratio = bMenu.width / bMenu.height;
-    bMenu.width = 70*widthRelativo;
-    bMenu.height = bMenu.width / ratio;
-    bMenu.anchor.set(0.5);
-    bMenu.x = widhwindow - 60;
-    bMenu.y = heightwindow - 60;
-    app.stage.addChild(bMenu);
-
-    // boton pergamino
-    var bPergamino = PIXI.Sprite.from('../../static/assets/img/botones/pergamino.png');
-    var ratio = bPergamino.width / bPergamino.height;
-    bPergamino.width = 70*widthRelativo;
-    bPergamino.height = bPergamino.width / ratio;
-    bPergamino.anchor.set(0.5);
-    bPergamino.x = widhwindow /2;
-    bPergamino.y = heightwindow - 60;
-    //app.stage.addChild(bPergamino);
-
-    // Acción de boton
-    bPergamino.interactive = true;
-    bPergamino.buttonMode = true;
-    bPergamino.on('pointerover', onMouseOverBoton);
-    bPergamino.on('pointerout', onMouseNotOverBoton);
-    bPergamino.on('pointerdown', onClick);
 }
 
 setup();
